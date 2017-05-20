@@ -1,0 +1,5 @@
+{
+    "isFirstRuning": true,
+    "licenseKey": "",
+    "activeKey": ""
+}
