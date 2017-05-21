@@ -1,0 +1,14 @@
+probe syscall.fork
+{
+printf ("%s(%d) fork\n", execname(), pid())
+}
+
+probe syscall.execve
+{
+printf ("%s(%d) execve\n", execname(), pid())
+}
+
+probe syscall.exit
+{
+printf ("%s(%d) exit\n", execname(), pid())
+}
