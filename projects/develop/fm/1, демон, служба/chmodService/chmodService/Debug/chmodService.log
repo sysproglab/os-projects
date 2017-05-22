@@ -1,0 +1,4 @@
+﻿  chmodService.cpp
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 1, демон, служба\chmodservice\chmodservice\chmodservice.cpp(17): warning C4091: 'typedef ': ignored on left of 'ARGS' when no variable is declared
+  chmodService.vcxproj -> E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.exe
+  chmodService.vcxproj -> E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.pdb (Full PDB)

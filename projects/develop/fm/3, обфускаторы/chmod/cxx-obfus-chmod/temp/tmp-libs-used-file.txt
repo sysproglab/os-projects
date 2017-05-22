@@ -1,0 +1,15 @@
+.:algorithm
+.:string
+.:atlstr.h
+.:lm.h
+.:sddl.h
+.:map
+.:windows.h
+.:bitset
+.:stdafx.h
+.:stdio.h
+.:aclapi.h
+.:authz.h
+.:iostream
+.:acl.h
+.:vector

@@ -1,0 +1,191 @@
+masha@masha-laptop:~$ sudo mount -t vboxsf ub10.04 ~/share/
+
+masha@masha-laptop:~$ gcc using_getpriority_setpriority.c -o ex1
+masha@masha-laptop:~$ ./ex1
+Priority = 0 for process with pid = 1557
+Setpriority returns -1 for process with pid = 1557
+EACCES: The caller attempted to set a lower nice value (i.e., a higher process priority), but did not have the required privilege (on Linux: did not have the CAP_SYS_NICE capability).
+masha@masha-laptop:~$ sudo ./ex1
+[sudo] password for masha: 
+Priority = 0 for process with pid = 1558
+Setpriority returns 0 for process with pid = 1558
+Priority = -20 for process with pid = 1558
+masha@masha-laptop:~$ strace ./ex1
+execve("./ex1", ["./ex1"], [/* 36 vars */]) = 0
+brk(0)                                  = 0x9122000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb77a7000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=54323, ...}) = 0
+mmap2(NULL, 54323, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7799000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/tls/i686/cmov/libc.so.6", O_RDONLY) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000m\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1405508, ...}) = 0
+mmap2(NULL, 1415592, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xdee000
+mprotect(0xf41000, 4096, PROT_NONE)     = 0
+mmap2(0xf42000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x153) = 0xf42000
+mmap2(0xf45000, 10664, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xf45000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7798000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb77986c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xf42000, 8192, PROT_READ)     = 0
+mprotect(0x8049000, 4096, PROT_READ)    = 0
+mprotect(0x3c9000, 4096, PROT_READ)     = 0
+munmap(0xb7799000, 54323)               = 0
+getpid()                                = 1561
+getpriority(PRIO_PROCESS, 1561)         = 20
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb77a6000
+write(1, "Priority = 0 for process with pi"..., 41Priority = 0 for process with pid = 1561
+) = 41
+setpriority(PRIO_PROCESS, 1561, -20)    = -1 EACCES (Permission denied)
+write(1, "Setpriority returns -1 for proce"..., 51Setpriority returns -1 for process with pid = 1561
+) = 51
+write(1, "EACCES: The caller attempted to "..., 184EACCES: The caller attempted to set a lower nice value (i.e., a higher process priority), but did not have the required privilege (on Linux: did not have the CAP_SYS_NICE capability).
+) = 184
+exit_group(-1)                          = ?
+masha@masha-laptop:~$ sudo strace ./ex1
+execve("./ex1", ["./ex1"], [/* 16 vars */]) = 0
+brk(0)                                  = 0x82cf000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7796000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=54323, ...}) = 0
+mmap2(NULL, 54323, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7788000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/tls/i686/cmov/libc.so.6", O_RDONLY) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000m\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1405508, ...}) = 0
+mmap2(NULL, 1415592, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x110000
+mprotect(0x263000, 4096, PROT_NONE)     = 0
+mmap2(0x264000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x153) = 0x264000
+mmap2(0x267000, 10664, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x267000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7787000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb77876c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0x264000, 8192, PROT_READ)     = 0
+mprotect(0x8049000, 4096, PROT_READ)    = 0
+mprotect(0x324000, 4096, PROT_READ)     = 0
+munmap(0xb7788000, 54323)               = 0
+getpid()                                = 1563
+getpriority(PRIO_PROCESS, 1563)         = 20
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7795000
+write(1, "Priority = 0 for process with pi"..., 41Priority = 0 for process with pid = 1563
+) = 41
+setpriority(PRIO_PROCESS, 1563, -20)    = 0
+write(1, "Setpriority returns 0 for proces"..., 50Setpriority returns 0 for process with pid = 1563
+) = 50
+getpriority(PRIO_PROCESS, 1563)         = 40
+write(1, "Priority = -20 for process with "..., 43Priority = -20 for process with pid = 1563
+) = 43
+exit_group(0)                           = ?
+masha@masha-laptop:~$ gcc using_uname.c -o ex2
+masha@masha-laptop:~$ ./ex2
+sysname: Linux
+nodename: masha-laptop
+release: 2.6.32-21-generic
+version: #32-Ubuntu SMP Fri Apr 16 08:10:02 UTC 2010
+machine: i686
+masha@masha-laptop:~$ strace ./ex2
+execve("./ex2", ["./ex2"], [/* 36 vars */]) = 0
+brk(0)                                  = 0x9b25000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7833000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=54323, ...}) = 0
+mmap2(NULL, 54323, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7825000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/tls/i686/cmov/libc.so.6", O_RDONLY) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000m\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1405508, ...}) = 0
+mmap2(NULL, 1415592, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x6ba000
+mprotect(0x80d000, 4096, PROT_NONE)     = 0
+mmap2(0x80e000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x153) = 0x80e000
+mmap2(0x811000, 10664, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x811000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7824000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb78246c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0x80e000, 8192, PROT_READ)     = 0
+mprotect(0x8049000, 4096, PROT_READ)    = 0
+mprotect(0x49d000, 4096, PROT_READ)     = 0
+munmap(0xb7825000, 54323)               = 0
+uname({sys="Linux", node="masha-laptop", ...}) = 0
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7832000
+write(1, "sysname: Linux\n", 15sysname: Linux
+)        = 15
+write(1, "nodename: masha-laptop\n", 23nodename: masha-laptop
+) = 23
+write(1, "release: 2.6.32-21-generic\n", 27release: 2.6.32-21-generic
+) = 27
+write(1, "version: #32-Ubuntu SMP Fri Apr "..., 53version: #32-Ubuntu SMP Fri Apr 16 08:10:02 UTC 2010
+) = 53
+write(1, "machine: i686\n", 14machine: i686
+)         = 14
+exit_group(0)                           = ?
+
+
+
+// Узнаем адрес sys_call_table
+masha@masha-laptop:~$ sudo cat /boot/System.map-2.6.32-21-generic | grep sys_call_table
+c0592150 R sys_call_table
+
+// Собираем модуль
+masha@masha-laptop:~$ make
+make -C /lib/modules/2.6.32-21-generic/build M=/home/masha modules
+make[1]: Entering directory `/usr/src/linux-headers-2.6.32-21-generic'
+  CC [M]  /home/masha/replace.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/masha/replace.mod.o
+  LD [M]  /home/masha/replace.ko
+make[1]: Leaving directory `/usr/src/linux-headers-2.6.32-21-generic'
+// Загрузка модуля ядра и просмотр сообщений о перехваченных системных вызовах
+masha@masha-laptop:~$ sudo insmod replace.ko
+masha@masha-laptop:~$ dmesg | tail -n 20
+[ 9459.433481] System call getpriority was catched: which = 0, who = 10255
+[ 9459.445498] System call uname was catched!
+[ 9466.120628] System call uname was catched!
+[ 9466.142012] System call uname was catched!
+[ 9474.086094] System call uname was catched!
+[ 9506.774358] System call uname was catched!
+[ 9513.633450] System call getpriority was catched: which = 0, who = 10262
+[ 9513.633474] System call setpriority was catched: which = 0, who = 10262, niceval = -20
+[ 9513.651445] System call uname was catched!
+[ 9516.526696] System call uname was catched!
+[ 9516.526826] System call uname was catched!
+[ 9516.533175] System call uname was catched!
+[ 9516.533249] System call getpriority was catched: which = 0, who = 0
+[ 9516.533307] System call setpriority was catched: which = 0, who = 0, niceval = 0
+[ 9516.533936] System call getpriority was catched: which = 0, who = 10263
+[ 9516.533960] System call setpriority was catched: which = 0, who = 10263, niceval = -20
+[ 9516.533966] System call getpriority was catched: which = 0, who = 10263
+[ 9516.544172] System call uname was catched!
+[ 9519.113320] System call uname was catched!
+[ 9519.130697] System call uname was catched!
+// Выгрузка модуля из ядра
+masha@masha-laptop:~$ sudo rmmod replace.ko
+
+// В соседнем окне
+masha@masha-laptop:~$ ./ex1
+Priority = 0 for process with pid = 10262
+Setpriority returns -1 for process with pid = 10262
+EACCES: The caller attempted to set a lower nice value (i.e., a higher process priority), but did not have the required privilege (on Linux: did not have the CAP_SYS_NICE capability).
+masha@masha-laptop:~$ sudo ./ex1
+Priority = 0 for process with pid = 10263
+Setpriority returns 0 for process with pid = 10263
+Priority = -20 for process with pid = 10263
+masha@masha-laptop:~$ ./ex2
+sysname: Linux
+nodename: masha-laptop
+release: 2.6.32-21-generic
+version: #32-Ubuntu SMP Fri Apr 16 08:10:02 UTC 2010
+machine: i686

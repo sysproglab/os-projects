@@ -1,0 +1,15 @@
+s:windows.h
+s:iostream
+s:stdio.h
+s:atlstr.h
+s:string
+c:acl.h
+s:authz.h
+s:map
+s:vector
+s:sddl.h
+c:stdafx.h
+s:lm.h
+s:bitset
+s:algorithm
+s:aclapi.h

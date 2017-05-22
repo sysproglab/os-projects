@@ -1,0 +1,344 @@
+desc: (none)
+cmd: /home/masha/labs/lab6/infofile log.linux.txt
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=108761
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=124712
+mem_heap_B=1039
+mem_heap_extra_B=17
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=124828
+mem_heap_B=1591
+mem_heap_extra_B=33
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=125336
+mem_heap_B=5687
+mem_heap_extra_B=41
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=126234
+mem_heap_B=6717
+mem_heap_extra_B=59
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=130512
+mem_heap_B=6717
+mem_heap_extra_B=59
+mem_stacks_B=0
+heap_tree=peak
+n4: 6717 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5120 0x4E9E1D3: _IO_file_doallocate (filedoalloc.c:127)
+  n2: 5120 0x4EAC592: _IO_doallocbuf (genops.c:398)
+   n1: 4096 0x4EAA09A: _IO_file_xsgetn (fileops.c:1375)
+    n1: 4096 0x4EA9182: fread_unlocked (iofread_u.c:40)
+     n1: 4096 0x4EEE5C8: __tzfile_read (tzfile.c:191)
+      n1: 4096 0x4EEE16C: __tz_convert (tzset.c:441)
+       n1: 4096 0x4EEBCE7: ctime (ctime.c:27)
+        n1: 4096 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+         n0: 4096 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+   n1: 1024 0x4EAB8F6: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:820)
+    n1: 1024 0x4EAA28B: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1331)
+     n1: 1024 0x4E7E23F: vfprintf (vfprintf.c:1320)
+      n1: 1024 0x4E86897: printf (printf.c:33)
+       n1: 1024 0x400A66: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+        n0: 1024 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n1: 1030 0x4EEE86A: __tzfile_read (tzfile.c:282)
+  n1: 1030 0x4EEE16C: __tz_convert (tzset.c:441)
+   n1: 1030 0x4EEBCE7: ctime (ctime.c:27)
+    n1: 1030 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+     n0: 1030 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n1: 552 0x4E9ECDB: __fopen_internal (iofopen.c:69)
+  n1: 552 0x4EEE52D: __tzfile_read (tzfile.c:168)
+   n1: 552 0x4EEE16C: __tz_convert (tzset.c:441)
+    n1: 552 0x4EEBCE7: ctime (ctime.c:27)
+     n1: 552 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+      n0: 552 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n0: 15 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=7
+#-----------
+time=130512
+mem_heap_B=2621
+mem_heap_extra_B=51
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=130627
+mem_heap_B=2069
+mem_heap_extra_B=35
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=130699
+mem_heap_B=2089
+mem_heap_extra_B=55
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=130841
+mem_heap_B=2109
+mem_heap_extra_B=75
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=131034
+mem_heap_B=2129
+mem_heap_extra_B=95
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=131279
+mem_heap_B=2150
+mem_heap_extra_B=114
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=131551
+mem_heap_B=2170
+mem_heap_extra_B=134
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=131879
+mem_heap_B=2190
+mem_heap_extra_B=154
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=132436
+mem_heap_B=2210
+mem_heap_extra_B=174
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=132776
+mem_heap_B=2230
+mem_heap_extra_B=194
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2230 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1030 0x4EEE86A: __tzfile_read (tzfile.c:282)
+  n1: 1030 0x4EEE16C: __tz_convert (tzset.c:441)
+   n1: 1030 0x4EEBCE7: ctime (ctime.c:27)
+    n1: 1030 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+     n0: 1030 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n1: 1024 0x4E9E1D3: _IO_file_doallocate (filedoalloc.c:127)
+  n2: 1024 0x4EAC592: _IO_doallocbuf (genops.c:398)
+   n1: 1024 0x4EAB8F6: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:820)
+    n1: 1024 0x4EAA28B: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1331)
+     n1: 1024 0x4E7E23F: vfprintf (vfprintf.c:1320)
+      n1: 1024 0x4E86897: printf (printf.c:33)
+       n1: 1024 0x400A66: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+        n0: 1024 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+   n0: 0 in 1 place, below massif's threshold (1.00%)
+ n1: 141 0x4EED041: __tzstring (tzset.c:106)
+  n1: 141 0x4EEEE97: __tzfile_read (tzfile.c:466)
+   n1: 141 0x4EEE16C: __tz_convert (tzset.c:441)
+    n1: 141 0x4EEBCE7: ctime (ctime.c:27)
+     n1: 141 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+      n0: 141 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n0: 35 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=133531
+mem_heap_B=2251
+mem_heap_extra_B=213
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=142223
+mem_heap_B=2236
+mem_heap_extra_B=204
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=142275
+mem_heap_B=2251
+mem_heap_extra_B=213
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=148995
+mem_heap_B=2236
+mem_heap_extra_B=204
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=149047
+mem_heap_B=2251
+mem_heap_extra_B=213
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=157831
+mem_heap_B=1227
+mem_heap_extra_B=205
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=157896
+mem_heap_B=1207
+mem_heap_extra_B=185
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=157928
+mem_heap_B=1187
+mem_heap_extra_B=165
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=157960
+mem_heap_B=1167
+mem_heap_extra_B=145
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=157992
+mem_heap_B=1146
+mem_heap_extra_B=126
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1146 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1030 0x4EEE86A: __tzfile_read (tzfile.c:282)
+  n1: 1030 0x4EEE16C: __tz_convert (tzset.c:441)
+   n1: 1030 0x4EEBCE7: ctime (ctime.c:27)
+    n1: 1030 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+     n0: 1030 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n1: 101 0x4EED041: __tzstring (tzset.c:106)
+  n1: 101 0x4EEEE97: __tzfile_read (tzfile.c:466)
+   n1: 101 0x4EEE16C: __tz_convert (tzset.c:441)
+    n1: 101 0x4EEBCE7: ctime (ctime.c:27)
+     n1: 101 0x400B7F: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+      n0: 101 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+ n1: 15 0x4EBB8D8: strdup (strdup.c:42)
+  n1: 15 0x4EEE159: __tz_convert (tzset.c:438)
+   n2: 15 0x4EEBCE7: ctime (ctime.c:27)
+    n1: 15 0x400BBB: printInfo(stat) (in /home/masha/labs/lab6/infofile)
+     n0: 15 0x4006F6: main (in /home/masha/labs/lab6/infofile)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 0 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=27
+#-----------
+time=158024
+mem_heap_B=1126
+mem_heap_extra_B=106
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=158056
+mem_heap_B=1106
+mem_heap_extra_B=86
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=158088
+mem_heap_B=1086
+mem_heap_extra_B=66
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=158120
+mem_heap_B=1066
+mem_heap_extra_B=46
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=158152
+mem_heap_B=1045
+mem_heap_extra_B=27
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=158183
+mem_heap_B=1030
+mem_heap_extra_B=18
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=159342
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

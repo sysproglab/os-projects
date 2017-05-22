@@ -1,0 +1,80 @@
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ g++ -o infofile main.c functions.c
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ ./infofile "/home/masha/labs/2 semester/lab1/daemon/temp.txt"
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ ps -aux | grep infofile
+masha    10484  0.0  0.0   4360    92 ?        Ss   00:09   0:00 ./infofile /home/masha/labs/2 semester/lab1/daemon/temp.txt
+masha    10513  0.0  0.0  21316  1028 pts/2    S+   00:10   0:00 grep --color=auto infofile
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ kill 10484
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ ps -aux | grep infofile
+masha    10738  0.0  0.0  21316   924 pts/2    S+   00:11   0:00 grep --color=auto infofile 
+
+masha@masha-Aspire-E5-573G:~$ cd labs/2semester/lab1/daemon/
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ ./infofile "/home/masha/labs/2semester/lab1/daemon/temp.txt"
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ ps -aux | grep infomasha     4299  0.0  0.0   4360    92 ?        Ss   12:26   0:00 ./infofile /home/masha/labs/2semester/lab1/daemon/temp.txt
+masha     4327  0.0  0.0  15472   984 pts/1    S+   12:27   0:00 grep --color=auto info
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ kill -15 4299
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ ps -aux | grep info
+masha     5591  0.0  0.0  15472   964 pts/1    S+   12:33   0:00 grep --color=auto info
+
+
+masha@masha-Aspire-E5-573G:~$ service --status-all
+[ + ] acpid
+[ - ] alsa-utils
+[ - ] anacron
+[ + ] apparmor
+[ + ] apport
+[ + ] avahi-daemon
+[ + ] bluetooth
+[ - ] bootmisc.sh
+[ - ] brltty
+[ - ] cgroupfs-mount
+[ - ] checkfs.sh
+[ - ] checkroot-bootclean.sh
+[ - ] checkroot.sh
+[ + ] console-setup
+[ + ] cron
+[ - ] cups
+[ + ] cups-browsed
+[ + ] dbus
+[ - ] dns-clean
+[ + ] docker
+[ + ] grub-common
+[ - ] hostname.sh
+[ - ] hwclock.sh
+[ + ] irqbalance
+[ - ] kerneloops
+[ + ] keyboard-setup
+[ - ] killprocs
+[ + ] kmod
+[ + ] lightdm
+[ - ] mountall-bootclean.sh
+[ - ] mountall.sh
+[ - ] mountdevsubfs.sh
+[ - ] mountkernfs.sh
+[ - ] mountnfs-bootclean.sh
+[ - ] mountnfs.sh
+[ + ] network-manager
+[ + ] networking
+[ + ] ondemand
+[ - ] plymouth
+[ - ] plymouth-log
+[ - ] pppd-dns
+[ + ] procps
+[ + ] rc.local
+[ + ] resolvconf
+[ - ] rsync
+[ + ] rsyslog
+[ - ] saned
+[ - ] sendsigs
+[ + ] speech-dispatcher
+[ + ] ssh
+[ + ] thermald
+[ + ] udev
+[ + ] ufw
+[ - ] umountfs
+[ - ] umountnfs.sh
+[ - ] umountroot
+[ - ] unattended-upgrades
+[ + ] urandom
+[ - ] uuidd
+[ + ] whoopsie
+[ - ] x11-common

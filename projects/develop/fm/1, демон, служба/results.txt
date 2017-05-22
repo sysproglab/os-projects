@@ -1,0 +1,99 @@
+
+Info about "E:\всё"
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user BUILTIN\Администраторы flags, ALLOWED rights: CI IO OI ID , GA 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: CI IO OI ID , GA 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: CI IO OI ID , D GE GR GW 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+For user BUILTIN\Пользователи flags, ALLOWED rights: CI IO OI ID , GE GR 
+
+Effective Rights to "E:\всё" for user СИСТЕМА: F 
+
+Info about "E:\всё"
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user BUILTIN\Администраторы flags, ALLOWED rights: CI IO OI ID , GA 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: CI IO OI ID , GA 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: CI IO OI ID , D GE GR GW 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+For user BUILTIN\Пользователи flags, ALLOWED rights: CI IO OI ID , GE GR 
+
+Effective Rights to "E:\всё" for user СИСТЕМА: F 
+
+Info about "E:\temp.txt"
+For user LAPTOP-JGNT6U4K\Masha flags, DENIED rights: WA WEA 
+For user LAPTOP-JGNT6U4K\Masha flags, ALLOWED rights: WDAC 
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+
+Effective Rights to "E:\temp.txt" for user masha: AD D DC RX WD WDAC WO 
+The rights for user masha to "E:\temp.txt" were modified.
+
+Info about "E:\temp.txt"
+For user LAPTOP-JGNT6U4K\Masha flags, DENIED rights: WA WEA 
+For user LAPTOP-JGNT6U4K\Masha flags, ALLOWED rights: WDAC 
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+
+Effective Rights to "E:\temp.txt" for user masha: AD D DC RX WD WDAC WO 
+You must select the files or directories. Please, fix it.
+Not valid command. Please, change it.
+
+Examples of commands:
+	/grant d,wdac /u User1 file1 file2 - grant rights for User1
+	/deny d,wdac /u User1 file1 file2 - deny rights for User1
+	/grant d,wdac file1 file2 - grant rights for current user
+	/deny d,wdac file1 file2 - deny rights for current user
+	/revoke /u User1 file1 file2 - revoke rights for User1
+	/revoke file1 file2 - revoke rights for current user
+	/u User1 file1 file2 - print effective rights for User1
+	file1 file2 - print effective rights for current user and full info
+/grant and /deny can be used together
+/d can be used with /grant, /deny and /revoke for output rights before and after changes
+Inheritance flags are applied only to directories, do not try use them with files.
+File names with spaces must be in quotes: "file with space"
+
+Info about "E:\temp.txt"
+For user LAPTOP-JGNT6U4K\Masha flags, DENIED rights: WA WEA 
+For user LAPTOP-JGNT6U4K\Masha flags, ALLOWED rights: WDAC 
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+
+Effective Rights to "E:\temp.txt" for user masha: AD D DC RX WD WDAC WO 
+The revoke of "E:\temp.txt" for user masha was made.
+
+Info about "E:\temp.txt"
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+
+Effective Rights to "E:\temp.txt" for user masha: F 
+
+Info about "E:\temp.txt"
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+
+Effective Rights to "E:\temp.txt" for user masha: F 
+The rights for user masha to "E:\temp.txt" were modified.
+
+Info about "E:\temp.txt"
+For user LAPTOP-JGNT6U4K\Masha flags, DENIED rights: WA WEA 
+For user LAPTOP-JGNT6U4K\Masha flags, ALLOWED rights: WDAC 
+For user BUILTIN\Администраторы flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\СИСТЕМА flags, ALLOWED rights: ID , F 
+For user NT AUTHORITY\Прошедшие проверку flags, ALLOWED rights: ID , D RX W 
+For user BUILTIN\Пользователи flags, ALLOWED rights: ID , RX 
+
+Effective Rights to "E:\temp.txt" for user masha: AD D DC RX WD WDAC WO 

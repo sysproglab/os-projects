@@ -1,0 +1,423 @@
+//1. Получение файла с расширением .ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ make
+make -C /lib/modules/4.4.0-66-generic/build M=/home/masha/labs/2semester/lab7/1 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-66-generic»
+  CC [M]  /home/masha/labs/2semester/lab7/1/chardev.o
+/home/masha/labs/2semester/lab7/1/chardev.c:36:11: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .write = device_write,
+           ^
+/home/masha/labs/2semester/lab7/1/chardev.c:36:11: note: (near initialization for ‘fops.write’)
+/home/masha/labs/2semester/lab7/1/chardev.c: In function ‘device_read’:
+/home/masha/labs/2semester/lab7/1/chardev.c:128:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘size_t {aka long unsigned int}’ [-Wformat=]
+  printk("Read %d bytes, %d left.\n", bytes_read, length);
+         ^
+/home/masha/labs/2semester/lab7/1/chardev.c: In function ‘device_write’:
+/home/masha/labs/2semester/lab7/1/chardev.c:137:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘size_t {aka long unsigned int}’ [-Wformat=]
+  printk("Try to write (%p, %s, %d).\n", filp, buffer, length);
+         ^
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/masha/labs/2semester/lab7/1/chardev.mod.o
+  LD [M]  /home/masha/labs/2semester/lab7/1/chardev.ko
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-66-generic»
+
+//2. Загрузка модуля chardev.ko в ядро системы Linux
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ sudo insmod chardev.ko
+[sudo] пароль для masha: 
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ tail /var/log/syslog
+May  3 15:03:31 masha-Aspire-E5-573G kernel: [ 6361.615124] I was assigned major number 244. To talk to
+May  3 15:03:31 masha-Aspire-E5-573G kernel: [ 6361.615128] the driver, create a dev file with
+May  3 15:03:31 masha-Aspire-E5-573G kernel: [ 6361.615129] 'mknod /dev/chardev c 244 0'.
+May  3 15:03:31 masha-Aspire-E5-573G kernel: [ 6361.615130] Try various minor numbers. Try to cat and echo to
+May  3 15:03:31 masha-Aspire-E5-573G kernel: [ 6361.615131] the device file.
+May  3 15:03:31 masha-Aspire-E5-573G kernel: [ 6361.615132] Remove the device file and module when done.
+
+//3. Создание файла символьного устройства
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ sudo mknod /dev/chardev c 244 0
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ lsmod
+Module                  Size  Used by
+chardev                16384  0
+bnep                   20480  2
+...
+
+//4. Изменение прав доступа к файлу для поддержки возможности записи в файл
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ ls -l /dev/chardev
+crw-r--r-- 1 root root 249, 0 май  3 15:06 /dev/chardev
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ sudo chmod 666 /dev/chardev
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ ls -l /dev/chardev
+crw-rw-rw- 1 root root 249, 0 май  3 15:06 /dev/chardev
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ cat /proc/devices
+Character devices:
+  1 mem
+...
+244 chardev
+...
+
+// Функционирование драйвера в консольном режиме использования
+//5. Запись в файл устройства;
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ echo 'I say hello!' > /dev/chardev
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ tail /var/log/syslog
+May  3 22:58:23 masha-Aspire-E5-573G kernel: [  877.393404] Try to write character device /dev/chardev (13).
+May  3 22:58:23 masha-Aspire-E5-573G kernel: [  877.393408] Try to close character device /dev/chardev c 244 0'.
+
+//6. Чтение файла устройства
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ cat /dev/chardev
+I say hello!
+
+I already told you 1 times HELLO!
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ tail /var/log/syslog
+May  3 22:58:24 masha-Aspire-E5-573G kernel: [  954.601486] Try to open character device /dev/chardev c 244 0'.
+May  3 22:58:24 masha-Aspire-E5-573G kernel: [  954.601495] Try to read character device /dev/chardev c 244 0'.
+May  3 22:58:24 masha-Aspire-E5-573G kernel: [  954.601498] Read 48 bytes, 131024 left.
+May  3 22:58:24 masha-Aspire-E5-573G kernel: [  954.601506] Try to read character device /dev/chardev c 244 0'.
+May  3 22:58:24 masha-Aspire-E5-573G kernel: [  954.601512] Try to close character device /dev/chardev c 244 0'.
+
+
+//7. Выгрузка модуля из ядра
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ sudo rmmod chardev.ko
+[sudo] пароль для masha: 
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ tail /var/log/syslog
+May  3 23:05:42 masha-Aspire-E5-573G kernel: [ 1435.243711] Removing character device /dev/chardev c 244 0'.
+
+//8.Удаление файла устройства
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ sudo rm -i /dev/chardev
+rm: удалить символьный специальный файл '/dev/chardev'? y
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ lsmod
+Module                  Size  Used by
+bnep                   20480  2
+...
+
+//9. Очистка каталога от исполняемых файлов
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ make clean
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/1 clean
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  CLEAN   /home/masha/labs/2semester/lab7/1/.tmp_versions
+  CLEAN   /home/masha/labs/2semester/lab7/1/Module.symvers
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ ls -l
+итого 12
+-rw-rw-r-- 1 masha masha 5093 май  3 14:48 chardev.c
+-rw-rw-r-- 1 masha masha  157 май  3 14:36 Makefile
+
+
+
+
+// Результаты обращения к драйверу из программы (5, 6)
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ gcc -o usedrv usedrv.c
+usedrv.c: In function ‘main’:
+usedrv.c:23:8: warning: implicit declaration of function ‘write’ [-Wimplicit-function-declaration]
+  cnt = write(fd, bufferIn, sizeof(bufferIn));
+        ^
+usedrv.c:24:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t {aka long unsigned int}’ [-Wformat=]
+  printf("Character driver write %d bytes\n", cnt);
+         ^
+usedrv.c:26:8: warning: implicit declaration of function ‘read’ [-Wimplicit-function-declaration]
+  cnt = read(fd, bufferOut, sizeof(bufferOut));
+        ^
+usedrv.c:27:9: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘size_t {aka long unsigned int}’ [-Wformat=]
+  printf("Character driver read %d bytes\n", cnt);
+         ^
+usedrv.c:33:2: warning: implicit declaration of function ‘close’ [-Wimplicit-function-declaration]
+  close(fd);
+  ^
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ ./usedrv 
+We work with character device driver
+Character driver open
+Character driver write 50 bytes
+Character driver read 59 bytes
+Hello, character device!
+I already told you 1 times HELLO!
+
+Character driver close
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/1$ tail /var/log/syslog
+May  6 22:07:03 masha-Aspire-E5-573G kernel: [  584.054662] Try to close character device /dev/chardev c 244 0'.
+May  6 22:07:45 masha-Aspire-E5-573G kernel: [  626.156380] Try to open character device /dev/chardev c 244 0'.
+May  6 22:07:45 masha-Aspire-E5-573G kernel: [  626.156387] Try to write character device /dev/chardev (50).
+May  6 22:07:45 masha-Aspire-E5-573G kernel: [  626.156402] Try to read character device /dev/chardev c 244 0'.
+May  6 22:07:45 masha-Aspire-E5-573G kernel: [  626.156405] Read 59 bytes, 121 left.
+May  6 22:07:45 masha-Aspire-E5-573G kernel: [  626.156418] Try to close character device /dev/chardev c 244 0'.
+
+
+//1. Получение файла с расширением .ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ make
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/2 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  CC [M]  /home/masha/labs/2semester/lab7/2/mykeyboard.o
+/home/masha/labs/2semester/lab7/2/mykeyboard.c: In function ‘my_interrupt’:
+/home/masha/labs/2semester/lab7/2/mykeyboard.c:16:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  static unsigned char scancode;
+  ^
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/masha/labs/2semester/lab7/2/mykeyboard.mod.o
+  LD [M]  /home/masha/labs/2semester/lab7/2/mykeyboard.ko
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+//2. Загрузка модуля mykeyboard.ko в ядро системы Linux
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo insmod mykeyboard.ko
+[sudo] пароль для masha: 
+//3. Просмотр буфера сообщений ядра и отображения обработчика my_interrupt в /proc/interrupts
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ dmesg | tail -n 20
+[  789.303605] In the ISR: counter = 149
+[  789.406559] In the ISR: counter = 150
+[  789.411845] In the ISR: counter = 151
+[  790.191830] In the ISR: counter = 152
+[  790.247862] In the ISR: counter = 153
+[  792.037251] In the ISR: counter = 154
+[  792.116686] In the ISR: counter = 155
+[  793.670816] In the ISR: counter = 156
+[  793.670821] Press Esc!
+[  793.816843] In the ISR: counter = 157
+[  793.816847] Release Esc!
+[  794.336549] In the ISR: counter = 158
+[  794.339074] In the ISR: counter = 159
+[  794.475259] In the ISR: counter = 160
+[  794.479801] In the ISR: counter = 161
+[  794.817627] In the ISR: counter = 162
+[  794.819928] In the ISR: counter = 163
+[  794.933351] In the ISR: counter = 164
+[  794.938079] In the ISR: counter = 165
+[  795.545636] In the ISR: counter = 166
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ cat /proc/interrupts
+           CPU0       CPU1       CPU2       CPU3       
+  0:         21          0          0          0  IR-IO-APIC   2-edge      timer
+  1:          0         34        464         16  IR-IO-APIC   1-edge      i8042, my_interrupt
+  6:          0          0          0          0  IR-IO-APIC   6-fasteoi   dw_dmac
+  7:         62         15        938        802  IR-IO-APIC   7-fasteoi   INT3432:00, INT3433:00
+  8:          0          0          1          0  IR-IO-APIC   8-edge      rtc0
+  9:        410        325       6440        534  IR-IO-APIC   9-fasteoi   acpi
+ 19:          1          2        531       9676  IR-IO-APIC  19-fasteoi   wlp3s0
+ 23:          4          4         26          1  IR-IO-APIC  23-fasteoi   ehci_hcd:usb1
+ 39:          0          0         13          1  IR-IO-APIC  39-fasteoi   SYN1B81:01
+ 40:          0          0          0          0  DMAR-MSI   0-edge      dmar0
+ 41:          0          0          0          0  DMAR-MSI   1-edge      dmar1
+ 42:          0          0          0          0  IR-PCI-MSI 458752-edge      PCIe PME, pciehp
+ 43:          0          0          0          0  IR-PCI-MSI 462848-edge      PCIe PME
+ 44:          0          0          0          0  IR-PCI-MSI 464896-edge      PCIe PME
+ 45:          0          0          0          0  IR-PCI-MSI 466944-edge      PCIe PME
+ 46:         83        156      20060        129  IR-PCI-MSI 327680-edge      xhci_hcd
+ 47:          0          0          0          0  IR-PCI-MSI 1048576-edge      enp2s0
+ 48:       1440        456      59057       1078  IR-PCI-MSI 512000-edge      0000:00:1f.2
+ 49:         54          4         43      86737  IR-PCI-MSI 32768-edge      i915
+ 50:          4          0         10          0  IR-PCI-MSI 360448-edge      mei_me
+ 51:         26        181        192         36  IR-PCI-MSI 442368-edge      snd_hda_intel
+ 52:          3         33        386        319  IR-PCI-MSI 49152-edge      snd_hda_intel
+NMI:         28         29         28         23   Non-maskable interrupts
+LOC:      71536      73022     181790      77500   Local timer interrupts
+SPU:          0          0          0          0   Spurious interrupts
+PMI:         28         29         28         23   Performance monitoring interrupts
+IWI:          0         10          0          4   IRQ work interrupts
+RTR:          2          0          0          0   APIC ICR read retries
+RES:       4045       4356       3166       6894   Rescheduling interrupts
+CAL:       3080       1553       1258       1436   Function call interrupts
+TLB:        480        389        322        357   TLB shootdowns
+TRM:          0          0          0          0   Thermal event interrupts
+THR:          0          0          0          0   Threshold APIC interrupts
+DFR:          0          0          0          0   Deferred Error APIC interrupts
+MCE:          0          0          0          0   Machine check exceptions
+MCP:          4          4          4          4   Machine check polls
+ERR:          0
+MIS:          0
+PIN:          0          0          0          0   Posted-interrupt notification event
+PIW:          0          0          0          0   Posted-interrupt wakeup event
+//4. Выгрузка модуля из ядра
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo rmmod mykeyboard.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ dmesg | tail
+[  839.371670] In the ISR: counter = 260
+[  839.451274] In the ISR: counter = 261
+[  839.756040] In the ISR: counter = 262
+[  839.838407] In the ISR: counter = 263
+[  841.158366] In the ISR: counter = 264
+[  841.235219] In the ISR: counter = 265
+[  841.344693] In the ISR: counter = 266
+[  841.415813] In the ISR: counter = 267
+[  842.183442] In the ISR: counter = 268
+[  842.190401] Successfully unloading, irq_counter = 268, esc_counter = 3
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ make
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/2 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  CC [M]  /home/masha/labs/2semester/lab7/2/mod_tasklet.o
+  CC [M]  /home/masha/labs/2semester/lab7/2/mod_workqueue.o
+  Building modules, stage 2.
+  MODPOST 3 modules
+  CC      /home/masha/labs/2semester/lab7/2/mod_tasklet.mod.o
+  LD [M]  /home/masha/labs/2semester/lab7/2/mod_tasklet.ko
+  CC      /home/masha/labs/2semester/lab7/2/mod_workqueue.mod.o
+  LD [M]  /home/masha/labs/2semester/lab7/2/mod_workqueue.ko
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo insmod mod_tasklet.ko
+[sudo] пароль для masha: 
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ dmesg | tail -n100 | grep " : "
+[ 4991.782392] 10971008153150 [1172957] : tasklet_scheduled
+[ 4991.782513] 10971008421646 [1172957] : tasklet_function was called
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo rmmod mod_tasklet
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ make
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/2 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  Building modules, stage 2.
+  MODPOST 3 modules
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo insmod mod_workqueue.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ lsmod | head -n3
+Module                  Size  Used by
+mod_workqueue          16384  0
+bnep                   20480  2
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ ps -ef | grep my_
+root     20710     2  0 13:42 ?        00:00:00 [my_queue]
+masha    20801  4759  0 13:42 pts/0    00:00:00 grep --color=auto my_
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ dmesg | grep "=>"
+[    0.000000] e820: update [mem 0x00000000-0x00000fff] usable ==> reserved
+[    0.000000] e820: update [mem 0x9cfff000-0xffffffff] usable ==> reserved
+[ 5239.877686] #1 : 11515558713435 [1234983] => 11515558717398 [1234983]
+[ 5239.877690] #2 : 11515558727807 [1234983] => 11515558729806 [1234983]
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo rmmod mod_workqueue
+
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ make
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/2 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  CC [M]  /home/masha/labs/2semester/lab7/2/mykeyboard_workqueue.o
+/home/masha/labs/2semester/lab7/2/mykeyboard_workqueue.c: In function ‘my_interrupt’:
+/home/masha/labs/2semester/lab7/2/mykeyboard_workqueue.c:37:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+  int ret;
+  ^
+  Building modules, stage 2.
+  MODPOST 4 modules
+  CC      /home/masha/labs/2semester/lab7/2/mykeyboard_workqueue.mod.o
+  LD [M]  /home/masha/labs/2semester/lab7/2/mykeyboard_workqueue.ko
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo insmod mykeyboard_workqueue.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ lsmod | head -n3
+Module                  Size  Used by
+mykeyboard_workqueue    16384  0
+bnep                   20480  2
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ ps -ef | grep my_
+root     26215     2  0 14:05 ?        00:00:00 [my_queue]
+masha    26250  4759  0 14:05 pts/0    00:00:00 grep --color=auto my_
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ dmesg | tail -n 20
+[ 6716.120566] #1 : 14755801100120 [1604049] => 14755801118912 [1604049]
+[ 6716.120568] In the ISR: counter = 136
+[ 6716.186817] #1 : 14755946497776 [1604065] => 14755946535304 [1604066]
+[ 6716.186819] In the ISR: counter = 137
+[ 6716.356015] #1 : 14756317895508 [1604108] => 14756317913500 [1604108]
+[ 6716.356018] In the ISR: counter = 138
+[ 6716.419285] #1 : 14756456768680 [1604124] => 14756456785976 [1604124]
+[ 6716.419288] In the ISR: counter = 139
+[ 6717.798348] Press Esc!
+[ 6717.798361] #1 : 14759483738956 [1604468] => 14759483757740 [1604468]
+[ 6717.798362] In the ISR: counter = 140
+[ 6717.908493] Release Esc!
+[ 6717.908506] #1 : 14759725499368 [1604496] => 14759725518176 [1604496]
+[ 6717.908507] In the ISR: counter = 141
+[ 6718.335420] #1 : 14760662540876 [1604603] => 14760662559300 [1604603]
+[ 6718.335423] In the ISR: counter = 142
+[ 6718.421878] #1 : 14760852310116 [1604624] => 14760852327112 [1604624]
+[ 6718.421880] In the ISR: counter = 143
+[ 6719.861370] #1 : 14764011886512 [1604984] => 14764011903652 [1604984]
+[ 6719.861373] In the ISR: counter = 144
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ sudo rmmod mykeyboard_workqueue.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ dmesg | tail
+[ 6727.327536] In the ISR: counter = 166
+[ 6727.330017] #1 : 14780405005676 [1606851] => 14780405024296 [1606851]
+[ 6727.330019] In the ISR: counter = 167
+[ 6727.406830] #1 : 14780573536540 [1606871] => 14780573619508 [1606871]
+[ 6727.406833] In the ISR: counter = 168
+[ 6727.413363] #1 : 14780587943676 [1606872] => 14780587961300 [1606872]
+[ 6727.413365] In the ISR: counter = 169
+[ 6731.506705] #1 : 14789557019006 [1607894] => 14789572541150 [1607896]
+[ 6731.506716] In the ISR: counter = 170
+[ 6731.506763] Successfully unloading, irq_counter = 170, esc_counter = 2
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ lsmod | head -n3
+Module                  Size  Used by
+bnep                   20480  2
+ipt_MASQUERADE         16384  1
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/2$ ps -ef | grep my_
+masha    26550  4759  0 14:07 pts/0    00:00:00 grep --color=auto my_
+
+
+
+// Для отключения драйвера usb мыши выгружаем модуль ядра usbhid
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ sudo rmmod usbhid
+// Соберем реализованный модуль ядра
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ make
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/3 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+// Загрузка модуля ядра и просмотр сообщений о нажатых кнопках
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ sudo insmod myusbmouse.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ dmesg | tail
+[14583.177942] myusbmouse init
+[14583.214541] Driver my usb mouse: usb_mouse_close(). btn_right_counter = 0, btn_left_counter = 0
+[14585.463234] Other action!
+[14585.471232] Other action!
+[14585.479167] Right mouse button clicked!
+[14585.607232] Other action!
+[14586.063230] Other action!
+[14586.071236] Other action!
+[14587.571224] Left mouse button clicked!
+[14587.651224] Other action!
+// Выгрузка модуля из ядра
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ sudo rmmod myusbmouse.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ dmesg | tail
+[14585.471232] Other action!
+[14585.479167] Right mouse button clicked!
+[14585.607232] Other action!
+[14586.063230] Other action!
+[14586.071236] Other action!
+[14587.571224] Left mouse button clicked!
+[14587.651224] Other action!
+[14607.516191] usbcore: deregistering interface driver myusbmouse
+[14607.538705] Driver my usb mouse: usb_mouse_close(). btn_right_counter = 1, btn_left_counter = 1
+[14607.562503] myusbmouse exit. btn_right_counter = 1, btn_left_counter = 1
+// Вернем в систему исходный модуль ядра usbhid
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/3$ sudo modprobe usbhid
+
+
+
+
+
+//1. Получение файлов с расширением .ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ make
+make -C /lib/modules/4.4.0-75-generic/build M=/home/masha/labs/2semester/lab7/4 modules
+make[1]: вход в каталог «/usr/src/linux-headers-4.4.0-75-generic»
+  Building modules, stage 2.
+  MODPOST 3 modules
+make[1]: выход из каталога «/usr/src/linux-headers-4.4.0-75-generic»
+//2. Для отключения драйвера usb мыши выгружаем модуль ядра usbhid
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo rmmod usbhid
+//3. Загрузка модулей в ядро системы Linux
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo insmod myusbmouse.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo insmod mykeyboard_workqueue.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo insmod chardev.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ dmesg | grep mknod
+[18169.000365] 'mknod /dev/chardev c 244 0'.
+//4. Создание файла символьного устройства
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo mknod /dev/chardev c 244 0
+//5. Изменение прав доступа к файлу для поддержки возможности записи в файл
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo chmod 666 /dev/chardev
+//6. Запись в файл устройства;
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ echo 'I say hello!' > /dev/chardev
+//7. Чтение файла устройства
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ cat /dev/chardev
+I say hello!
+
+I already told you 1 times HELLO!
+irq_counter = 187, esc_counter = 1, btn_right_counter = 2, btn_left_counter = 2
+//8. Выгрузка модулей из ядра и удаление файла устройства
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo rmmod chardev.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo rm -i /dev/chardev
+rm: удалить символьный специальный файл '/dev/chardev'? y
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo rmmod mykeyboard_workqueue.ko
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo rmmod myusbmouse.ko
+//9. Вернем в систему исходный модуль ядра usbhid
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab7/4$ sudo modprobe usbhid
+
+

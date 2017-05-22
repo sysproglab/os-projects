@@ -1,0 +1,257 @@
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab2/infofile_1.0$ tree
+.
+├── DEBIAN
+│   ├── control
+│   └── copyright
+└── usr
+    └── local
+        └── bin
+            └── infofile
+
+4 directories, 3 files
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab2$ dpkg-deb --build infofile_1.0/
+dpkg-deb: сборка пакета «infofile» в файл «infofile_1.0.deb».
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab2$ sudo dpkg --install infofile_1.0.deb 
+[sudo] пароль для masha: 
+Выбор ранее не выбранного пакета infofile.
+(Чтение базы данных … на данный момент установлено 303918 файлов и каталогов.)
+Подготовка к распаковке infofile_1.0.deb …
+Распаковывается infofile (1.0) …
+Настраивается пакет infofile (1.0) …
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab2$ infofile infofile_1.0
+Размер файла: 
+	4096 байт
+Число жёстких ссылок: 
+	4
+inode файла: 
+	793083
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	8
+Права доступа к файлу:
+	drwxrwxr-x 
+Тип файла:
+	директория
+Последнее изменение статуса:
+	Wed May  3 00:44:06 2017
+Последний доступ к файлу:
+	Wed May  3 00:52:22 2017
+Последния модификация файла:
+	Wed May  3 00:44:06 2017
+
+
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ make
+gcc -o infofile main.c functions.c
+functions.c: In function ‘printInfo’:
+functions.c:116:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__off_t {aka long int}’ [-Wformat=]
+     printf("Размер файла: \n\t%d байт\n",fStat.st_size);
+            ^
+functions.c:117:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__nlink_t {aka long unsigned int}’ [-Wformat=]
+     printf("Число жёстких ссылок: \n\t%d\n",fStat.st_nlink);
+            ^
+functions.c:118:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__ino_t {aka long unsigned int}’ [-Wformat=]
+     printf("inode файла: \n\t%d\n",fStat.st_ino);
+            ^
+functions.c:119:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+     printf("ID устройства, содержащего файл: \n\t%d\n"
+            ^
+functions.c:122:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+     printf("ID устройства (если специальный файл):
+            ^
+functions.c:123:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blksize_t {aka long int}’ [-Wformat=]
+     printf("Размер блока для I/O: \n\t%d\n",fStat.st_blksize);
+            ^
+functions.c:124:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blkcnt_t {aka long int}’ [-Wformat=]
+     printf("Число выделенных блоков размером 512 �
+            ^
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ sudo make install
+[sudo] пароль для masha: 
+install ./infofile /usr/local/bin
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ ls -l /usr/local/bin | grep infofile
+-rwxr-xr-x 1 root root  13144 май  5 21:28 infofile
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ cd ..
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ infofile make
+Размер файла: 
+	4096 байт
+Число жёстких ссылок: 
+	2
+inode файла: 
+	801964
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	8
+Права доступа к файлу:
+	drwxrwxr-x 
+Тип файла:
+	директория
+Последнее изменение статуса:
+	Fri May  5 21:27:23 2017
+Последний доступ к файлу:
+	Fri May  5 21:27:55 2017
+Последния модификация файла:
+	Fri May  5 21:27:23 2017
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ cd infofile
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ sudo make uninstall
+rm -rf /usr/local/bin/infofile
+
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ sudo checkinstall
+
+checkinstall 1.6.2, Copyright 2009 Felipe Eduardo Sanchez Diaz Duran
+         Эта программа распространяется на условиях GNU GPL
+
+
+The package documentation directory ./doc-pak does not exist. 
+Should I create a default set of package docs?  [y]: y
+
+Готовится документация к пакету...OK
+
+*** No known documentation files were found. The new package 
+*** won't include a documentation directory.
+
+Пожалуйста напишите описание пакета.
+Закончите ваше описание пустой строкой или EOF.
+>> Print information about file.
+>> 
+
+*****************************************
+**** Debian package creation selected ***
+*****************************************
+
+Этот пакет был создан с использованием данных значений: 
+
+0 -  Maintainer: [ root@masha-Aspire-E5-573G ]
+1 -  Summary: [ Print information about file. ]
+2 -  Name:    [ infofile ]
+3 -  Version: [ 20170505 ]
+4 -  Release: [ 1 ]
+5 -  License: [ GPL ]
+6 -  Group:   [ checkinstall ]
+7 -  Architecture: [ amd64 ]
+8 -  Source location: [ infofile ]
+9 -  Alternate source location: [  ]
+10 - Requires: [  ]
+11 - Provides: [ infofile ]
+12 - Conflicts: [  ]
+13 - Replaces: [  ]
+
+Введите номер для изменения параметра или нажмите ВВОД для продолжения: 3
+Введите новую версию: 
+>> 1.0
+
+Этот пакет был создан с использованием данных значений: 
+
+0 -  Maintainer: [ root@masha-Aspire-E5-573G ]
+1 -  Summary: [ Print information about file. ]
+2 -  Name:    [ infofile ]
+3 -  Version: [ 1.0 ]
+4 -  Release: [ 1 ]
+5 -  License: [ GPL ]
+6 -  Group:   [ checkinstall ]
+7 -  Architecture: [ amd64 ]
+8 -  Source location: [ infofile ]
+9 -  Alternate source location: [  ]
+10 - Requires: [  ]
+11 - Provides: [ infofile ]
+12 - Conflicts: [  ]
+13 - Replaces: [  ]
+
+Введите номер для изменения параметра или нажмите ВВОД для продолжения: 
+
+Installing with make install...
+
+========================= Результаты установки ===========================
+install ./infofile /usr/local/bin
+
+======================== Установка успешно завершена ======================
+
+Файлы копируются во временный каталог...OK
+
+Stripping ELF binaries and libraries...OK
+
+Сжимаются страницы руководства...OK
+
+Построение списка файлов...OK
+
+Собирается Debian-пакет...OK
+
+Устанавливается Debian-пакет...OK
+
+Удаляются временные файлы...OK
+
+Удаляется временный каталог...OK
+
+
+**********************************************************************
+
+ Done. The new package has been installed and saved to
+
+ /home/masha/labs/2semester/lab2/infofile/infofile_1.0-1_amd64.deb
+
+ You can remove it from your system anytime using: 
+
+      dpkg -r infofile
+
+**********************************************************************
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2/infofile$ cd ..
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ infofile log.linux.txt
+Размер файла: 
+	5345 байт
+Число жёстких ссылок: 
+	1
+inode файла: 
+	793080
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	16
+Права доступа к файлу:
+	-rw-rw-r-- 
+Тип файла:
+	обычный файл
+Последнее изменение статуса:
+	Fri May  5 21:37:06 2017
+Последний доступ к файлу:
+	Fri May  5 21:37:06 2017
+Последния модификация файла:
+	Fri May  5 21:37:06 2017
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ sudo dpkg -r infofile
+(Чтение базы данных … на данный момент установлено 363476 файлов и каталогов.)
+Удаляется infofile (1.0-1) …
+dpkg: предупреждение: при удалении infofile каталог «/usr/local/bin» не пуст, поэтому не удалён
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ ls -l /usr/local/bin | grep infofile
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ dpkg -l | grep infofile
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab2$ 
+
+
+
+

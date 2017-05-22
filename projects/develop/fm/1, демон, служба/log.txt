@@ -1,0 +1,90 @@
+C:\WINDOWS\system32> sc create "My Chmod Service" binPath="E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.exe"
+[SC] CreateService: успех
+
+C:\WINDOWS\system32> sc start "My Chmod Service" "E:\всё"
+
+Имя_службы: My Chmod Service
+        Тип                : 10  WIN32_OWN_PROCESS
+        Состояние          : 4  RUNNING
+                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        Код_выхода_Win32   : 0  (0x0)
+        Код_выхода_службы  : 0  (0x0)
+        Контрольная_точка  : 0x0
+        Ожидание           : 0x0
+        ID_процесса        : 5856
+        Флаги              :
+
+C:\WINDOWS\system32>sc delete "My Chmod Service"
+[SC] DeleteService: успех
+
+
+// Run with arguments
+C:\WINDOWS\system32> sc create "My Chmod Service" binPath="E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.exe"
+[SC] CreateService: успех
+
+C:\WINDOWS\system32> sc start "My Chmod Service" "E:\всё"
+
+Имя_службы: My Chmod Service
+        Тип                : 10  WIN32_OWN_PROCESS
+        Состояние          : 2  START_PENDING
+                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        Код_выхода_Win32   : 0  (0x0)
+        Код_выхода_службы  : 0  (0x0)
+        Контрольная_точка  : 0x0
+        Ожидание           : 0x7d0
+        ID_процесса        : 13612
+        Флаги              :
+
+C:\WINDOWS\system32> sc start "My Chmod Service" "E:\temp.txt" /d /deny WA,WEA /grant WDAC /u masha
+
+Имя_службы: My Chmod Service
+        Тип                : 10  WIN32_OWN_PROCESS
+        Состояние          : 2  START_PENDING
+                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        Код_выхода_Win32   : 0  (0x0)
+        Код_выхода_службы  : 0  (0x0)
+        Контрольная_точка  : 0x0
+        Ожидание           : 0x0
+        ID_процесса        : 9988
+        Флаги              :
+
+C:\WINDOWS\system32> sc start "My Chmod Service" /u masha /revoke /d
+
+Имя_службы: My Chmod Service
+        Тип                : 10  WIN32_OWN_PROCESS
+        Состояние          : 2  START_PENDING
+                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        Код_выхода_Win32   : 0  (0x0)
+        Код_выхода_службы  : 0  (0x0)
+        Контрольная_точка  : 0x0
+        Ожидание           : 0x0
+        ID_процесса        : 9612
+        Флаги              :
+
+C:\WINDOWS\system32> sc start "My Chmod Service" /u masha /revoke "E:\temp.txt" /d
+
+Имя_службы: My Chmod Service
+        Тип                : 10  WIN32_OWN_PROCESS
+        Состояние          : 2  START_PENDING
+                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        Код_выхода_Win32   : 0  (0x0)
+        Код_выхода_службы  : 0  (0x0)
+        Контрольная_точка  : 0x0
+        Ожидание           : 0x7d0
+        ID_процесса        : 14764
+        Флаги              :
+
+C:\WINDOWS\system32> sc start "My Chmod Service" "E:\temp.txt" /d /deny WA,WEA /grant WDAC /u masha
+
+Имя_службы: My Chmod Service
+        Тип                : 10  WIN32_OWN_PROCESS
+        Состояние          : 2  START_PENDING
+                                (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)
+        Код_выхода_Win32   : 0  (0x0)
+        Код_выхода_службы  : 0  (0x0)
+        Контрольная_точка  : 0x0
+        Ожидание           : 0x0
+        ID_процесса        : 16136
+        Флаги              :
+
+C:\WINDOWS\system32>
