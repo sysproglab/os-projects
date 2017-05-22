@@ -1,0 +1,43 @@
+user@debian:~/debugger$ ls -lR
+.:
+итого 8
+drwxr-xr-x 2 user user 4096 апр  4 10:20 DEBIAN
+drwxr-xr-x 3 user user 4096 апр  4 10:19 usr
+./DEBIAN:
+итого 4
+-rw-r--r-- 1 user user 123 апр  4 10:25 control
+./usr:
+итого 4
+drwxr-xr-x 2 user user 4096 апр  4 10:19 bin ./usr/bin:
+итого 24
+-rwxr-xr-x 1 user user 21084 апр  4 10:19 SimpleDebugger
+user@debian:~/debugger$ cat DEBIAN/control 
+Package: debugger
+Version: 1.0
+Maintainer: Danil <danil@ru>
+Architecture: all
+Section: utils
+Description: Debugger for C++
+user@debian:~$ dpkg-deb --build debugger
+dpkg-deb: сборка пакета «debugger» в файл «debugger.deb».
+root@debian:/home/user# dpkg -i debugger.deb 
+(Чтение базы данных … на данный момент установлен 212461 файл и каталог.)
+Подготовка к распаковке debugger.deb …
+Распаковывается debugger (1.0) на замену (1.0) …
+Настраивается пакет debugger (1.0) …
+root@debian:/home/user# SimpleDebugger
+In debugger process 1581
+Exit from debugging cycle
+Program exited with status (0)
+user@debian:~$ g++ -o debug daemon.cpp
+user@debian:~$ ./debug
+user@debian:~$ ps -xf
+  PID TTY      STAT   TIME COMMAND
+1173 ?        SNl    0:00  \_ /usr/lib/tracker/tracker-miner-apps
+ 1187 ?        SNl    0:00  \_ /usr/lib/tracker/tracker-miner-user-guides
+ 1948 ?        Ss     0:00 ./debug
+ 1949 ?        S      0:00  \_ ./debug
+ 1737 ?        Sl     0:00 /usr/lib/dleyna-renderer/dleyna-renderer-service
+ 1713 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-burn --spawner :1.9 /org/gtk/gvfs
+user@debian:~$ cat /tmp/Debugger.txt 
+Debugger

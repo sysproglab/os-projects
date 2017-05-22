@@ -1,0 +1,24 @@
+danya-virtual-machine lab6 # ./sched 
+Обычная политика
+Политика карусели
+sched_yield
+danya-virtual-machine lab6 # strace ./sched 
+...
+sched_getscheduler(0)                   = 0 (SCHED_OTHER)
+...
+sched_setscheduler(0, SCHED_RR, [1])    = 0
+sched_getscheduler(0)                   = 2 (SCHED_RR)
+...
+sched_yield()                           = 0
+write(1, "sched_yield\n", 12sched_yield
+)           = 12
+exit_group(0)                           = ?
++++ exited with 0 +++
+danya@danya-virtual-machine ~/OS/lab6 $ sudo stap hello.stp -w -c ./sched
+Обычная политика
+Политика карусели
+sched_yield
+Sun May 14 12:17:12 2017.946931 sched_getscheduler(0) = 0
+Sun May 14 12:17:12 2017.947121 sched_setscheduler(0, SCHED_RR, 0x7fffd04cca90) = 0
+Sun May 14 12:17:12 2017.947144 sched_getscheduler(0) = 2
+Sun May 14 12:17:12 2017.947168 sched_yield() = 0
