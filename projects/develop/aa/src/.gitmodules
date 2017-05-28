@@ -1,0 +1,3 @@
+[submodule "inih"]
+	path = inih
+	url = https://git.ejiek.com/KSPT/inih.git
