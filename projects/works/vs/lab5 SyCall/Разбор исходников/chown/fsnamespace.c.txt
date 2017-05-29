@@ -1,0 +1,32 @@
+/fs/namespace.c
+//line 255
+
+int mnt_want_write(struct vfsmount *mnt)
+{
+	int ret = 0;
+
+	preempt_disable();
+	inc_mnt_writers(mnt);
+	/*
+	 * The store to inc_mnt_writers must be visible before we pass
+	 * MNT_WRITE_HOLD loop below, so that the slowpath can see our
+	 * incremented count after it has set MNT_WRITE_HOLD.
+	 */
+	smp_mb();
+	while (mnt->mnt_flags & MNT_WRITE_HOLD)
+		cpu_relax();
+	/*
+	 * After the slowpath clears MNT_WRITE_HOLD, mnt_is_readonly will
+	 * be set to match its requirements. So we must not load that until
+	 * MNT_WRITE_HOLD is cleared.
+	 */
+	smp_rmb();
+	if (__mnt_is_readonly(mnt)) {
+		dec_mnt_writers(mnt);
+		ret = -EROFS;
+		goto out;
+	}
+out:
+	preempt_enable();
+	return ret;
+}

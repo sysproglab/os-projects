@@ -1,0 +1,90 @@
+//line 667
+static int chown_common(struct dentry * dentry, uid_t user, gid_t group)
+{
+	struct inode *inode = dentry->d_inode;
+	int error;
+	struct iattr newattrs;
+
+	newattrs.ia_valid =  ATTR_CTIME;
+	if (user != (uid_t) -1) {
+		newattrs.ia_valid |= ATTR_UID;
+		newattrs.ia_uid = user;
+	}
+	if (group != (gid_t) -1) {
+		newattrs.ia_valid |= ATTR_GID;
+		newattrs.ia_gid = group;
+	}
+	if (!S_ISDIR(inode->i_mode))
+		newattrs.ia_valid |=
+			ATTR_KILL_SUID | ATTR_KILL_SGID | ATTR_KILL_PRIV;
+	mutex_lock(&inode->i_mutex);
+	error = notify_change(dentry, &newattrs);
+	mutex_unlock(&inode->i_mutex);
+
+	return error;
+}
+
+//line 692
+SYSCALL_DEFINE3(chown, const char __user *, filename, uid_t, user, gid_t, group)
+{
+    //struct path {
+    //	struct vfsmount *mnt;
+    //	struct dentry *dentry;
+    //};
+	struct path path;
+	int error;
+
+    //записывает в path путь к файлу
+	error = user_path(filename, &path);
+    //если ошибка то выход
+	if (error)
+		goto out;
+    //Говорит системе что далее последует запись в нее
+    //Проверяет на возможность записи
+    //После записи должен быть вызван mnt_drop_write
+    //Файл /fs/namespace.c строка 255
+	error = mnt_want_write(path.mnt);
+	if (error)
+		goto out_release;
+	error = chown_common(path.dentry, user, group);
+	mnt_drop_write(path.mnt);
+out_release:
+	path_put(&path);
+out:
+	return error;
+}
+
+//line 667
+static int chown_common(struct dentry * dentry, uid_t user, gid_t group)
+{
+	struct inode *inode = dentry->d_inode;
+	int error;
+    
+    //Это структура атрибутов Inode, используемая для notify_change ().
+    //Она использует флаги, чтобы знать, какие значения были изменены.
+	struct iattr newattrs;
+
+    //Далее производится установка флагов
+	newattrs.ia_valid =  ATTR_CTIME;
+    //Проверка пользователя
+	if (user != (uid_t) -1) {
+		newattrs.ia_valid |= ATTR_UID;
+		newattrs.ia_uid = user;
+	}
+    //Проверка группы
+	if (group != (gid_t) -1) {
+		newattrs.ia_valid |= ATTR_GID;
+		newattrs.ia_gid = group;
+	}
+    //Если файл - папка, то добавить флаги
+	if (!S_ISDIR(inode->i_mode))
+		newattrs.ia_valid |=
+			ATTR_KILL_SUID | ATTR_KILL_SGID | ATTR_KILL_PRIV;
+    //Блокировка доступа другим процесам
+	mutex_lock(&inode->i_mutex);
+    //Внесение изменений в систему
+	error = notify_change(dentry, &newattrs);
+	mutex_unlock(&inode->i_mutex);
+
+	return error;
+}

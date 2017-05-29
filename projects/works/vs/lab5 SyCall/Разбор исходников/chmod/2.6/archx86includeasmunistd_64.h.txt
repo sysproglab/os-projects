@@ -1,0 +1,5 @@
+/arch/x86/include/asm/unistd_64.h
+
+//Для x86 процессора системный вызов имеет номер 268
+#define __NR_fchmodat				268
+__SYSCALL(__NR_fchmodat, sys_fchmodat)
