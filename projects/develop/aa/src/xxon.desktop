@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=XXwm
+Comment=Mobile Wayland window manager
+Exec=/home/kivi/workspace/XXwm/xxonwm
+Type=Application

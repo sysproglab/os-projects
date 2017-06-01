@@ -1,0 +1,61 @@
+\documentclass[11pt,pdf,hyperref={unicode},aspectratio=43]{beamer}
+
+% подключаем кириллицу 
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\graphicspath{{fig/}}
+
+%листинг кода
+\usepackage{listingsutf8}
+
+\lstdefinestyle{base_listing}{ % Для отображения русского языка
+extendedchars=true,
+  inputencoding     = {utf8}, 
+  basicstyle        = {\ttfamily \scriptsize},
+  keywordstyle      = {\rmfamily \bfseries},
+  commentstyle      = {\rmfamily \itshape},
+  tabsize           = {2},
+  flexiblecolumns   = {false},
+  frame             = {single},
+  showstringspaces  = {false},
+  breaklines        = {true}, 
+  breakatwhitespace = {true}
+}
+
+\lstdefinelanguage{LLVM-asm}
+{
+  morekeywords = {
+    load, store, malloc, alloca, free, getelementptr,
+    add, sub, insertvalue, extractvalue, icmp, call,
+    define, void, global, ret, common
+  },
+  sensitive   = false,
+  morecomment = [l]{;}
+}
+
+\lstdefinestyle{crs_llvm}{
+  style    = {base_listing},
+  language = {LLVM-asm}
+}
+
+\lstdefinestyle{crs_cpp}{
+  style    = {base_listing},
+  language = {C++}
+}
+
+% отключить клавиши навигации
+\setbeamertemplate{navigation symbols}{
+    \insertframenumber\,/\,\inserttotalframenumber
+}
+
+
+% тема оформления
+\usetheme{metropolis}
+
+\setbeamercolor{block title} {bg=black}
+\setbeamercolor{block body}{bg=black!20}
+\setbeamertemplate{blocks}[rounded][shadow=true]

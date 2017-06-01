@@ -1,0 +1,55 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{cmap}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setmonofont{Arial}
+
+\lstset{
+	inputencoding=utf8x,
+	extendedchars=\true,
+	frame=single,
+	breaklines=true,
+	numbers=left,
+	keepspaces = true}
+
+\voffset -24.5mm
+\hoffset -5mm
+\textwidth 173mm
+\textheight 240mm
+\oddsidemargin=0mm \evensidemargin=0mm
+
+\author{Абдуллин Азат}
+\title{Текст программы}
+\begin{document}
+\maketitle
+\renewcommand{\thesection}{\arabic{section}}
+\tableofcontents
+\pagebreak
+	
+\section{Текст программы}
+\lstinputlisting[label=lst:main, caption={Файл main.c}, 
+language={C}]{./src/main.c}
+
+\lstinputlisting[label=lst:confh, caption={Файл config.h}, 
+language={C}]{./src/config.h}
+
+\lstinputlisting[label=lst:confc, caption={Файл config.c}, 
+language={C}]{./src/config.c}
+
+\lstinputlisting[label=lst:cmake, caption={Файл сборки CMakeLists.txt}, 
+language={C}]{./src/CMakeLists.txt}
+
+\lstinputlisting[label=lst:cmake, caption={Стандартный файл конфигурации config.ini}, 
+language={C}]{./src/config.ini}
+
+\lstinputlisting[label=lst:cmake, caption={Файл ярлыка для экранного менеджера xxon.desktop}, 
+language={C}]{./src/xxon.desktop}
+\end{document}

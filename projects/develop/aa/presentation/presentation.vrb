@@ -1,0 +1,11 @@
+\frametitle{Добавление ОМ в экранный менеджер}
+
+Необходимо поместить файл "ярлык" \texttt{xxwm.desktop} в \texttt{/usr/share/wayland-sessions/}
+\begin{lstlisting}[style=crs_cpp]
+[Desktop Entry]
+Name=XXwm
+Comment=Mobile Wayland window manager
+Exec=~/workspace/XXwm/xxonwm
+Type=Application
+\end{lstlisting}
+
