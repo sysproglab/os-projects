@@ -8,15 +8,63 @@ using namespace std;
 int main(void)
 {
 	Protect protect = Protect();
-	string licemseKey = "LIC";
-	protect.setLicenseKey(licemseKey);
-
-	if (int a = protect.checkProtection() != 0)
+	int res;
+	do
 	{
-		std::cout << "License failed Error:" << a << std::endl;
-		system("pause");
-		return -1;
-	}
+		res = protect.checkProtection();
+		switch (res)
+		{
+		case 0:
+		{
+			cout << "License successful\n" << endl;
+			break;
+		}
+		case -1:
+		{
+			cout << "Please, enter license key" << endl;
+			string licenseKey;
+			cin >> licenseKey;
+			protect.setLicenseKey(licenseKey);
+			break;
+		}
+		case -11:
+		{
+			cout << "Please, enter license key" << endl;
+			string licenseKey;
+			cin >> licenseKey;
+			protect.setLicenseKey(licenseKey);
+			break;
+		}
+		case -12:
+		{
+			cout << "Server not available, repeat later\n" << endl;
+			system("pause");
+			return -1;
+			break;
+		}
+		case -13:
+		{
+			cout << "Wrong license key, please repeat\n" << endl;
+			string licenseKey;
+			cin >> licenseKey;
+			protect.setLicenseKey(licenseKey);
+			break;
+		}
+		case -14:
+		{
+			cout << "Wrong hardware for this license key\n" << endl;
+			system("pause");
+			return -2;
+			break;
+		}
+		default:
+			cout << "Unknown error\n" << endl;
+			system("pause");
+			return -2;
+			break;
+			
+		}
+	}	while (res != 0);
 
 	MyProgram prog = MyProgram();
 	prog.run();

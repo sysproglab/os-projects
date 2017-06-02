@@ -15,11 +15,14 @@ int Protect::checkProtection()
 {	
 	if (rep.getFirstRuning())
 	{
+		//отсутствует лисензионный ключ
 		if (licenseKey == "")
 			return -1;
 
-		if (registerProduct() != 0)
-			return -2;
+		//
+		int res = registerProduct();
+		if (res != 0)
+			return res;
 
 		rep.setLicenseKey(licenseKey);
 		rep.setFirstRuning(false);
@@ -30,7 +33,11 @@ int Protect::checkProtection()
 	}
 
 	if (checkLicense() != 0)
+	{
+		rep.setLicenseKey("");
+		rep.setFirstRuning(true);
 		return -3;
+	}
 	
 	return 0;
 }
@@ -63,7 +70,7 @@ string Protect::getHardwareParameters()
 int Protect::registerProduct()
 {
 	if (licenseKey == "")
-		return -1;
+		return -11;
 
 	string hardwareParam;
 	string activateKey;
@@ -74,7 +81,21 @@ int Protect::registerProduct()
 	activateKey = client.getActivateKey();
 
 	if (activateKey == "")
-		return -2;
+		return -12;
+	else
+	{
+		if (activateKey[0] == '_')
+		{
+			if (activateKey[1] == '1')
+			{
+				return -13;
+			}
+			else
+			{
+				return -14;
+			}
+		}
+	}
 
 	rep.setActivateKey(activateKey);
 
@@ -95,21 +116,12 @@ int Protect::checkLicense()
 	return 0;
 }
 
-
 string Protect::getHash()
 {
 
 	string hardwareParam = getHardwareParameters();
 
-	//unsigned char str[100];
-	//unsigned char hash[SHA_DIGEST_LENGTH]; // == 20
+	string output = sha256(hardwareParam);
 
-	//strcpy((char*)(str), hardwareParam.c_str());
-
-
-	//SHA1(str, sizeof(str) - 1, hash);
-
-	//string answer = string((char*)hash);
-	
-	return "SHA1";
+	return output;
 }

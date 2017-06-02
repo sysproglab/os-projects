@@ -54,6 +54,9 @@
     <ClCompile Include="NetClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sha256.cpp">
+      <Filter>Source Files\Protection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyProgram.h">
@@ -74,8 +77,8 @@
     <ClInclude Include="NetClient.h">
       <Filter>Header Files\Net</Filter>
     </ClInclude>
-    <ClInclude Include="openssl\sha.h">
-      <Filter>Resource Files</Filter>
+    <ClInclude Include="sha256.h">
+      <Filter>Header Files\Protection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,0 @@
-/include/asm-generic/unistd.h
-
-//системный вызов №53
-#define __NR_fchmodat 53
-__SYSCALL(__NR_fchmodat, sys_fchmodat)

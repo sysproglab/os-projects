@@ -1,0 +1,8 @@
+/include/linux/syscalls.h
+ //Это #define для некоторой магии gcc,
+// которая сообщает компилятору, 
+// что функция не должна искать какой-либо
+// из своих аргументов в регистрах (обычная оптимизация)
+// Искать только в стеке CPU
+asmlinkage long sys_fchmodat(int dfd, const char __user * filename,
+			     mode_t mode);

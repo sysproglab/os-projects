@@ -1,5 +1,5 @@
 {
-    "isFirstRuning": true,
-    "licenseKey": "",
-    "activeKey": ""
+    "isFirstRuning": false,
+    "licenseKey": "a87ff679a2f3e71d9181a67b7542122c",
+    "activeKey": "fd98983c6770bd21c107dafab51fdb0f3715a2c80d38cda97482e0e34ce5a7d0"
 }

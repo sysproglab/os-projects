@@ -1,1 +1,0 @@
-cmd_/home/stas/Documents/OS/SysCall/syscallReplace/replace.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/stas/Documents/OS/SysCall/syscallReplace/replace.ko /home/stas/Documents/OS/SysCall/syscallReplace/replace.o /home/stas/Documents/OS/SysCall/syscallReplace/replace.mod.o

@@ -1,9 +1,9 @@
 #pragma once
-#include "string"
+#include "cstring"
 #include "LocalRepository.h"
 #include "NetClient.h"
+#include "sha256.h"
 
-#include <windows.h>
 #include <stdio.h>
 #pragma comment(lib, "user32.lib")
 
