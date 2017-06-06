@@ -1,0 +1,15 @@
+[Unit]
+Description=Daemon for handling of events from sound buttons
+Before=getty.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/btn_sound
+KillMode=process
+KillSignal=SIGINT
+SendSIGKILL=yes
+TimeoutStartSec=5
+TimeoutStopSec=5

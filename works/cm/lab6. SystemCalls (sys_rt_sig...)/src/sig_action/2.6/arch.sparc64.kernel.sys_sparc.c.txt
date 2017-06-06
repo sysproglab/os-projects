@@ -1,0 +1,28 @@
+asmlinkage long sys_rt_sigaction(int sig,
+				 const struct sigaction __user *act,
+				 struct sigaction __user *oact,
+				 void __user *restorer,
+				 size_t sigsetsize)
+{
+	struct k_sigaction new_ka, old_ka;
+	int ret;
+
+	/* XXX: Don't preclude handling different sized sigset_t's.  */
+	if (sigsetsize != sizeof(sigset_t))
+		return -EINVAL;
+
+	if (act) {
+		new_ka.ka_restorer = restorer;
+		if (copy_from_user(&new_ka.sa, act, sizeof(*act)))
+			return -EFAULT;
+	}
+
+	ret = do_sigaction(sig, act ? &new_ka : NULL, oact ? &old_ka : NULL);
+
+	if (!ret && oact) {
+		if (copy_to_user(oact, &old_ka.sa, sizeof(*oact)))
+			return -EFAULT;
+	}
+
+	return ret;
+}

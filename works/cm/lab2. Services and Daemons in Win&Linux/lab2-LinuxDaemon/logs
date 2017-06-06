@@ -1,0 +1,1591 @@
+michael@michael-LIFEBOOK-AH531:~$ top
+
+top - 19:19:04 up  1:35,  1 user,  load average: 0,05, 0,12, 0,13
+Tasks: 202 total,   2 running, 200 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3,6 us,  0,9 sy,  0,0 ni, 95,4 id,  0,1 wa,  0,0 hi,  0,0 si,  0,0 st
+KiB Mem :  8084972 total,  5457884 free,  1520720 used,  1106368 buff/cache
+KiB Swap:   999420 total,   999420 free,        0 used.  6083580 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND     
+ 2367 michael   20   0 3213996 915704 123060 R  14,6 11,3  17:29.26 firefox     
+  984 root      20   0  394572  69516  54100 S   1,3  0,9   2:25.97 Xorg        
+ 1572 michael   20   0   43852   4280   2816 S   0,3  0,1   0:02.02 dbus-daemon 
+ 1821 michael   20   0 1201028 105720  57712 S   0,3  1,3   0:57.79 compiz      
+ 1932 michael   20   0  870680  34372  28504 S   0,3  0,4   0:05.45 nm-applet   
+ 3434 michael   20   0   43020   3792   3216 R   0,3  0,0   0:00.06 top         
+    1 root      20   0  119876   6076   4044 S   0,0  0,1   0:01.30 systemd     
+    2 root      20   0       0      0      0 S   0,0  0,0   0:00.00 kthreadd    
+    3 root      20   0       0      0      0 S   0,0  0,0   0:00.02 ksoftirqd/0 
+    5 root       0 -20       0      0      0 S   0,0  0,0   0:00.00 kworker/0:+ 
+    7 root      20   0       0      0      0 S   0,0  0,0   0:01.47 rcu_sched   
+    8 root      20   0       0      0      0 S   0,0  0,0   0:00.00 rcu_bh      
+    9 root      rt   0       0      0      0 S   0,0  0,0   0:00.00 migration/0 
+   10 root      rt   0       0      0      0 S   0,0  0,0   0:00.02 watchdog/0  
+   11 root      rt   0       0      0      0 S   0,0  0,0   0:00.02 watchdog/1  
+   12 root      rt   0       0      0      0 S   0,0  0,0   0:00.00 migration/1 
+   13 root      20   0       0      0      0 S   0,0  0,0   0:00.01 ksoftirqd/1 
+michael@michael-LIFEBOOK-AH531:~$ ps aux | grep systemd
+root       222  0.0  0.0  35392  4336 ?        Ss   17:44   0:00 /lib/systemd/systemd-journald
+root       263  0.0  0.0  45456  4652 ?        Ss   17:44   0:00 /lib/systemd/systemd-udevd
+systemd+   598  0.0  0.0 102384  2712 ?        Ssl  17:44   0:00 /lib/systemd/systemd-timesyncd
+message+   742  0.0  0.0  44352  5276 ?        Ss   17:44   0:02 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+root       771  0.0  0.0  28648  3232 ?        Ss   17:44   0:00 /lib/systemd/systemd-logind
+michael   1475  0.0  0.0  45248  4760 ?        Ss   17:44   0:00 /lib/systemd/systemd --user
+michael   3436  0.0  0.0  15444   924 pts/2    S+   19:19   0:00 grep --color=auto systemd
+michael@michael-LIFEBOOK-AH531:~$ pwd
+/home/michael
+michael@michael-LIFEBOOK-AH531:~$ cd Desktop/SP-8-semester/lab2-LinuxDaemon/
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ ls -l
+total 4
+-rwxrwxrwx 1 michael michael 3180 апр 17 20:00 main.cpp
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -libusb
+/usr/bin/ld: cannot find -libusb
+collect2: error: ld returned 1 exit status
+(failed reverse-i-search)`lib': g++ main.cpp -o main.bin -^Cbusb
+(failed reverse-i-search)`usb': g++ main.cpp -o main.bin -lib^Cb
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -lusb
+/usr/bin/ld: cannot find -lusb
+collect2: error: ld returned 1 exit status
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -lusb-1.0
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ ./main.bin 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ ./main.bin 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -lusb-1.0
+main.cpp: In function ‘int main()’:
+main.cpp:17:11: error: ‘sleep’ was not declared in this scope
+    sleep(1);
+           ^
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -lusb-1.0
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ ./main.bin 
+^C
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -lusb-1.0
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ ./main.bin 
+
+^C
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ g++ main.cpp -o main.bin -lusb-1.0
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ ./main.bin 
+^C
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cp ~/Desktop/
+.~lock.Ubuntu 16.04 sevice.odt#  SP-8-semester/
+openCV start.odp                 systemd. 100 страниц.pdf
+ParallelSytem/                   Ubuntu 16.04 sevice.odt
+proto2_client.service            usbDevWatcher.service
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cp ~/Desktop/usbDevWatcher.service /etc/sys
+sysctl.conf  sysctl.d/    systemd/     
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cp ~/Desktop/usbDevWatcher.service /etc/systemd/system
+system/      system.conf  
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cp ~/Desktop/usbDevWatcher.service /etc/systemd/system/
+cp: cannot create regular file '/etc/systemd/system/usbDevWatcher.service': Permission denied
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo cp ~/Desktop/usbDevWatcher.service /etc/systemd/system/
+[sudo] password for michael: 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl enable us
+usbDevWatcher.service  usb_modeswitch@        user@
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl enable us
+usbDevWatcher.service  usb_modeswitch@        user@
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl enable usbDevWatcher.service 
+Created symlink from /etc/systemd/system/multi-user.target.wants/usbDevWatcher.service to /etc/systemd/system/usbDevWatcher.service.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl restart usb
+usb_modeswitch@  usbmuxd.service  
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl start usb
+usb_modeswitch@  usbmuxd.service  
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl start usb
+usb_modeswitch@  usbmuxd.service  
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl start usbDevWatcher
+Failed to start usbDevWatcher.service: Unit usbDevWatcher.service is not loaded properly: Invalid argument.
+See system logs and 'systemctl status usbDevWatcher.service' for details.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWa
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWa
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Servic
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl start usbDevWatcher
+Failed to start usbDevWatcher.service: Access denied
+See system logs and 'systemctl status usbDevWatcher.service' for details.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+Failed to start usbDevWatcher.service: Unit usbDevWatcher.service is not loaded properly: Invalid argument.
+See system logs and 'systemctl status usbDevWatcher.service' for details.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is 
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is 
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop=
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is n
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is n
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= 
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is no
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is no
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= s
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= se
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not 
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not 
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= set
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not a
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not a
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= sett
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not ab
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not ab
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setti
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not abs
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not abs
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= settin
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not abso
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not abso
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absol
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absol
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolut
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolut
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. R
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute,
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute,
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Ref
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, 
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, 
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refu
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, i
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, i
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refus
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ig
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ig
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusi
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ign
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ign
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusin
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, igno
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, igno
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignor
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignor
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignorin
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignorin
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+Failed to start usbDevWatcher.service: Unit usbDevWatcher.service is not loaded properly: Invalid argument.
+See system logs and 'systemctl status usbDevWatcher.service' for details.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+Warning: usbDevWatcher.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+Failed to start usbDevWatcher.service: Unit usbDevWatcher.service is not loaded properly: Invalid argument.
+See system logs and 'systemctl status usbDevWatcher.service' for details.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+Warning: usbDevWatcher.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+Failed to start usbDevWatcher.service: Unit usbDevWatcher.service is not loaded properly: Invalid argument.
+See system logs and 'systemctl status usbDevWatcher.service' for details.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+Warning: usbDevWatcher.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:21:49 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl daemon-reload
+Failed to execute operation: Access denied
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:21:49 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+...skipping...
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:21:49 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:21:49 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+...skipping...
+● usbDevWatcher.service - USB devices watcher
+   Loaded: error (Reason: Invalid argument)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:21:49 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* | grep ExecStart
+cat: /etc/systemd/system/bluetooth.target.wants: Is a directory
+cat: /etc/systemd/system/default.target.wants: Is a directory
+cat: /etc/systemd/system/display-manager.service.wants: Is a directory
+cat: /etc/systemd/system/final.target.wants: Is a directory
+cat: /etc/systemd/system/getty.target.wants: Is a directory
+cat: /etc/systemd/system/graphical.target.wants: Is a directory
+cat: /etc/systemd/system/hibernate.target.wants: Is a directory
+cat: /etc/systemd/system/hybrid-sleep.target.wants: Is a directory
+cat: /etc/systemd/system/multi-user.target.wants: Is a directory
+cat: /etc/systemd/system/network-online.target.wants: Is a directory
+cat: /etc/systemd/system/paths.target.wants: Is a directory
+cat: /etc/systemd/system/printer.target.wants: Is a directory
+cat: /etc/systemd/system/shutdown.target.wants: Is a directory
+cat: /etc/systemd/system/sockets.target.wants: Is a directory
+cat: /etc/systemd/system/suspend.target.wants: Is a directory
+cat: /etc/systemd/system/sysinit.target.wants: Is a directory
+cat: /etc/systemd/system/timers.target.wants: Is a directory
+ExecStart=/usr/lib/bluetooth/bluetoothd
+ExecStart=/usr/sbin/avahi-daemon -s
+ExecStart=/usr/sbin/ModemManager
+ExecStart=/usr/lib/NetworkManager/nm-dispatcher
+ExecStart=/usr/sbin/thermald --no-daemon --dbus-enable
+ExecStartPre=/bin/sh -c '[ "$(basename $(cat /etc/X11/default-display-manager 2>/dev/null))" = "lightdm" ]'
+ExecStart=/usr/sbin/lightdm
+ExecStart=/usr/sbin/rsyslogd -n
+ExecStart= +"/home/michael/usbDevWatcher/main"
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* | grep "@"
+cat: /etc/systemd/system/bluetooth.target.wants: Is a directory
+cat: /etc/systemd/system/default.target.wants: Is a directory
+cat: /etc/systemd/system/display-manager.service.wants: Is a directory
+cat: /etc/systemd/system/final.target.wantsConflicts=getty@tty7.service plymouth-quit.service
+: Is a directory
+After=systemd-user-sessions.service getty@tty7.service plymouth-quit.service
+cat: /etc/systemd/system/getty.target.wants: Is a directory
+cat: /etc/systemd/system/graphical.target.wants: Is a directory
+cat: /etc/systemd/system/hibernate.target.wants: Is a directory
+cat: /etc/systemd/system/hybrid-sleep.target.wants: Is a directory
+cat: /etc/systemd/system/multi-user.target.wants: Is a directory
+cat: /etc/systemd/system/network-online.target.wants: Is a directory
+cat: /etc/systemd/system/paths.target.wants: Is a directory
+cat: /etc/systemd/system/printer.target.wants: Is a directory
+cat: /etc/systemd/system/shutdown.target.wants: Is a directory
+cat: /etc/systemd/system/sockets.target.wants: Is a directory
+cat: /etc/systemd/system/suspend.target.wants: Is a directory
+cat: /etc/systemd/system/sysinit.target.wants: Is a directory
+cat: /etc/systemd/system/timers.target.wants: Is a directory
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* 2>/dev/null | grep "@"
+Conflicts=getty@tty7.service plymouth-quit.service
+After=systemd-user-sessions.service getty@tty7.service plymouth-quit.service
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* 2>/dev/null | grep "+"
+ExecStart= +"/home/michael/usbDevWatcher/main"
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* 2>/dev/null | grep "-"
+#Restart=on-failure
+Alias=dbus-org.bluez.service
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+Description=Avahi mDNS/DNS-SD Stack
+Requires=avahi-daemon.socket
+ExecStart=/usr/sbin/avahi-daemon -s
+ExecReload=/usr/sbin/avahi-daemon -r
+WantedBy=multi-user.target
+Also=avahi-daemon.socket
+Alias=dbus-org.freedesktop.Avahi.service
+Restart=on-abort
+WantedBy=multi-user.target
+Alias=dbus-org.freedesktop.ModemManager1.service
+ExecStart=/usr/lib/NetworkManager/nm-dispatcher
+# We want to allow scripts to spawn long-running daemons, so tell
+# systemd to not clean up when nm-dispatcher exits
+Alias=dbus-org.freedesktop.nm-dispatcher.service
+ExecStart=/usr/sbin/thermald --no-daemon --dbus-enable
+WantedBy=multi-user.target
+Alias=dbus-org.freedesktop.thermald.service
+Conflicts=getty@tty7.service plymouth-quit.service
+After=systemd-user-sessions.service getty@tty7.service plymouth-quit.service
+# display-manager.service symlink handling
+ExecStartPre=/bin/sh -c '[ "$(basename $(cat /etc/X11/default-display-manager 2>/dev/null))" = "lightdm" ]'
+ExecStart=/usr/sbin/rsyslogd -n
+Restart=on-failure
+WantedBy=multi-user.target
+WantedBy=multi-user.target
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* 2>/dev/null | grep "+"
+ExecStart= +"/home/michael/usbDevWatcher/main"
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ cat /etc/systemd/system/* 2>/dev/null | grep "ExecStop"
+ExecStopPost=rm /home/michael/usbDevWatcher/Note.txt
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: inactive (dead)
+
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:03:05 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:21:49 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:06 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:11] Executable path is not absolute, ignori
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: [/etc/systemd/system/usbDevWatcher.service:20] Executable path is not absolute, ignori
+апр 17 21:23:43 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service lacks both ExecStart= and ExecStop= setting. Refusing.
+
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl start usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:36:28 MSK; 1s ago
+ Main PID: 11423 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─11423 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:36:28 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo nano /etc/systemd/system/usbDevWatcher.service 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/usbDevWatcher.service 
+
+(gedit:12423): Gtk-WARNING **: Calling Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (gedit:12423): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-spell-enabled not supported
+
+** (gedit:12423): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-encoding not supported
+
+** (gedit:12423): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-position not supported
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ systemctl stop usbDevWatcher
+Warning: usbDevWatcher.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:36 MSK; 3s ago
+  Process: 13671 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13679 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13679 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:36 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: activating (auto-restart) (Result: timeout) since Пн 2017-04-17 21:59:42 MSK; 269ms ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+  Process: 13679 ExecStart=/home/michael/usbDevWatcher/main.bin (code=killed, signal=TERM)
+ Main PID: 13679 (code=killed, signal=TERM)
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: activating (auto-restart) (Result: timeout) since Пн 2017-04-17 21:59:42 MSK; 1s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+  Process: 13679 ExecStart=/home/michael/usbDevWatcher/main.bin (code=killed, signal=TERM)
+ Main PID: 13679 (code=killed, signal=TERM)
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: activating (auto-restart) (Result: timeout) since Пн 2017-04-17 21:59:42 MSK; 3s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+  Process: 13679 ExecStart=/home/michael/usbDevWatcher/main.bin (code=killed, signal=TERM)
+ Main PID: 13679 (code=killed, signal=TERM)
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: activating (auto-restart) (Result: timeout) since Пн 2017-04-17 21:59:42 MSK; 4s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+  Process: 13679 ExecStart=/home/michael/usbDevWatcher/main.bin (code=killed, signal=TERM)
+ Main PID: 13679 (code=killed, signal=TERM)
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: activating (auto-restart) (Result: timeout) since Пн 2017-04-17 21:59:42 MSK; 4s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+  Process: 13679 ExecStart=/home/michael/usbDevWatcher/main.bin (code=killed, signal=TERM)
+ Main PID: 13679 (code=killed, signal=TERM)
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 168ms ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 859ms ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 1s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 2s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 3s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 3s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 21:59:47 MSK; 4s ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─13716 /home/michael/usbDevWatcher/main.bin
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: deactivating (stop-sigterm) (Result: timeout) since Пн 2017-04-17 21:59:52 MSK; 3ms ago
+  Process: 13693 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+ Main PID: 13716 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           ‣ 13716 [main.bin]
+
+апр 17 21:59:47 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+апр 17 21:59:52 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Service reached runtime time limit. Stopping.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: activating (auto-restart) (Result: timeout) since Пн 2017-04-17 21:59:52 MSK; 760ms ago
+  Process: 13751 ExecStopPost=/home/michael/usbDevWatcher/rmNote.sh (code=exited, status=0/SUCCESS)
+  Process: 13716 ExecStart=/home/michael/usbDevWatcher/main.bin (code=killed, signal=TERM)
+ Main PID: 13716 (code=killed, signal=TERM)
+
+апр 17 21:59:52 michael-LIFEBOOK-AH531 systemd[1]: usbDevWatcher.service: Failed with result 'timeout'.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl stop usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/usbDevWatcher.service 
+
+(gedit:14426): Gtk-WARNING **: Calling Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (gedit:14426): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-spell-enabled not supported
+
+** (gedit:14426): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-encoding not supported
+^X^C
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/usbDevWatcher.service 
+
+(gedit:14649): Gtk-WARNING **: Calling Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (gedit:14649): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-spell-enabled not supported
+
+** (gedit:14649): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-encoding not supported
+^C
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl stop usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/usbDevWatcher.service 
+
+(gedit:14919): Gtk-WARNING **: Calling Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (gedit:14919): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-spell-enabled not supported
+
+** (gedit:14919): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-encoding not supported
+^C
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reload
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl stop usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/usbDevWatcher.service 
+
+(gedit:15021): Gtk-WARNING **: Calling Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (gedit:15021): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-spell-enabled not supported
+
+** (gedit:15021): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-encoding not supported
+
+** (gedit:15021): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-position not supported
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo gedit /etc/systemd/system/usbDevWatcher.service 
+
+** (gedit:15048): WARNING **: Set document metadata failed: Setting attribute metadata::gedit-position not supported
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl stop usbDevWatcher
+Warning: usbDevWatcher.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl daemon-reloadmichael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl start usbDevWatcher
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ sudo systemctl status usbDevWatcher
+● usbDevWatcher.service - USB devices watcher
+   Loaded: loaded (/etc/systemd/system/usbDevWatcher.service; enabled; vendor preset: enabled)
+   Active: active (running) since Пн 2017-04-17 22:14:22 MSK; 1min 40s ago
+ Main PID: 15085 (main.bin)
+   CGroup: /system.slice/usbDevWatcher.service
+           └─15085 /home/michael/usbDevWatcher/main.bin
+
+апр 17 22:14:22 michael-LIFEBOOK-AH531 systemd[1]: Started USB devices watcher.
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+michael@michael-LIFEBOOK-AH531:~/Desktop/SP-8-semester/lab2-LinuxDaemon$ 
+
