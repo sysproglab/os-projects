@@ -1,0 +1,78 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage{cmap}
+\usepackage[warn]{mathtext}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\graphicspath{{image/}}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{placeins}
+\setmainfont{Times New Roman}
+\setmonofont{Arial}
+
+\lstset{
+	inputencoding=utf8x,
+	extendedchars=\true,
+	frame=single,
+	breaklines=true,
+	numbers=left,
+	keepspaces = true}
+
+\voffset -24.5mm
+\hoffset -5mm
+\textwidth 173mm
+\textheight 240mm
+\oddsidemargin=0mm \evensidemargin=0mm
+
+
+\begin{document}
+	\input{titlepage.tex}
+	\renewcommand{\thesection}{\arabic{section}}
+	\setcounter{page}{2}
+	\tableofcontents
+	\pagebreak
+	
+	\setcounter{totalnumber}{10}
+	\setcounter{topnumber}{10}
+	\setcounter{bottomnumber}{10}
+	\renewcommand{\topfraction}{1}
+	\renewcommand{\textfraction}{0}
+	
+	\input{task.tex}
+	\input{description.tex}
+	\input{theory.tex}
+	\input{analysis.tex}
+	\input{la.tex}
+	\input{conclusion.tex}
+	\FloatBarrier
+			
+	\pagebreak
+	\addcontentsline{toc}{section}{Список используемой литературы}
+	\bibliography{biblio}
+	\bibliographystyle{ugost2008}  %% стилевой файл для оформления по ГОСТу
+	
+	\pagebreak	
+	\section{Прилагаемые материалы}
+	Все прилагаемые материалы находятся в папке man.
+	Список прилагаемых материалов следующий:
+	\begin{itemize}
+		\item Техническое задание.docx --- техническое задание на проект;
+		\item programmingGuilde.pdf --- руководство системного программиста;
+		\item programText.pdf --- текст программы;
+		\item spec.pdf --- описание программы;
+		\item testGuide.pdf --- программа и методика испытаний;
+		\item userGuide.pdf --- руководство пользователя.
+	\end{itemize}
+	Так же прилагается пояснительная записка (report/report.pdf).
+	
+	
+	\pagebreak
+	\input{listings.tex}
+\end{document}
