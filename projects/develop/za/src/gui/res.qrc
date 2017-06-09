@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/dialing.qml</file>
+        <file>qml/core/Button.qml</file>
+        <file>qml/call.qml</file>
+        <file>pics/dial.png</file>
+        <file>pics/erase.png</file>
+        <file>pics/back.png</file>
+        <file>pics/hang.png</file>
+    </qresource>
+</RCC>

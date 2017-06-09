@@ -1,0 +1,81 @@
+\documentclass[14pt,a4paper]{report}
+\usepackage{cmap}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\setmainfont{SFNS Display}
+\setmonofont{SFNS Display}
+
+\lstset{
+	inputencoding=utf8x,
+	extendedchars=\true,
+	frame=single,
+	breaklines=true,
+	numbers=left,
+	keepspaces = true}
+
+\voffset -24.5mm
+\hoffset -5mm
+\textwidth 173mm
+\textheight 240mm
+\oddsidemargin=0mm \evensidemargin=0mm
+
+\author{Зорин А.Г.}
+\title{Руководство пользователя}
+\begin{document}
+\maketitle
+\renewcommand{\thesection}{\arabic{section}}
+\section{Введение}
+Данный демон предназначен для активации подключенного SIM-модуля, а также для обеспечения получения базовой информации, такой как информация об операторе. Данный демон не зависит от ОС и платформы реализации. Для запуска демона в системе должны быть установлены следующие пакеты:
+\begin{itemize}
+\item oFono
+\item Qt
+\item GLib
+\end{itemize}
+	
+\section{Подготовка к работе}
+Самый первый шаг, перед запуском демона --- установка пакета oFono. Осуществляется установка следующим образом:
+\begin{verbatim}
+git clone https://git.ejiek.com/KSPT/ofono.git
+cd ofono/
+git checkout kspt
+./bootstrap-configure
+make
+sudo make install
+sudo install -Dm755 "./src/ofono.conf" "/etc/dbus-1/system.d/ofono.conf"
+sudo install -Dm755 "./src/ofono.service" "/usr/lib/systemd/system/ofono.service"
+\end{verbatim}
+
+В результате выполнения данных команд, в системе должен появиться сервис, который называется \textit{ofono}. Следующий этап настройки oFono - создание файла \textit{ofono.rules} в каталоге \textit{/etc/udev/rules.d/}. В созданный фал необходимо записать одну строчку:
+\begin{verbatim}
+KERNEL=="ttyUSB0", ENV{OFONO_DRIVER}="sim900"
+\end{verbatim}
+
+Однако, файлы устройства могут меняться, в зависимости от того, каким образом подключено устройство. Если подключение через USB --- \textit{/dev/ttyUSB0}, а если через UART --- \textit{/dev/ttyAMA0}.
+
+Следующим этапом скажем нашей системе, что сервис ofono необходимо включать вмете с системой. Для этого необходимо выполнить следующую команду:
+\begin{verbatim}
+sudo systemctl enable ofono
+\end{verbatim}
+Для того, чтобы настройки вступили в силу, необходимо перезагрузить ОС. 
+
+\section{Описание работы}
+После проведения всех настроек, для того, чтобы запустить демон, его необходимо собрать. Система сборки демона --- CMake. Из этого следует, что сборку можно выполнить следующими командами:
+\begin{verbatim}
+mkdir build
+cd build
+cmake ..
+make
+\end{verbatim}
+Сборка демона выполняется быстро. По ее окончании, необходимо запустить исполняемый файл. С этих пор, демон будет работать в системе и отслеживать изменения.
+
+\section{Аварийные ситуации}
+При неправильной сборке или установке oFono, может возникнуть такая ситуация, что сервис в системе не был создан. Вероятнее всего, не были выполнены последние две строчки из руководства по установке.
+
+В том случае, если в демоне произошла какая-то ошибка, все будет записано в системный лог-файл.
+\end{document}

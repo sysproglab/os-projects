@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define ProductName="FileWatcherSetup" ?>
+  <?define ProductVersion="1.0.0.0" ?>
+  <?define ProductCode="b7bc7c6f-9a4e-4973-be84-eca8e3427c97"?>
+  <?define UpgradeCode="06a81104-1e30-463d-87e1-e8a79b4c682a"?>
+  <?define Manufacturer="ArsenyZorin"?>
+  <Product Id="$(var.ProductCode)" Name="$(var.ProductName)" Language="1049" Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
+
+    <Feature Id="ProductFeature" Title="FileWatcherSetup" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="ApplicationShortcutWatcher"/>
+    </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" ></Property>
+    <WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="D:\VS_Projects\FileWatcherSetup\gplru.rtf"/>
+    <UIRef Id="WixUI_InstallDir"/>
+  
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="$(var.ProductName)">
+          <Component Id="ProductComponent">
+            <File Id='Watcher' DiskId='1' Source='D:\VS_Projects\MonitoringUtil\MonitoringUtil\bin\Debug\MonitoringUtil.exe'/>
+          </Component>
+      </Directory>
+    </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)">
+          <Component Id="ApplicationShortcutWatcher">
+            <Shortcut Id="ShortcutWatcher"
+                 Name="Watcher"
+                 Description="$(var.ProductName)"
+                 Target="[INSTALLLOCATION]MonitoringUtil.exe"
+                 WorkingDirectory="INSTALLLOCATION"/>
+            <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Product>
+</Wix>
