@@ -1,0 +1,61 @@
+execve("./sigthr", ["./sigthr"], [/* 60 vars */]) = 0
+brk(0)                                  = 0x9f86000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76ed000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80298, ...}) = 0
+mmap2(NULL, 80298, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb76d9000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320]\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=134614, ...}) = 0
+mmap2(NULL, 111276, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb76bd000
+mmap2(0xb76d5000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000) = 0xb76d5000
+mmap2(0xb76d7000, 4780, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb76d7000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P\234\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1754876, ...}) = 0
+mmap2(NULL, 1763964, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb750e000
+mprotect(0xb76b6000, 4096, PROT_NONE)   = 0
+mmap2(0xb76b7000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a8000) = 0xb76b7000
+mmap2(0xb76ba000, 10876, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb76ba000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb750d000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb750c000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb750c700, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb76b7000, 8192, PROT_READ)   = 0
+mprotect(0xb76d5000, 4096, PROT_READ)   = 0
+mprotect(0x8049000, 4096, PROT_READ)    = 0
+mprotect(0xb7713000, 4096, PROT_READ)   = 0
+munmap(0xb76d9000, 80298)               = 0
+set_tid_address(0xb750c768)             = 3378
+set_robust_list(0xb750c770, 12)         = 0
+futex(0xbfd83854, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, b750c700) = -1 EAGAIN (Resource temporarily unavailable)
+rt_sigaction(SIGRTMIN, {0xb76c27d0, [], SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {0xb76c2850, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+uname({sys="Linux", node="osboxes", ...}) = 0
+nanosleep({0, 1000}, NULL)              = 0
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76ec000
+write(1, "process started with PID=3378\n", 30) = 30
+nanosleep({0, 2000}, NULL)              = 0
+nanosleep({0, 3000}, NULL)              = 0
+nanosleep({0, 4000}, NULL)              = 0
+rt_sigprocmask(SIG_BLOCK, [INT QUIT], [], 8) = 0
+nanosleep({0, 5000}, NULL)              = 0
+mmap2(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xb6d0b000
+brk(0)                                  = 0x9f86000
+brk(0x9fa7000)                          = 0x9fa7000
+mprotect(0xb6d0b000, 4096, PROT_NONE)   = 0
+clone(child_stack=0xb750b424, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0xb750bba8, {entry_number:6, base_addr:0xb750bb40, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}, child_tidptr=0xb750bba8) = 3379
+futex(0x804a144, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0x804a120, FUTEX_WAKE_PRIVATE, 1) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+exit_group(0)                           = ?
++++ exited with 0 +++

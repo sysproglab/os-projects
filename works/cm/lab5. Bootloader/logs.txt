@@ -1,0 +1,218 @@
+osboxes@osboxes:~$ cd ~/Desktop/SysteProgramming/
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm bootloader.asm –f bin boot.bin
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ ls -l
+total 4
+-rwxrw-rw- 1 osboxes osboxes 1348 May  7  2016 bootloader.asm
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm bootloader.asm –f bin boot.bin
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm bootloader.asm –fbin boot.bin
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm boot.asm –f bin boot.bin
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ 
+osboxes@osboxes:~/Desktop/SysteProgramming$ 
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm boot.asm –f bin boot.bin
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm -h
+usage: nasm [-@ response file] [-o outfile] [-f format] [-l listfile]
+            [options...] [--] filename
+    or nasm -v (or --v) for version info
+
+    -t          assemble in SciTech TASM compatible mode
+    -E (or -e)  preprocess only (writes output to stdout by default)
+    -a          don't preprocess (assemble only)
+    -M          generate Makefile dependencies on stdout
+    -MG         d:o, missing files assumed generated
+    -MF <file>  set Makefile dependency file
+    -MD <file>  assemble and generate dependencies
+    -MT <file>  dependency target name
+    -MQ <file>  dependency target name (quoted)
+    -MP         emit phony target
+
+    -Z<file>    redirect error messages to file
+    -s          redirect error messages to stdout
+
+    -g          generate debugging information
+
+    -F format   select a debugging format
+
+    -gformat    same as -g -F format
+
+    -o outfile  write output to an outfile
+
+    -f format   select an output format
+
+    -l listfile write listing to a listfile
+
+    -I<path>    adds a pathname to the include file path
+    -O<digit>   optimize branch offsets
+                -O0: No optimization
+                -O1: Minimal optimization
+                -Ox: Multipass optimization (default)
+
+    -P<file>    pre-includes a file
+    -D<macro>[=<value>] pre-defines a macro
+    -U<macro>   undefines a macro
+    -X<format>  specifies error reporting format (gnu or vc)
+    -w+foo      enables warning foo (equiv. -Wfoo)
+    -w-foo      disable warning foo (equiv. -Wno-foo)
+
+    -w[+-]error[=foo] can be used to promote warnings to errors
+    -h           show invocation summary and exit
+
+--prefix,--postfix
+                these options prepend or append the given string
+                to all extern and global variables
+
+Response files should contain command line parameters,
+one per line.
+
+Warnings for the -W/-w options:
+    other                   any warning not specifially mentioned below (default on)
+    macro-params            macro calls with wrong parameter count (default on)
+    macro-selfref           cyclic macro references (default off)
+    macro-defaults          macros with more default than optional parameters (default on)
+    orphan-labels           labels alone on lines without trailing `:' (default on)
+    number-overflow         numeric constant does not fit (default on)
+    gnu-elf-extensions      using 8- or 16-bit relocation in ELF32, a GNU extension (default off)
+    float-overflow          floating point overflow (default on)
+    float-denorm            floating point denormal (default off)
+    float-underflow         floating point underflow (default off)
+    float-toolong           too many digits in floating-point number (default on)
+    user                    %warning directives (default on)
+    lock                    lock prefix on unlockable instructions (default on)
+    hle                     invalid hle prefixes (default on)
+    bnd                     invalid bnd prefixes (default on)
+    zext-reloc              relocation zero-extended to match output format (default on)
+    ptr                     non-NASM keyword used in other assemblers (default on)
+    bad-pragma              empty or malformed %pragma (default off)
+    unknown-pragma          unknown %pragma facility or directive (default off)
+    not-my-pragma           %pragma not applicable to this compilation (default off)
+    unknown-warning         unknown warning in -W/-w or warning directive (default off)
+    all                     all possible warnings
+
+For a list of valid output formats, use -hf.
+For a list of debug formats, use -f <form> -y.
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm –f bin -o boot.bin boot.asm
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm-o boot.bin boot.asm
+nasm-o: command not found
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm -o boot.bin boot.asm
+nasm: fatal: unable to open input file `boot.asm'
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm –f bin -o boot.bin bootl.asm
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm –f bin -o boot.bin boot.asm
+nasm: error: more than one input file specified
+nasm: error: more than one input file specified
+type `nasm -h' for help
+osboxes@osboxes:~/Desktop/SysteProgramming$ nasm  -o boot.bin boot.asm
+osboxes@osboxes:~/Desktop/SysteProgramming$
+osboxes@osboxes:~$ 
+osboxes@osboxes:~$ 
+osboxes@osboxes:~$ dd
+^C0+0 records in
+0+0 records out
+0 bytes (0 B) copied, 1.56233 s, 0.0 kB/s
+
+osboxes@osboxes:~$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0   100G  0 disk 
++-sda1   8:1    0    98G  0 part /
++-sda2   8:2    0     1K  0 part 
+L-sda5   8:5    0     2G  0 part [SWAP]
+sr0     11:0    1  1024M  0 rom  
+osboxes@osboxes:~$ ls -l /dev/fd*
+lrwxrwxrwx 1 root root     13 May 29 11:41 /dev/fd -> /proc/self/fd
+brw-rw---- 1 root floppy 2, 0 May 29 11:41 /dev/fd0
+osboxes@osboxes:~$ sudo dd if=^CotLoader/punkt1/boot.bin of=/dev/fd0 bs=512 count=1
+osboxes@osboxes:~$ cd 
+.cache/       Desktop/      .gconf/       nasm-2.13.01/ Templates/
+.compiz/      Documents/    .local/       Pictures/     Videos/
+.config/      Downloads/    Music/        Public/       
+osboxes@osboxes:~$ cd Desktop/SysteProgramming/
+osboxes@osboxes:~/Desktop/SysteProgramming$ ls -l
+total 12
+-rwxrw-rw- 1 osboxes osboxes 1711 May 29 11:33 boot.asm
+-rw-rw-r-- 1 osboxes osboxes  512 May 29 11:33 boot.bin
+-rwxrw-rw- 1 osboxes osboxes 1711 May 29 11:28 bootl.asm~
+osboxes@osboxes:~/Desktop/SysteProgramming$ sudo dd if=boot.bin of=/dev/fd0 bs=512 count=1
+[sudo] password for osboxes: 
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.0164586 s, 31.1 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming$ 
+
+
+cosboxes@osboxes:~$ cd Desktop/SysteProgramming/
+osboxes@osboxes:~/Desktop/SysteProgramming$ sudo dd if=boot.bin of=/dev/fd0 bs=512 count=1
+[sudo] password for osboxes: 
+dd: failed to open ‘/dev/fd0’: No such device or address
+osboxes@osboxes:~/Desktop/SysteProgramming$ ls -l /dev/fs*
+ls: cannot access /dev/fs*: No such file or directory
+osboxes@osboxes:~/Desktop/SysteProgramming$ ls -l /dev/fd*
+lrwxrwxrwx 1 root root     13 May 29 11:56 /dev/fd -> /proc/self/fd
+brw-rw---- 1 root floppy 2, 0 May 29 11:56 /dev/fd0
+osboxes@osboxes:~/Desktop/SysteProgramming$ sudo dd if=boot.bin of=/dev/fd0 bs=512 count=1
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.0215854 s, 23.7 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming$ 
+
+osboxes@osboxes:~$ cd Desktop/
+SysteProgramming/ VMTools/          
+osboxes@osboxes:~$ cd Desktop/SysteProgramming/
+osboxes@osboxes:~/Desktop/SysteProgramming$ sudo dd if=boot.bin of=/dev/fd0 bs=512 count=1
+[sudo] password for osboxes: 
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.0216458 s, 23.7 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming$ sudo dd if=kernel.bin of==/dev/fd0 bs=512 count=1 seek=1
+dd: failed to open ‘kernel.bin’: No such file or directory
+osboxes@osboxes:~/Desktop/SysteProgramming$ ls -l
+total 20
+drwxrwxrwx 2 osboxes osboxes 4096 May 31  2016 ¹2
+-rwxrw-rw- 1 osboxes osboxes 1711 May 29 11:33 boot.asm
+-rwxrw-rw- 1 osboxes osboxes  512 May  3  2016 boot.bin
+-rw-rw-r-- 1 osboxes osboxes  512 May 29 11:33 boot.bin-
+-rwxrw-rw- 1 osboxes osboxes 1711 May 29 11:28 bootl.asm~
+osboxes@osboxes:~/Desktop/SysteProgramming$ cd 2
+bash: cd: 2: No such file or directory
+osboxes@osboxes:~/Desktop/SysteProgramming$ cd ¹2/
+osboxes@osboxes:~/Desktop/SysteProgramming/¹2$ sudo dd if=boot.bin of=/dev/fd0 bs=512 count=1
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.00121139 s, 423 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming/¹2$ sudo dd if=kernel.bin of==/dev/fd0 bs=512 count=1 seek=1
+dd: failed to open ‘=/dev/fd0’: No such file or directory
+osboxes@osboxes:~/Desktop/SysteProgramming/¹2$ sudo dd if=kernel.bin of=/dev/fd0 bs=512 count=1 seek=1
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.00120126 s, 426 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming/¹2$ sudo dd if=boot.bin of=/dev/fd0 bs=512 count=1
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.00110442 s, 464 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming/¹2$ sudo dd if=kernel.bin of=/dev/fd0 bs=512 count=1 seek=1
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.00111469 s, 459 kB/s
+osboxes@osboxes:~/Desktop/SysteProgramming/¹2$ sudo  reboot

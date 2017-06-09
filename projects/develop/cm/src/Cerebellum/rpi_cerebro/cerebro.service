@@ -1,0 +1,16 @@
+[Unit]
+Description=Daemon for control/communicate with Digispark (Cerebellum)
+Before=getty.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=root
+Type=simple
+ExecStart=/usr/sbin/cerebro
+KillMode=process
+KillSignal=SIGINT
+SendSIGKILL=yes
+TimeoutStartSec=5
+TimeoutStopSec=5

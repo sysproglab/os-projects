@@ -1,0 +1,114 @@
+Count of all USB devices: 8
+Information about all devices
+---------------------------------------
+bDeviceClass:    e0
+idVendor:        0x8086
+idProduct:       0x189
+iProduct:        0
+iManufacturer:   0
+bNumConfigs:     0
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 1
+bDeviceProtocol: 1
+bMaxPacketSize0: 40
+
+---------------------------------------
+bDeviceClass:    0
+idVendor:        0x9da
+idProduct:       0x54f
+iProduct:        2
+iManufacturer:   1
+bNumConfigs:     2
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          110
+bDeviceSubClass: 0
+bDeviceProtocol: 0
+bMaxPacketSize0: 8
+
+---------------------------------------
+bDeviceClass:    0
+idVendor:        0x41e
+idProduct:       0x323d
+iProduct:        2
+iManufacturer:   1
+bNumConfigs:     2
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 0
+bDeviceProtocol: 0
+bMaxPacketSize0: 40
+
+---------------------------------------
+bDeviceClass:    9
+idVendor:        0x8087
+idProduct:       0x24
+iProduct:        0
+iManufacturer:   0
+bNumConfigs:     0
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 0
+bDeviceProtocol: 1
+bMaxPacketSize0: 40
+
+---------------------------------------
+bDeviceClass:    9
+idVendor:        0x1d6b
+idProduct:       0x2
+iProduct:        2
+iManufacturer:   3
+bNumConfigs:     2
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 0
+bDeviceProtocol: 0
+bMaxPacketSize0: 40
+
+---------------------------------------
+bDeviceClass:    ef
+idVendor:        0x4f2
+idProduct:       0xb213
+iProduct:        1
+iManufacturer:   2
+bNumConfigs:     1
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 2
+bDeviceProtocol: 1
+bMaxPacketSize0: 40
+
+---------------------------------------
+bDeviceClass:    9
+idVendor:        0x8087
+idProduct:       0x24
+iProduct:        0
+iManufacturer:   0
+bNumConfigs:     0
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 0
+bDeviceProtocol: 1
+bMaxPacketSize0: 40
+
+---------------------------------------
+bDeviceClass:    9
+idVendor:        0x1d6b
+idProduct:       0x2
+iProduct:        2
+iManufacturer:   3
+bNumConfigs:     2
+bLength:         12
+bDescriptorType: 1
+bcdUSB:          200
+bDeviceSubClass: 0
+bDeviceProtocol: 0
+bMaxPacketSize0: 40
+

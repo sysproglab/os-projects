@@ -1,0 +1,22 @@
+[Unit]
+Description=Daemon for resyncing of system clock by RTC Timer DS3231
+Before=getty.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+ExecStartPre=/bin/sh -c "/bin/echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device"
+ExecStart=/sbin/hwclock -s
+
+ExecStop=/sbin/hwclock -w
+ExecStopPost=/bin/sh -c "/bin/echo 0x68 > /sys/class/i2c-adapter/i2c-1/delete_device"
+
+KillMode=process
+KillSignal=SIGTERM
+SendSIGKILL=yes
+TimeoutStartSec=5
+TimeoutStopSec=5
