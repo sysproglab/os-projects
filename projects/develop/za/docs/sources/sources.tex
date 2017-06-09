@@ -1,0 +1,79 @@
+\documentclass[14pt,a4paper]{report}
+\usepackage{cmap}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{fontspec}
+\setmainfont{SFNS Display}
+\setmonofont{SFNS Display}
+
+\lstset{
+	inputencoding=utf8x,
+	extendedchars=\true,
+	frame=single,
+	breaklines=true,
+	numbers=left,
+	keepspaces = true}
+
+\voffset -24.5mm
+\hoffset -5mm
+\textwidth 173mm
+\textheight 240mm
+\oddsidemargin=0mm \evensidemargin=0mm
+
+\author{Зорин А.Г.}
+\title{Исходный код программы}
+\begin{document}
+\maketitle
+\renewcommand{\thesection}{\arabic{section}}
+\tableofcontents
+\pagebreak
+
+\section{Исходный код}
+\subsection{Демон}
+\lstinputlisting[label=lst:main, caption={Файл main.cpp},
+language={C++}]{../../src/daemon/main.cpp}
+
+\lstinputlisting[label=lst:struct, caption={Заголовочный файл Struct.h},
+language={C++}]{../../src/daemon/Struct.h}
+
+\lstinputlisting[label=lst:cmake, caption={Файл сборки CMake},
+language={C++}]{../../src/daemon/CMakeLists.txt}
+
+\subsection{Графическое приложение}
+
+\lstinputlisting[label=lst:maingui, caption={Файл main.cpp},
+language={C++}]{../../src/gui/main.cpp}
+
+\lstinputlisting[label=lst:mainwindow, caption={Файл mainwindow.cpp},
+language={C++}]{../../src/gui/mainwindow.cpp}
+
+\lstinputlisting[label=lst:mainwindowh, caption={Заголовочный файл mainwindow.h},
+language={C++}]{../../src/gui/mainwindow.h}
+
+\lstinputlisting[label=lst:qmake, caption={Файл сборки qmake},
+language={C++}]{../../src/gui/phone.pro}
+
+\lstinputlisting[label=lst:res, caption={Файл ресурсов res.qrc},
+language={C++}]{../../src/gui/res.qrc}
+
+\lstinputlisting[label=lst:mainqml, caption={Файл main.qml},
+language={C++}]{../../src/gui/qml/main.qml} 
+
+\lstinputlisting[label=lst:dialingqml, caption={Файл dialing.qml},
+language={C++}]{../../src/gui/qml/dialing.qml}
+
+\lstinputlisting[label=lst:callqml, caption={Файл call.qml},
+language={C++}]{../../src/gui/qml/call.qml}
+
+\lstinputlisting[label=lst:buttonqml, caption={Файл Button.qml},
+language={C++}]{../../src/gui/qml/core/Button.qml}
+
+\lstinputlisting[label=lst:qmldir, caption={Файл qmldir},
+language={C++}]{../../src/gui/qml/core/qmldir}
+\end{document}
