@@ -1,0 +1,481 @@
+C:\Users\Masha>cd "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin"
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin> dumpbin.exe /headers "E:\всё\5 курс\Системное программирование\отчеты\лаб5, chmod для windows, библиотеки\chmod\Debug\chmod.exe"
+Microsoft (R) COFF/PE Dumper Version 14.00.24215.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file E:\всё\5 курс\Системное программирование\отчеты\лаб5, chmod для windows, библиотеки\chmod\Debug\chmod.exe
+
+PE signature found
+
+File Type: EXECUTABLE IMAGE
+
+FILE HEADER VALUES
+             14C machine (x86)
+               A number of sections
+        58F5E479 time date stamp Tue Apr 18 13:03:37 2017
+               0 file pointer to symbol table
+               0 number of symbols
+              E0 size of optional header
+             102 characteristics
+                   Executable
+                   32 bit word machine
+
+OPTIONAL HEADER VALUES
+             10B magic # (PE32)
+           14.00 linker version
+           34400 size of code
+            FE00 size of initialized data
+               0 size of uninitialized data
+           182FD entry point (004182FD) @ILT+760(_mainCRTStartup)
+            1000 base of code
+            1000 base of data
+          400000 image base (00400000 to 00461FFF)
+            1000 section alignment
+             200 file alignment
+            6.00 operating system version
+            0.00 image version
+            6.00 subsystem version
+               0 Win32 version
+           62000 size of image
+             400 size of headers
+               0 checksum
+               3 subsystem (Windows CUI)
+            8140 DLL characteristics
+                   Dynamic base
+                   NX compatible
+                   Terminal Server Aware
+          100000 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+               0 [       0] RVA [size] of Export Directory
+           5A3F0 [      B4] RVA [size] of Import Directory
+           5F000 [     43C] RVA [size] of Resource Directory
+               0 [       0] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+           60000 [    1600] RVA [size] of Base Relocation Directory
+           528C0 [      38] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+           52B78 [      18] RVA [size] of Thread Storage Directory
+           528F8 [      40] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+           5A000 [     3F0] RVA [size] of Import Address Table Directory
+               0 [       0] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+.textbss name
+   16C23 virtual size
+    1000 virtual address (00401000 to 00417C22)
+       0 size of raw data
+       0 file pointer to raw data
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+E00000A0 flags
+         Code
+         Uninitialized Data
+         Execute Read Write
+
+SECTION HEADER #2
+   .text name
+   34211 virtual size
+   18000 virtual address (00418000 to 0044C210)
+   34400 size of raw data
+     400 file pointer to raw data (00000400 to 000347FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #3
+  .rdata name
+    8AB4 virtual size
+   4D000 virtual address (0044D000 to 00455AB3)
+    8C00 size of raw data
+   34800 file pointer to raw data (00034800 to 0003D3FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type        Size      RVA  Pointer
+    -------- ------- -------- -------- --------
+    58F396AF cv            B8 00053048    3A848    Format: RSDS, {E2D567D6-52FA-4A5A-8FFA-3CC7C30490BA}, 12, E:\всё\5 курс\Системное программирование\отчеты\лаб5, chmod для windows, библиотеки\chmod\Debug\chmod.pdb
+    58F396AF feat          14 00053100    3A900    Counts: Pre-VC++ 11.00=0, C/C++=51, /GS=51, /sdl=3, guardN=46
+
+SECTION HEADER #4
+   .data name
+    30A4 virtual size
+   56000 virtual address (00456000 to 004590A3)
+     400 size of raw data
+   3D400 file pointer to raw data (0003D400 to 0003D7FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #5
+  .idata name
+    15E6 virtual size
+   5A000 virtual address (0045A000 to 0045B5E5)
+    1600 size of raw data
+   3D800 file pointer to raw data (0003D800 to 0003EDFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #6
+    .tls name
+     309 virtual size
+   5C000 virtual address (0045C000 to 0045C308)
+     400 size of raw data
+   3EE00 file pointer to raw data (0003EE00 to 0003F1FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #7
+  .gfids name
+     188 virtual size
+   5D000 virtual address (0045D000 to 0045D187)
+     200 size of raw data
+   3F200 file pointer to raw data (0003F200 to 0003F3FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #8
+  .00cfg name
+     104 virtual size
+   5E000 virtual address (0045E000 to 0045E103)
+     200 size of raw data
+   3F400 file pointer to raw data (0003F400 to 0003F5FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #9
+   .rsrc name
+     43C virtual size
+   5F000 virtual address (0045F000 to 0045F43B)
+     600 size of raw data
+   3F600 file pointer to raw data (0003F600 to 0003FBFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #A
+  .reloc name
+    1AB8 virtual size
+   60000 virtual address (00460000 to 00461AB7)
+    1C00 size of raw data
+   3FC00 file pointer to raw data (0003FC00 to 000417FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42000040 flags
+         Initialized Data
+         Discardable
+         Read Only
+
+  Summary
+
+        1000 .00cfg
+        4000 .data
+        1000 .gfids
+        2000 .idata
+        9000 .rdata
+        2000 .reloc
+        1000 .rsrc
+       35000 .text
+       17000 .textbss
+        1000 .tls
+
+
+
+
+
+// For service
+
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin>dumpbin.exe /headers "E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.exe"
+Microsoft (R) COFF/PE Dumper Version 14.00.24215.1
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.exe
+
+PE signature found
+
+File Type: EXECUTABLE IMAGE
+
+FILE HEADER VALUES
+             14C machine (x86)
+               A number of sections
+        590863F2 time date stamp Tue May  2 13:48:18 2017
+               0 file pointer to symbol table
+               0 number of symbols
+              E0 size of optional header
+             102 characteristics
+                   Executable
+                   32 bit word machine
+
+OPTIONAL HEADER VALUES
+             10B magic # (PE32)
+           14.00 linker version
+           34C00 size of code
+           10000 size of initialized data
+               0 size of uninitialized data
+           19307 entry point (00419307) @ILT+770(_mainCRTStartup)
+            1000 base of code
+            1000 base of data
+          400000 image base (00400000 to 00462FFF)
+            1000 section alignment
+             200 file alignment
+            6.00 operating system version
+            0.00 image version
+            6.00 subsystem version
+               0 Win32 version
+           63000 size of image
+             400 size of headers
+               0 checksum
+               3 subsystem (Windows CUI)
+            8140 DLL characteristics
+                   Dynamic base
+                   NX compatible
+                   Terminal Server Aware
+          100000 size of stack reserve
+            1000 size of stack commit
+          100000 size of heap reserve
+            1000 size of heap commit
+               0 loader flags
+              10 number of directories
+               0 [       0] RVA [size] of Export Directory
+           5B418 [      B4] RVA [size] of Import Directory
+           60000 [     43C] RVA [size] of Resource Directory
+               0 [       0] RVA [size] of Exception Directory
+               0 [       0] RVA [size] of Certificates Directory
+           61000 [    16B8] RVA [size] of Base Relocation Directory
+           538B0 [      38] RVA [size] of Debug Directory
+               0 [       0] RVA [size] of Architecture Directory
+               0 [       0] RVA [size] of Global Pointer Directory
+           53B6C [      18] RVA [size] of Thread Storage Directory
+           538E8 [      40] RVA [size] of Load Configuration Directory
+               0 [       0] RVA [size] of Bound Import Directory
+           5B000 [     418] RVA [size] of Import Address Table Directory
+               0 [       0] RVA [size] of Delay Import Directory
+               0 [       0] RVA [size] of COM Descriptor Directory
+               0 [       0] RVA [size] of Reserved Directory
+
+
+SECTION HEADER #1
+.textbss name
+   17043 virtual size
+    1000 virtual address (00401000 to 00418042)
+       0 size of raw data
+       0 file pointer to raw data
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+E00000A0 flags
+         Code
+         Uninitialized Data
+         Execute Read Write
+
+SECTION HEADER #2
+   .text name
+   34AB1 virtual size
+   19000 virtual address (00419000 to 0044DAB0)
+   34C00 size of raw data
+     400 file pointer to raw data (00000400 to 00034FFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+60000020 flags
+         Code
+         Execute Read
+
+SECTION HEADER #3
+  .rdata name
+    8AB4 virtual size
+   4E000 virtual address (0044E000 to 00456AB3)
+    8C00 size of raw data
+   35000 file pointer to raw data (00035000 to 0003DBFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+  Debug Directories
+
+        Time Type        Size      RVA  Pointer
+    -------- ------- -------- -------- --------
+    59084BB5 cv            BD 0005403C    3B03C    Format: RSDS, {8129DABD-650C-4439-8F35-332A05BF7143}, 15, E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 1, демон, служба\chmodService\Debug\chmodService.pdb
+    59084BB5 feat          14 000540FC    3B0FC    Counts: Pre-VC++ 11.00=0, C/C++=51, /GS=51, /sdl=3, guardN=46
+
+SECTION HEADER #4
+   .data name
+    30DC virtual size
+   57000 virtual address (00457000 to 0045A0DB)
+     400 size of raw data
+   3DC00 file pointer to raw data (0003DC00 to 0003DFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #5
+  .idata name
+    16CC virtual size
+   5B000 virtual address (0045B000 to 0045C6CB)
+    1800 size of raw data
+   3E000 file pointer to raw data (0003E000 to 0003F7FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #6
+    .tls name
+     309 virtual size
+   5D000 virtual address (0045D000 to 0045D308)
+     400 size of raw data
+   3F800 file pointer to raw data (0003F800 to 0003FBFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+C0000040 flags
+         Initialized Data
+         Read Write
+
+SECTION HEADER #7
+  .gfids name
+     188 virtual size
+   5E000 virtual address (0045E000 to 0045E187)
+     200 size of raw data
+   3FC00 file pointer to raw data (0003FC00 to 0003FDFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #8
+  .00cfg name
+     104 virtual size
+   5F000 virtual address (0045F000 to 0045F103)
+     200 size of raw data
+   3FE00 file pointer to raw data (0003FE00 to 0003FFFF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #9
+   .rsrc name
+     43C virtual size
+   60000 virtual address (00460000 to 0046043B)
+     600 size of raw data
+   40000 file pointer to raw data (00040000 to 000405FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+40000040 flags
+         Initialized Data
+         Read Only
+
+SECTION HEADER #A
+  .reloc name
+    1B87 virtual size
+   61000 virtual address (00461000 to 00462B86)
+    1C00 size of raw data
+   40600 file pointer to raw data (00040600 to 000421FF)
+       0 file pointer to relocation table
+       0 file pointer to line numbers
+       0 number of relocations
+       0 number of line numbers
+42000040 flags
+         Initialized Data
+         Discardable
+         Read Only
+
+  Summary
+
+        1000 .00cfg
+        4000 .data
+        1000 .gfids
+        2000 .idata
+        9000 .rdata
+        2000 .reloc
+        1000 .rsrc
+       35000 .text
+       18000 .textbss
+        1000 .tls
+
+
+C:\WINDOWS\system32> "E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 4, управление памятью\Procdump\procdump.exe" -ma chmod.exe "E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 4, управление памятью\chmod-procdump.dmp"
+
+ProcDump v8.2 - Sysinternals process dump utility
+Copyright (C) 2009-2016 Mark Russinovich and Andrew Richards
+Sysinternals - www.sysinternals.com
+
+[19:51:46] Dump 1 initiated: E:\[19:51:46] Dump 1 writing: Estimated dump file size is 20 MB.
+[19:51:46] Dump 1 complete: 20 MB written in 0.1 seconds
+[19:51:46] Dump count reached.

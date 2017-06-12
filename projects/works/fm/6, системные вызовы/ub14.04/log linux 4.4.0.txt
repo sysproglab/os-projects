@@ -1,0 +1,227 @@
+osboxes@osboxes:~$ sudo mount -t vboxsf ub14.04 ~/ub14.04/
+
+osboxes@osboxes:~/ub14.04$ gcc using_getpriority_setpriority.c -o ex1
+osboxes@osboxes:~/ub14.04$ ./ex1
+Priority = 0 for process with pid = 3395
+Setpriority returns -1 for process with pid = 3395
+EACCES: The caller attempted to set a lower nice value (i.e., a higher process priority), but did not have the required privilege (on Linux: did not have the CAP_SYS_NICE capability).
+osboxes@osboxes:~/ub14.04$ sudo ./ex1
+Priority = 0 for process with pid = 3397
+Setpriority returns 0 for process with pid = 3397
+Priority = -20 for process with pid = 3397
+osboxes@osboxes:~/ub14.04$ strace ./ex1
+execve("./ex1", ["./ex1"], [/* 62 vars */]) = 0
+brk(0)                                  = 0x1c49000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fbac003b000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=87054, ...}) = 0
+mmap(NULL, 87054, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7fbac0025000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P \2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7fbabfa56000
+mprotect(0x7fbabfc10000, 2097152, PROT_NONE) = 0
+mmap(0x7fbabfe10000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7fbabfe10000
+mmap(0x7fbabfe16000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fbabfe16000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fbac0024000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fbac0022000
+arch_prctl(ARCH_SET_FS, 0x7fbac0022740) = 0
+mprotect(0x7fbabfe10000, 16384, PROT_READ) = 0
+mprotect(0x600000, 4096, PROT_READ)     = 0
+mprotect(0x7fbac003d000, 4096, PROT_READ) = 0
+munmap(0x7fbac0025000, 87054)           = 0
+getpid()                                = 3401
+getpriority(PRIO_PROCESS, 3401)         = 20
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 9), ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fbac003a000
+write(1, "Priority = 0 for process with pi"..., 41Priority = 0 for process with pid = 3401
+) = 41
+setpriority(PRIO_PROCESS, 3401, 4294967276) = -1 EACCES (Permission denied)
+write(1, "Setpriority returns -1 for proce"..., 51Setpriority returns -1 for process with pid = 3401
+) = 51
+write(1, "EACCES: The caller attempted to "..., 184EACCES: The caller attempted to set a lower nice value (i.e., a higher process priority), but did not have the required privilege (on Linux: did not have the CAP_SYS_NICE capability).
+) = 184
+exit_group(-1)                          = ?
++++ exited with 255 +++
+osboxes@osboxes:~/ub14.04$ sudo strace ./ex1
+execve("./ex1", ["./ex1"], [/* 18 vars */]) = 0
+brk(0)                                  = 0x1508000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f6e5bfca000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=87054, ...}) = 0
+mmap(NULL, 87054, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f6e5bfb4000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P \2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f6e5b9e5000
+mprotect(0x7f6e5bb9f000, 2097152, PROT_NONE) = 0
+mmap(0x7f6e5bd9f000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f6e5bd9f000
+mmap(0x7f6e5bda5000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f6e5bda5000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f6e5bfb3000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f6e5bfb1000
+arch_prctl(ARCH_SET_FS, 0x7f6e5bfb1740) = 0
+mprotect(0x7f6e5bd9f000, 16384, PROT_READ) = 0
+mprotect(0x600000, 4096, PROT_READ)     = 0
+mprotect(0x7f6e5bfcc000, 4096, PROT_READ) = 0
+munmap(0x7f6e5bfb4000, 87054)           = 0
+getpid()                                = 3407
+getpriority(PRIO_PROCESS, 3407)         = 20
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 9), ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f6e5bfc9000
+write(1, "Priority = 0 for process with pi"..., 41Priority = 0 for process with pid = 3407
+) = 41
+setpriority(PRIO_PROCESS, 3407, 4294967276) = 0
+write(1, "Setpriority returns 0 for proces"..., 50Setpriority returns 0 for process with pid = 3407
+) = 50
+getpriority(PRIO_PROCESS, 3407)         = 40
+write(1, "Priority = -20 for process with "..., 43Priority = -20 for process with pid = 3407
+) = 43
+exit_group(0)                           = ?
++++ exited with 0 +++
+osboxes@osboxes:~/ub14.04$ gcc using_uname.c -o ex2
+osboxes@osboxes:~/ub14.04$ ./ex2
+sysname: Linux
+nodename: osboxes
+release: 4.4.0-31-generic
+version: #50~14.04.1-Ubuntu SMP Wed Jul 13 01:07:32 UTC 2016
+machine: x86_64
+osboxes@osboxes:~/ub14.04$ strace ./ex2
+execve("./ex2", ["./ex2"], [/* 62 vars */]) = 0
+brk(0)                                  = 0x11c2000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f0cdc0b8000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=87054, ...}) = 0
+mmap(NULL, 87054, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f0cdc0a2000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P \2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1840928, ...}) = 0
+mmap(NULL, 3949248, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f0cdbad3000
+mprotect(0x7f0cdbc8d000, 2097152, PROT_NONE) = 0
+mmap(0x7f0cdbe8d000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1ba000) = 0x7f0cdbe8d000
+mmap(0x7f0cdbe93000, 17088, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f0cdbe93000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f0cdc0a1000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f0cdc09f000
+arch_prctl(ARCH_SET_FS, 0x7f0cdc09f740) = 0
+mprotect(0x7f0cdbe8d000, 16384, PROT_READ) = 0
+mprotect(0x600000, 4096, PROT_READ)     = 0
+mprotect(0x7f0cdc0ba000, 4096, PROT_READ) = 0
+munmap(0x7f0cdc0a2000, 87054)           = 0
+uname({sys="Linux", node="osboxes", ...}) = 0
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 9), ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f0cdc0b7000
+write(1, "sysname: Linux\n", 15sysname: Linux
+)        = 15
+write(1, "nodename: osboxes\n", 18nodename: osboxes
+)     = 18
+write(1, "release: 4.4.0-31-generic\n", 26release: 4.4.0-31-generic
+) = 26
+write(1, "version: #50~14.04.1-Ubuntu SMP "..., 61version: #50~14.04.1-Ubuntu SMP Wed Jul 13 01:07:32 UTC 2016
+) = 61
+write(1, "machine: x86_64\n", 16machine: x86_64
+)       = 16
+exit_group(0)                           = ?
++++ exited with 0 +++
+osboxes@osboxes:~/ub14.04$ 
+
+
+osboxes@osboxes:~/ub14.04$ sudo apt-get update
+osboxes@osboxes:~/ub14.04$ sudo apt-get install libncurses5-dev
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+libncurses5-dev is already the newest version.
+0 to upgrade, 0 to newly install, 0 to remove and 253 not to upgrade.
+osboxes@osboxes:~$ wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.1.tar.xz
+--2017-05-15 21:19:26--  https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.1.tar.xz
+Resolving cdn.kernel.org (cdn.kernel.org)... 151.101.12.69
+Connecting to cdn.kernel.org (cdn.kernel.org)|151.101.12.69|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 87288980 (83M) [application/x-xz]
+Saving to: ‘linux-4.4.1.tar.xz’
+
+100%[======================================>] 87,288,980  3.30MB/s   in 21s    
+
+2017-05-15 21:19:53 (3.90 MB/s) - ‘linux-4.4.1.tar.xz’ saved [87288980/87288980]
+
+osboxes@osboxes:~$ tar -xpJf linux-4.4.1.tar.xz
+osboxes@osboxes:~/linux-4.4.1$ cd linux-4.4.1/
+osboxes@osboxes:~/linux-4.4.1$ make defconfig
+osboxes@osboxes:~/linux-4.4.1$ make && make modules
+osboxes@osboxes:~/linux-4.4.1$ sudo make headers_install
+osboxes@osboxes:~/linux-4.4.1$ sudo make modules_install
+osboxes@osboxes:~/linux-4.4.1$ sudo rm /etc/kernel/postinst.d/vboxadd
+osboxes@osboxes:~/linux-4.4.1$ sudo make install
+osboxes@osboxes:~/linux-4.4.1$ ls -l /boot | grep 4.4.1
+-rw-r--r-- 1 root root   102936 May 15 22:34 config-4.4.1
+-rw-r--r-- 1 root root   102936 May 15 22:22 config-4.4.1.old
+-rw-r--r-- 1 root root  2716813 May 15 22:34 initrd.img-4.4.1
+-rw-r--r-- 1 root root  3381794 May 15 22:34 System.map-4.4.1
+-rw-r--r-- 1 root root  3381794 May 15 22:22 System.map-4.4.1.old
+-rw-r--r-- 1 root root  6148048 May 15 22:34 vmlinuz-4.4.1
+-rw-r--r-- 1 root root  6148048 May 15 22:22 vmlinuz-4.4.1.old
+osboxes@osboxes:~/linux-4.4.1$ sudo update-grub
+osboxes@osboxes:~$ uname -a
+Linux osboxes 4.4.1 #1 SMP Mon May 15 21:58:06 BST 2017 x86_64 x86_64 x86_64 GNU/Linux
+osboxes@osboxes:~/linux-4.4.1$ make && make modules
+osboxes@osboxes:~/linux-4.4.1$ sudo make install
+//И тут я узнала, что в LSM нет возможности перехватить мои системные вызовы
+
+
+// Узнаем адрес sys_call_table
+osboxes@osboxes:~/ub14.04$ sudo cat /boot/System.map-4.4.0-31-generic | grep sys_call_table
+ffffffff818001c0 R sys_call_table
+ffffffff81801500 R ia32_sys_call_table
+
+// Собираем модуль
+osboxes@osboxes:~$ make
+make -C /lib/modules/4.4.0-31-generic/build M=/home/osboxes modules
+make[1]: Entering directory `/usr/src/linux-headers-4.4.0-31-generic'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: Leaving directory `/usr/src/linux-headers-4.4.0-31-generic'
+// Загрузка модуля ядра и просмотр сообщений о перехваченных системных вызовах
+osboxes@osboxes:~$ sudo insmod replace.ko
+osboxes@osboxes:~$ dmesg | tail
+[ 7988.225591] System call uname was catched!
+[ 7988.231565] System call uname was catched!
+[ 8072.905183] System call getpriority was catched: which = 0, who = 25734
+[ 8072.905537] System call setpriority was catched: which = 0, who = 25734, niceval = -20
+[ 8077.586648] System call uname was catched!
+[ 8077.587635] System call uname was catched!
+[ 8077.606919] System call getpriority was catched: which = 0, who = 25736
+[ 8077.607047] System call setpriority was catched: which = 0, who = 25736, niceval = -20
+[ 8077.607095] System call getpriority was catched: which = 0, who = 25736
+[ 8079.223064] System call uname was catched!
+// Выгрузка модуля из ядра
+osboxes@osboxes:~$ sudo rmmod replace.ko
+
+// В соседнем окне
+osboxes@osboxes:~/ub14.04$ ./ex1
+Priority = 0 for process with pid = 25734
+Setpriority returns -1 for process with pid = 25734
+EACCES: The caller attempted to set a lower nice value (i.e., a higher process priority), but did not have the required privilege (on Linux: did not have the CAP_SYS_NICE capability).
+osboxes@osboxes:~/ub14.04$ sudo ./ex1
+Priority = 0 for process with pid = 25736
+Setpriority returns 0 for process with pid = 25736
+Priority = -20 for process with pid = 25736
+osboxes@osboxes:~/ub14.04$ ./ex2
+sysname: Linux
+nodename: osboxes
+release: 4.4.0-31-generic
+version: #50~14.04.1-Ubuntu SMP Wed Jul 13 01:07:32 UTC 2016
+machine: x86_64

@@ -1,0 +1,1429 @@
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ file /home/masha/labs/lab6/infofile
+/home/masha/labs/lab6/infofile: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=d347e7d8ba6dc6295f77b98a5f281911291c4a76, not stripped
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ readelf -e /home/masha/labs/lab6/infofile
+Заголовок ELF:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Класс:                             ELF64
+  Данные:                            дополнение до 2, little endian
+  Версия:                            1 (current)
+  OS/ABI:                            UNIX - System V
+  Версия ABI:                        0
+  Тип:                               EXEC (Исполняемый файл)
+  Машина:                            Advanced Micro Devices X86-64
+  Версия:                            0x1
+  Адрес точки входа:               0x400570
+  Начало заголовков программы:          64 (байт в файле)
+  Начало заголовков программы:          11184 (байт в файле)
+  Флаги:                             0x0
+  Размер этого заголовка:            64 (байт)
+  Размер заголовков программы:       56 (байт)
+  Число заголовков программы:        9
+  Размер заголовков раздела:         64 (байт)
+  Число заголовков раздела:          31
+  Индекс табл. строк загол. раздела: 28
+
+Заголовки разделов:
+  [Нм] Имя               Тип              Адрес             Смещение
+       Размер            Разм.Ent         Флаги  Ссылк Инфо  Выравн
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000400238  00000238
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.ABI-tag     NOTE             0000000000400254  00000254
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 3] .note.gnu.build-i NOTE             0000000000400274  00000274
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .gnu.hash         GNU_HASH         0000000000400298  00000298
+       000000000000001c  0000000000000000   A       5     0     8
+  [ 5] .dynsym           DYNSYM           00000000004002b8  000002b8
+       00000000000000c0  0000000000000018   A       6     1     8
+  [ 6] .dynstr           STRTAB           0000000000400378  00000378
+       000000000000006d  0000000000000000   A       0     0     1
+  [ 7] .gnu.version      VERSYM           00000000004003e6  000003e6
+       0000000000000010  0000000000000002   A       5     0     2
+  [ 8] .gnu.version_r    VERNEED          00000000004003f8  000003f8
+       0000000000000030  0000000000000000   A       6     1     8
+  [ 9] .rela.dyn         RELA             0000000000400428  00000428
+       0000000000000018  0000000000000018   A       5     0     8
+  [10] .rela.plt         RELA             0000000000400440  00000440
+       0000000000000090  0000000000000018  AI       5    24     8
+  [11] .init             PROGBITS         00000000004004d0  000004d0
+       000000000000001a  0000000000000000  AX       0     0     4
+  [12] .plt              PROGBITS         00000000004004f0  000004f0
+       0000000000000070  0000000000000010  AX       0     0     16
+  [13] .plt.got          PROGBITS         0000000000400560  00000560
+       0000000000000008  0000000000000000  AX       0     0     8
+  [14] .text             PROGBITS         0000000000400570  00000570
+       0000000000000710  0000000000000000  AX       0     0     16
+  [15] .fini             PROGBITS         0000000000400c80  00000c80
+       0000000000000009  0000000000000000  AX       0     0     4
+  [16] .rodata           PROGBITS         0000000000400c90  00000c90
+       00000000000003b2  0000000000000000   A       0     0     8
+  [17] .eh_frame_hdr     PROGBITS         0000000000401044  00001044
+       000000000000005c  0000000000000000   A       0     0     4
+  [18] .eh_frame         PROGBITS         00000000004010a0  000010a0
+       000000000000018c  0000000000000000   A       0     0     8
+  [19] .init_array       INIT_ARRAY       0000000000601e10  00001e10
+       0000000000000008  0000000000000000  WA       0     0     8
+  [20] .fini_array       FINI_ARRAY       0000000000601e18  00001e18
+       0000000000000008  0000000000000000  WA       0     0     8
+  [21] .jcr              PROGBITS         0000000000601e20  00001e20
+       0000000000000008  0000000000000000  WA       0     0     8
+  [22] .dynamic          DYNAMIC          0000000000601e28  00001e28
+       00000000000001d0  0000000000000010  WA       6     0     8
+  [23] .got              PROGBITS         0000000000601ff8  00001ff8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [24] .got.plt          PROGBITS         0000000000602000  00002000
+       0000000000000048  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000602048  00002048
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           0000000000602058  00002058
+       0000000000000008  0000000000000000  WA       0     0     1
+  [27] .comment          PROGBITS         0000000000000000  00002058
+       0000000000000034  0000000000000001  MS       0     0     1
+  [28] .shstrtab         STRTAB           0000000000000000  00002aa3
+       000000000000010c  0000000000000000           0     0     1
+  [29] .symtab           SYMTAB           0000000000000000  00002090
+       0000000000000750  0000000000000018          30    49     8
+  [30] .strtab           STRTAB           0000000000000000  000027e0
+       00000000000002c3  0000000000000000           0     0     1
+Обозначения флагов:
+  W (запись), A (назнач), X (исполняемый), M (слияние), S (строки), l (большой)
+  I (инфо), L (порядок ссылок), G (группа), T (TLS), E (исключён), x (неизв.)
+  O (треб. доп. обработка ОС) o (специфич. для ОС), p (специф. для процессора)
+
+Заголовки программы:
+  Тип            Смещ.              Вирт.адр           Физ.адр
+                 Рзм.фйл            Рзм.пм              Флаги  Выравн
+  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040
+                 0x00000000000001f8 0x00000000000001f8  R E    8
+  INTERP         0x0000000000000238 0x0000000000400238 0x0000000000400238
+                 0x000000000000001c 0x000000000000001c  R      1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x000000000000122c 0x000000000000122c  R E    200000
+  LOAD           0x0000000000001e10 0x0000000000601e10 0x0000000000601e10
+                 0x0000000000000248 0x0000000000000250  RW     200000
+  DYNAMIC        0x0000000000001e28 0x0000000000601e28 0x0000000000601e28
+                 0x00000000000001d0 0x00000000000001d0  RW     8
+  NOTE           0x0000000000000254 0x0000000000400254 0x0000000000400254
+                 0x0000000000000044 0x0000000000000044  R      4
+  GNU_EH_FRAME   0x0000000000001044 0x0000000000401044 0x0000000000401044
+                 0x000000000000005c 0x000000000000005c  R      4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     10
+  GNU_RELRO      0x0000000000001e10 0x0000000000601e10 0x0000000000601e10
+                 0x00000000000001f0 0x00000000000001f0  R      1
+
+ Соответствие раздел-сегмент:
+  Сегмент Разделы...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .plt.got .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .jcr .dynamic .got 
+
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ objdump -d /home/masha/labs/lab6/infofile
+
+/home/masha/labs/lab6/infofile:     формат файла elf64-x86-64
+
+
+Дизассемблирование раздела .init:
+
+00000000004004d0 <_init>:
+  4004d0:	48 83 ec 08          	sub    $0x8,%rsp
+  4004d4:	48 8b 05 1d 1b 20 00 	mov    0x201b1d(%rip),%rax        # 601ff8 <_DYNAMIC+0x1d0>
+  4004db:	48 85 c0             	test   %rax,%rax
+  4004de:	74 05                	je     4004e5 <_init+0x15>
+  4004e0:	e8 7b 00 00 00       	callq  400560 <__xstat@plt+0x10>
+  4004e5:	48 83 c4 08          	add    $0x8,%rsp
+  4004e9:	c3                   	retq   
+
+Дизассемблирование раздела .plt:
+
+00000000004004f0 <puts@plt-0x10>:
+  4004f0:	ff 35 12 1b 20 00    	pushq  0x201b12(%rip)        # 602008 <_GLOBAL_OFFSET_TABLE_+0x8>
+  4004f6:	ff 25 14 1b 20 00    	jmpq   *0x201b14(%rip)        # 602010 <_GLOBAL_OFFSET_TABLE_+0x10>
+  4004fc:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000400500 <puts@plt>:
+  400500:	ff 25 12 1b 20 00    	jmpq   *0x201b12(%rip)        # 602018 <_GLOBAL_OFFSET_TABLE_+0x18>
+  400506:	68 00 00 00 00       	pushq  $0x0
+  40050b:	e9 e0 ff ff ff       	jmpq   4004f0 <_init+0x20>
+
+0000000000400510 <ctime@plt>:
+  400510:	ff 25 0a 1b 20 00    	jmpq   *0x201b0a(%rip)        # 602020 <_GLOBAL_OFFSET_TABLE_+0x20>
+  400516:	68 01 00 00 00       	pushq  $0x1
+  40051b:	e9 d0 ff ff ff       	jmpq   4004f0 <_init+0x20>
+
+0000000000400520 <__stack_chk_fail@plt>:
+  400520:	ff 25 02 1b 20 00    	jmpq   *0x201b02(%rip)        # 602028 <_GLOBAL_OFFSET_TABLE_+0x28>
+  400526:	68 02 00 00 00       	pushq  $0x2
+  40052b:	e9 c0 ff ff ff       	jmpq   4004f0 <_init+0x20>
+
+0000000000400530 <printf@plt>:
+  400530:	ff 25 fa 1a 20 00    	jmpq   *0x201afa(%rip)        # 602030 <_GLOBAL_OFFSET_TABLE_+0x30>
+  400536:	68 03 00 00 00       	pushq  $0x3
+  40053b:	e9 b0 ff ff ff       	jmpq   4004f0 <_init+0x20>
+
+0000000000400540 <__libc_start_main@plt>:
+  400540:	ff 25 f2 1a 20 00    	jmpq   *0x201af2(%rip)        # 602038 <_GLOBAL_OFFSET_TABLE_+0x38>
+  400546:	68 04 00 00 00       	pushq  $0x4
+  40054b:	e9 a0 ff ff ff       	jmpq   4004f0 <_init+0x20>
+
+0000000000400550 <__xstat@plt>:
+  400550:	ff 25 ea 1a 20 00    	jmpq   *0x201aea(%rip)        # 602040 <_GLOBAL_OFFSET_TABLE_+0x40>
+  400556:	68 05 00 00 00       	pushq  $0x5
+  40055b:	e9 90 ff ff ff       	jmpq   4004f0 <_init+0x20>
+
+Дизассемблирование раздела .plt.got:
+
+0000000000400560 <.plt.got>:
+  400560:	ff 25 92 1a 20 00    	jmpq   *0x201a92(%rip)        # 601ff8 <_DYNAMIC+0x1d0>
+  400566:	66 90                	xchg   %ax,%ax
+
+Дизассемблирование раздела .text:
+
+0000000000400570 <_start>:
+  400570:	31 ed                	xor    %ebp,%ebp
+  400572:	49 89 d1             	mov    %rdx,%r9
+  400575:	5e                   	pop    %rsi
+  400576:	48 89 e2             	mov    %rsp,%rdx
+  400579:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+  40057d:	50                   	push   %rax
+  40057e:	54                   	push   %rsp
+  40057f:	49 c7 c0 60 0c 40 00 	mov    $0x400c60,%r8
+  400586:	48 c7 c1 f0 0b 40 00 	mov    $0x400bf0,%rcx
+  40058d:	48 c7 c7 66 06 40 00 	mov    $0x400666,%rdi
+  400594:	e8 a7 ff ff ff       	callq  400540 <__libc_start_main@plt>
+  400599:	f4                   	hlt    
+  40059a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+00000000004005a0 <deregister_tm_clones>:
+  4005a0:	b8 5f 20 60 00       	mov    $0x60205f,%eax
+  4005a5:	55                   	push   %rbp
+  4005a6:	48 2d 58 20 60 00    	sub    $0x602058,%rax
+  4005ac:	48 83 f8 0e          	cmp    $0xe,%rax
+  4005b0:	48 89 e5             	mov    %rsp,%rbp
+  4005b3:	76 1b                	jbe    4005d0 <deregister_tm_clones+0x30>
+  4005b5:	b8 00 00 00 00       	mov    $0x0,%eax
+  4005ba:	48 85 c0             	test   %rax,%rax
+  4005bd:	74 11                	je     4005d0 <deregister_tm_clones+0x30>
+  4005bf:	5d                   	pop    %rbp
+  4005c0:	bf 58 20 60 00       	mov    $0x602058,%edi
+  4005c5:	ff e0                	jmpq   *%rax
+  4005c7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+  4005ce:	00 00 
+  4005d0:	5d                   	pop    %rbp
+  4005d1:	c3                   	retq   
+  4005d2:	0f 1f 40 00          	nopl   0x0(%rax)
+  4005d6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  4005dd:	00 00 00 
+
+00000000004005e0 <register_tm_clones>:
+  4005e0:	be 58 20 60 00       	mov    $0x602058,%esi
+  4005e5:	55                   	push   %rbp
+  4005e6:	48 81 ee 58 20 60 00 	sub    $0x602058,%rsi
+  4005ed:	48 c1 fe 03          	sar    $0x3,%rsi
+  4005f1:	48 89 e5             	mov    %rsp,%rbp
+  4005f4:	48 89 f0             	mov    %rsi,%rax
+  4005f7:	48 c1 e8 3f          	shr    $0x3f,%rax
+  4005fb:	48 01 c6             	add    %rax,%rsi
+  4005fe:	48 d1 fe             	sar    %rsi
+  400601:	74 15                	je     400618 <register_tm_clones+0x38>
+  400603:	b8 00 00 00 00       	mov    $0x0,%eax
+  400608:	48 85 c0             	test   %rax,%rax
+  40060b:	74 0b                	je     400618 <register_tm_clones+0x38>
+  40060d:	5d                   	pop    %rbp
+  40060e:	bf 58 20 60 00       	mov    $0x602058,%edi
+  400613:	ff e0                	jmpq   *%rax
+  400615:	0f 1f 00             	nopl   (%rax)
+  400618:	5d                   	pop    %rbp
+  400619:	c3                   	retq   
+  40061a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000400620 <__do_global_dtors_aux>:
+  400620:	80 3d 31 1a 20 00 00 	cmpb   $0x0,0x201a31(%rip)        # 602058 <__TMC_END__>
+  400627:	75 11                	jne    40063a <__do_global_dtors_aux+0x1a>
+  400629:	55                   	push   %rbp
+  40062a:	48 89 e5             	mov    %rsp,%rbp
+  40062d:	e8 6e ff ff ff       	callq  4005a0 <deregister_tm_clones>
+  400632:	5d                   	pop    %rbp
+  400633:	c6 05 1e 1a 20 00 01 	movb   $0x1,0x201a1e(%rip)        # 602058 <__TMC_END__>
+  40063a:	f3 c3                	repz retq 
+  40063c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000400640 <frame_dummy>:
+  400640:	bf 20 1e 60 00       	mov    $0x601e20,%edi
+  400645:	48 83 3f 00          	cmpq   $0x0,(%rdi)
+  400649:	75 05                	jne    400650 <frame_dummy+0x10>
+  40064b:	eb 93                	jmp    4005e0 <register_tm_clones>
+  40064d:	0f 1f 00             	nopl   (%rax)
+  400650:	b8 00 00 00 00       	mov    $0x0,%eax
+  400655:	48 85 c0             	test   %rax,%rax
+  400658:	74 f1                	je     40064b <frame_dummy+0xb>
+  40065a:	55                   	push   %rbp
+  40065b:	48 89 e5             	mov    %rsp,%rbp
+  40065e:	ff d0                	callq  *%rax
+  400660:	5d                   	pop    %rbp
+  400661:	e9 7a ff ff ff       	jmpq   4005e0 <register_tm_clones>
+
+0000000000400666 <main>:
+  400666:	55                   	push   %rbp
+  400667:	48 89 e5             	mov    %rsp,%rbp
+  40066a:	48 81 ec b0 00 00 00 	sub    $0xb0,%rsp
+  400671:	89 bd 5c ff ff ff    	mov    %edi,-0xa4(%rbp)
+  400677:	48 89 b5 50 ff ff ff 	mov    %rsi,-0xb0(%rbp)
+  40067e:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  400685:	00 00 
+  400687:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  40068b:	31 c0                	xor    %eax,%eax
+  40068d:	83 bd 5c ff ff ff 02 	cmpl   $0x2,-0xa4(%rbp)
+  400694:	75 24                	jne    4006ba <main+0x54>
+  400696:	48 8b 85 50 ff ff ff 	mov    -0xb0(%rbp),%rax
+  40069d:	48 83 c0 08          	add    $0x8,%rax
+  4006a1:	48 8b 00             	mov    (%rax),%rax
+  4006a4:	48 8d 95 60 ff ff ff 	lea    -0xa0(%rbp),%rdx
+  4006ab:	48 89 d6             	mov    %rdx,%rsi
+  4006ae:	48 89 c7             	mov    %rax,%rdi
+  4006b1:	e8 ba 05 00 00       	callq  400c70 <__stat>
+  4006b6:	85 c0                	test   %eax,%eax
+  4006b8:	79 07                	jns    4006c1 <main+0x5b>
+  4006ba:	b8 01 00 00 00       	mov    $0x1,%eax
+  4006bf:	eb 05                	jmp    4006c6 <main+0x60>
+  4006c1:	b8 00 00 00 00       	mov    $0x0,%eax
+  4006c6:	84 c0                	test   %al,%al
+  4006c8:	74 07                	je     4006d1 <main+0x6b>
+  4006ca:	b8 01 00 00 00       	mov    $0x1,%eax
+  4006cf:	eb 33                	jmp    400704 <main+0x9e>
+  4006d1:	48 81 ec 90 00 00 00 	sub    $0x90,%rsp
+  4006d8:	48 89 e0             	mov    %rsp,%rax
+  4006db:	48 89 c7             	mov    %rax,%rdi
+  4006de:	48 8d 85 60 ff ff ff 	lea    -0xa0(%rbp),%rax
+  4006e5:	ba 12 00 00 00       	mov    $0x12,%edx
+  4006ea:	48 89 c6             	mov    %rax,%rsi
+  4006ed:	48 89 d1             	mov    %rdx,%rcx
+  4006f0:	f3 48 a5             	rep movsq %ds:(%rsi),%es:(%rdi)
+  4006f3:	e8 43 03 00 00       	callq  400a3b <_Z9printInfo4stat>
+  4006f8:	48 81 c4 90 00 00 00 	add    $0x90,%rsp
+  4006ff:	b8 00 00 00 00       	mov    $0x0,%eax
+  400704:	48 8b 4d f8          	mov    -0x8(%rbp),%rcx
+  400708:	64 48 33 0c 25 28 00 	xor    %fs:0x28,%rcx
+  40070f:	00 00 
+  400711:	74 05                	je     400718 <main+0xb2>
+  400713:	e8 08 fe ff ff       	callq  400520 <__stack_chk_fail@plt>
+  400718:	c9                   	leaveq 
+  400719:	c3                   	retq   
+
+000000000040071a <_ZL8ftypeletj>:
+  40071a:	55                   	push   %rbp
+  40071b:	48 89 e5             	mov    %rsp,%rbp
+  40071e:	89 7d fc             	mov    %edi,-0x4(%rbp)
+  400721:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400724:	25 00 f0 00 00       	and    $0xf000,%eax
+  400729:	3d 00 80 00 00       	cmp    $0x8000,%eax
+  40072e:	75 0a                	jne    40073a <_ZL8ftypeletj+0x20>
+  400730:	b8 2d 00 00 00       	mov    $0x2d,%eax
+  400735:	e9 89 00 00 00       	jmpq   4007c3 <_ZL8ftypeletj+0xa9>
+  40073a:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40073d:	25 00 f0 00 00       	and    $0xf000,%eax
+  400742:	3d 00 40 00 00       	cmp    $0x4000,%eax
+  400747:	75 07                	jne    400750 <_ZL8ftypeletj+0x36>
+  400749:	b8 64 00 00 00       	mov    $0x64,%eax
+  40074e:	eb 73                	jmp    4007c3 <_ZL8ftypeletj+0xa9>
+  400750:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400753:	25 00 f0 00 00       	and    $0xf000,%eax
+  400758:	3d 00 60 00 00       	cmp    $0x6000,%eax
+  40075d:	75 07                	jne    400766 <_ZL8ftypeletj+0x4c>
+  40075f:	b8 62 00 00 00       	mov    $0x62,%eax
+  400764:	eb 5d                	jmp    4007c3 <_ZL8ftypeletj+0xa9>
+  400766:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400769:	25 00 f0 00 00       	and    $0xf000,%eax
+  40076e:	3d 00 20 00 00       	cmp    $0x2000,%eax
+  400773:	75 07                	jne    40077c <_ZL8ftypeletj+0x62>
+  400775:	b8 63 00 00 00       	mov    $0x63,%eax
+  40077a:	eb 47                	jmp    4007c3 <_ZL8ftypeletj+0xa9>
+  40077c:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40077f:	25 00 f0 00 00       	and    $0xf000,%eax
+  400784:	3d 00 a0 00 00       	cmp    $0xa000,%eax
+  400789:	75 07                	jne    400792 <_ZL8ftypeletj+0x78>
+  40078b:	b8 6c 00 00 00       	mov    $0x6c,%eax
+  400790:	eb 31                	jmp    4007c3 <_ZL8ftypeletj+0xa9>
+  400792:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400795:	25 00 f0 00 00       	and    $0xf000,%eax
+  40079a:	3d 00 10 00 00       	cmp    $0x1000,%eax
+  40079f:	75 07                	jne    4007a8 <_ZL8ftypeletj+0x8e>
+  4007a1:	b8 70 00 00 00       	mov    $0x70,%eax
+  4007a6:	eb 1b                	jmp    4007c3 <_ZL8ftypeletj+0xa9>
+  4007a8:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4007ab:	25 00 f0 00 00       	and    $0xf000,%eax
+  4007b0:	3d 00 c0 00 00       	cmp    $0xc000,%eax
+  4007b5:	75 07                	jne    4007be <_ZL8ftypeletj+0xa4>
+  4007b7:	b8 73 00 00 00       	mov    $0x73,%eax
+  4007bc:	eb 05                	jmp    4007c3 <_ZL8ftypeletj+0xa9>
+  4007be:	b8 3f 00 00 00       	mov    $0x3f,%eax
+  4007c3:	5d                   	pop    %rbp
+  4007c4:	c3                   	retq   
+
+00000000004007c5 <_Z7strmodejPc>:
+  4007c5:	55                   	push   %rbp
+  4007c6:	48 89 e5             	mov    %rsp,%rbp
+  4007c9:	48 83 ec 10          	sub    $0x10,%rsp
+  4007cd:	89 7d fc             	mov    %edi,-0x4(%rbp)
+  4007d0:	48 89 75 f0          	mov    %rsi,-0x10(%rbp)
+  4007d4:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4007d7:	89 c7                	mov    %eax,%edi
+  4007d9:	e8 3c ff ff ff       	callq  40071a <_ZL8ftypeletj>
+  4007de:	89 c2                	mov    %eax,%edx
+  4007e0:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  4007e4:	88 10                	mov    %dl,(%rax)
+  4007e6:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  4007ea:	48 83 c0 01          	add    $0x1,%rax
+  4007ee:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  4007f1:	81 e2 00 01 00 00    	and    $0x100,%edx
+  4007f7:	85 d2                	test   %edx,%edx
+  4007f9:	74 07                	je     400802 <_Z7strmodejPc+0x3d>
+  4007fb:	ba 72 00 00 00       	mov    $0x72,%edx
+  400800:	eb 05                	jmp    400807 <_Z7strmodejPc+0x42>
+  400802:	ba 2d 00 00 00       	mov    $0x2d,%edx
+  400807:	88 10                	mov    %dl,(%rax)
+  400809:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  40080d:	48 83 c0 02          	add    $0x2,%rax
+  400811:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  400814:	81 e2 80 00 00 00    	and    $0x80,%edx
+  40081a:	85 d2                	test   %edx,%edx
+  40081c:	74 07                	je     400825 <_Z7strmodejPc+0x60>
+  40081e:	ba 77 00 00 00       	mov    $0x77,%edx
+  400823:	eb 05                	jmp    40082a <_Z7strmodejPc+0x65>
+  400825:	ba 2d 00 00 00       	mov    $0x2d,%edx
+  40082a:	88 10                	mov    %dl,(%rax)
+  40082c:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400830:	48 8d 50 03          	lea    0x3(%rax),%rdx
+  400834:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400837:	25 00 08 00 00       	and    $0x800,%eax
+  40083c:	85 c0                	test   %eax,%eax
+  40083e:	74 18                	je     400858 <_Z7strmodejPc+0x93>
+  400840:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400843:	83 e0 40             	and    $0x40,%eax
+  400846:	85 c0                	test   %eax,%eax
+  400848:	74 07                	je     400851 <_Z7strmodejPc+0x8c>
+  40084a:	b8 73 00 00 00       	mov    $0x73,%eax
+  40084f:	eb 1d                	jmp    40086e <_Z7strmodejPc+0xa9>
+  400851:	b8 53 00 00 00       	mov    $0x53,%eax
+  400856:	eb 16                	jmp    40086e <_Z7strmodejPc+0xa9>
+  400858:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40085b:	83 e0 40             	and    $0x40,%eax
+  40085e:	85 c0                	test   %eax,%eax
+  400860:	74 07                	je     400869 <_Z7strmodejPc+0xa4>
+  400862:	b8 78 00 00 00       	mov    $0x78,%eax
+  400867:	eb 05                	jmp    40086e <_Z7strmodejPc+0xa9>
+  400869:	b8 2d 00 00 00       	mov    $0x2d,%eax
+  40086e:	88 02                	mov    %al,(%rdx)
+  400870:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400874:	48 83 c0 04          	add    $0x4,%rax
+  400878:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  40087b:	83 e2 20             	and    $0x20,%edx
+  40087e:	85 d2                	test   %edx,%edx
+  400880:	74 07                	je     400889 <_Z7strmodejPc+0xc4>
+  400882:	ba 72 00 00 00       	mov    $0x72,%edx
+  400887:	eb 05                	jmp    40088e <_Z7strmodejPc+0xc9>
+  400889:	ba 2d 00 00 00       	mov    $0x2d,%edx
+  40088e:	88 10                	mov    %dl,(%rax)
+  400890:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400894:	48 83 c0 05          	add    $0x5,%rax
+  400898:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  40089b:	83 e2 10             	and    $0x10,%edx
+  40089e:	85 d2                	test   %edx,%edx
+  4008a0:	74 07                	je     4008a9 <_Z7strmodejPc+0xe4>
+  4008a2:	ba 77 00 00 00       	mov    $0x77,%edx
+  4008a7:	eb 05                	jmp    4008ae <_Z7strmodejPc+0xe9>
+  4008a9:	ba 2d 00 00 00       	mov    $0x2d,%edx
+  4008ae:	88 10                	mov    %dl,(%rax)
+  4008b0:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  4008b4:	48 8d 50 06          	lea    0x6(%rax),%rdx
+  4008b8:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4008bb:	25 00 04 00 00       	and    $0x400,%eax
+  4008c0:	85 c0                	test   %eax,%eax
+  4008c2:	74 18                	je     4008dc <_Z7strmodejPc+0x117>
+  4008c4:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4008c7:	83 e0 08             	and    $0x8,%eax
+  4008ca:	85 c0                	test   %eax,%eax
+  4008cc:	74 07                	je     4008d5 <_Z7strmodejPc+0x110>
+  4008ce:	b8 73 00 00 00       	mov    $0x73,%eax
+  4008d3:	eb 1d                	jmp    4008f2 <_Z7strmodejPc+0x12d>
+  4008d5:	b8 53 00 00 00       	mov    $0x53,%eax
+  4008da:	eb 16                	jmp    4008f2 <_Z7strmodejPc+0x12d>
+  4008dc:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  4008df:	83 e0 08             	and    $0x8,%eax
+  4008e2:	85 c0                	test   %eax,%eax
+  4008e4:	74 07                	je     4008ed <_Z7strmodejPc+0x128>
+  4008e6:	b8 78 00 00 00       	mov    $0x78,%eax
+  4008eb:	eb 05                	jmp    4008f2 <_Z7strmodejPc+0x12d>
+  4008ed:	b8 2d 00 00 00       	mov    $0x2d,%eax
+  4008f2:	88 02                	mov    %al,(%rdx)
+  4008f4:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  4008f8:	48 83 c0 07          	add    $0x7,%rax
+  4008fc:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  4008ff:	83 e2 04             	and    $0x4,%edx
+  400902:	85 d2                	test   %edx,%edx
+  400904:	74 07                	je     40090d <_Z7strmodejPc+0x148>
+  400906:	ba 72 00 00 00       	mov    $0x72,%edx
+  40090b:	eb 05                	jmp    400912 <_Z7strmodejPc+0x14d>
+  40090d:	ba 2d 00 00 00       	mov    $0x2d,%edx
+  400912:	88 10                	mov    %dl,(%rax)
+  400914:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400918:	48 83 c0 08          	add    $0x8,%rax
+  40091c:	8b 55 fc             	mov    -0x4(%rbp),%edx
+  40091f:	83 e2 02             	and    $0x2,%edx
+  400922:	85 d2                	test   %edx,%edx
+  400924:	74 07                	je     40092d <_Z7strmodejPc+0x168>
+  400926:	ba 77 00 00 00       	mov    $0x77,%edx
+  40092b:	eb 05                	jmp    400932 <_Z7strmodejPc+0x16d>
+  40092d:	ba 2d 00 00 00       	mov    $0x2d,%edx
+  400932:	88 10                	mov    %dl,(%rax)
+  400934:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400938:	48 8d 50 09          	lea    0x9(%rax),%rdx
+  40093c:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40093f:	25 00 02 00 00       	and    $0x200,%eax
+  400944:	85 c0                	test   %eax,%eax
+  400946:	74 18                	je     400960 <_Z7strmodejPc+0x19b>
+  400948:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  40094b:	83 e0 01             	and    $0x1,%eax
+  40094e:	85 c0                	test   %eax,%eax
+  400950:	74 07                	je     400959 <_Z7strmodejPc+0x194>
+  400952:	b8 74 00 00 00       	mov    $0x74,%eax
+  400957:	eb 1d                	jmp    400976 <_Z7strmodejPc+0x1b1>
+  400959:	b8 54 00 00 00       	mov    $0x54,%eax
+  40095e:	eb 16                	jmp    400976 <_Z7strmodejPc+0x1b1>
+  400960:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  400963:	83 e0 01             	and    $0x1,%eax
+  400966:	85 c0                	test   %eax,%eax
+  400968:	74 07                	je     400971 <_Z7strmodejPc+0x1ac>
+  40096a:	b8 78 00 00 00       	mov    $0x78,%eax
+  40096f:	eb 05                	jmp    400976 <_Z7strmodejPc+0x1b1>
+  400971:	b8 2d 00 00 00       	mov    $0x2d,%eax
+  400976:	88 02                	mov    %al,(%rdx)
+  400978:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  40097c:	48 83 c0 0a          	add    $0xa,%rax
+  400980:	c6 00 20             	movb   $0x20,(%rax)
+  400983:	48 8b 45 f0          	mov    -0x10(%rbp),%rax
+  400987:	48 83 c0 0b          	add    $0xb,%rax
+  40098b:	c6 00 00             	movb   $0x0,(%rax)
+  40098e:	90                   	nop
+  40098f:	c9                   	leaveq 
+  400990:	c3                   	retq   
+
+0000000000400991 <_Z13printFileType4stat>:
+  400991:	55                   	push   %rbp
+  400992:	48 89 e5             	mov    %rsp,%rbp
+  400995:	8b 45 28             	mov    0x28(%rbp),%eax
+  400998:	25 00 f0 00 00       	and    $0xf000,%eax
+  40099d:	3d 00 60 00 00       	cmp    $0x6000,%eax
+  4009a2:	74 35                	je     4009d9 <_Z13printFileType4stat+0x48>
+  4009a4:	3d 00 60 00 00       	cmp    $0x6000,%eax
+  4009a9:	77 17                	ja     4009c2 <_Z13printFileType4stat+0x31>
+  4009ab:	3d 00 20 00 00       	cmp    $0x2000,%eax
+  4009b0:	74 33                	je     4009e5 <_Z13printFileType4stat+0x54>
+  4009b2:	3d 00 40 00 00       	cmp    $0x4000,%eax
+  4009b7:	74 38                	je     4009f1 <_Z13printFileType4stat+0x60>
+  4009b9:	3d 00 10 00 00       	cmp    $0x1000,%eax
+  4009be:	74 3d                	je     4009fd <_Z13printFileType4stat+0x6c>
+  4009c0:	eb 6b                	jmp    400a2d <_Z13printFileType4stat+0x9c>
+  4009c2:	3d 00 a0 00 00       	cmp    $0xa000,%eax
+  4009c7:	74 40                	je     400a09 <_Z13printFileType4stat+0x78>
+  4009c9:	3d 00 c0 00 00       	cmp    $0xc000,%eax
+  4009ce:	74 51                	je     400a21 <_Z13printFileType4stat+0x90>
+  4009d0:	3d 00 80 00 00       	cmp    $0x8000,%eax
+  4009d5:	74 3e                	je     400a15 <_Z13printFileType4stat+0x84>
+  4009d7:	eb 54                	jmp    400a2d <_Z13printFileType4stat+0x9c>
+  4009d9:	bf 98 0c 40 00       	mov    $0x400c98,%edi
+  4009de:	e8 1d fb ff ff       	callq  400500 <puts@plt>
+  4009e3:	eb 53                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  4009e5:	bf c0 0c 40 00       	mov    $0x400cc0,%edi
+  4009ea:	e8 11 fb ff ff       	callq  400500 <puts@plt>
+  4009ef:	eb 47                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  4009f1:	bf ea 0c 40 00       	mov    $0x400cea,%edi
+  4009f6:	e8 05 fb ff ff       	callq  400500 <puts@plt>
+  4009fb:	eb 3b                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  4009fd:	bf ff 0c 40 00       	mov    $0x400cff,%edi
+  400a02:	e8 f9 fa ff ff       	callq  400500 <puts@plt>
+  400a07:	eb 2f                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  400a09:	bf 10 0d 40 00       	mov    $0x400d10,%edi
+  400a0e:	e8 ed fa ff ff       	callq  400500 <puts@plt>
+  400a13:	eb 23                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  400a15:	bf 32 0d 40 00       	mov    $0x400d32,%edi
+  400a1a:	e8 e1 fa ff ff       	callq  400500 <puts@plt>
+  400a1f:	eb 17                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  400a21:	bf 4a 0d 40 00       	mov    $0x400d4a,%edi
+  400a26:	e8 d5 fa ff ff       	callq  400500 <puts@plt>
+  400a2b:	eb 0b                	jmp    400a38 <_Z13printFileType4stat+0xa7>
+  400a2d:	bf 51 0d 40 00       	mov    $0x400d51,%edi
+  400a32:	e8 c9 fa ff ff       	callq  400500 <puts@plt>
+  400a37:	90                   	nop
+  400a38:	90                   	nop
+  400a39:	5d                   	pop    %rbp
+  400a3a:	c3                   	retq   
+
+0000000000400a3b <_Z9printInfo4stat>:
+  400a3b:	55                   	push   %rbp
+  400a3c:	48 89 e5             	mov    %rsp,%rbp
+  400a3f:	48 83 ec 20          	sub    $0x20,%rsp
+  400a43:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+  400a4a:	00 00 
+  400a4c:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  400a50:	31 c0                	xor    %eax,%eax
+  400a52:	48 8b 45 40          	mov    0x40(%rbp),%rax
+  400a56:	48 89 c6             	mov    %rax,%rsi
+  400a59:	bf 58 0d 40 00       	mov    $0x400d58,%edi
+  400a5e:	b8 00 00 00 00       	mov    $0x0,%eax
+  400a63:	e8 c8 fa ff ff       	callq  400530 <printf@plt>
+  400a68:	48 8b 45 20          	mov    0x20(%rbp),%rax
+  400a6c:	48 89 c6             	mov    %rax,%rsi
+  400a6f:	bf 80 0d 40 00       	mov    $0x400d80,%edi
+  400a74:	b8 00 00 00 00       	mov    $0x0,%eax
+  400a79:	e8 b2 fa ff ff       	callq  400530 <printf@plt>
+  400a7e:	48 8b 45 18          	mov    0x18(%rbp),%rax
+  400a82:	48 89 c6             	mov    %rax,%rsi
+  400a85:	bf ae 0d 40 00       	mov    $0x400dae,%edi
+  400a8a:	b8 00 00 00 00       	mov    $0x0,%eax
+  400a8f:	e8 9c fa ff ff       	callq  400530 <printf@plt>
+  400a94:	48 8b 45 10          	mov    0x10(%rbp),%rax
+  400a98:	48 89 c6             	mov    %rax,%rsi
+  400a9b:	bf c8 0d 40 00       	mov    $0x400dc8,%edi
+  400aa0:	b8 00 00 00 00       	mov    $0x0,%eax
+  400aa5:	e8 86 fa ff ff       	callq  400530 <printf@plt>
+  400aaa:	8b 45 2c             	mov    0x2c(%rbp),%eax
+  400aad:	89 c6                	mov    %eax,%esi
+  400aaf:	bf 08 0e 40 00       	mov    $0x400e08,%edi
+  400ab4:	b8 00 00 00 00       	mov    $0x0,%eax
+  400ab9:	e8 72 fa ff ff       	callq  400530 <printf@plt>
+  400abe:	8b 45 30             	mov    0x30(%rbp),%eax
+  400ac1:	89 c6                	mov    %eax,%esi
+  400ac3:	bf 40 0e 40 00       	mov    $0x400e40,%edi
+  400ac8:	b8 00 00 00 00       	mov    $0x0,%eax
+  400acd:	e8 5e fa ff ff       	callq  400530 <printf@plt>
+  400ad2:	48 8b 45 38          	mov    0x38(%rbp),%rax
+  400ad6:	48 89 c6             	mov    %rax,%rsi
+  400ad9:	bf 70 0e 40 00       	mov    $0x400e70,%edi
+  400ade:	b8 00 00 00 00       	mov    $0x0,%eax
+  400ae3:	e8 48 fa ff ff       	callq  400530 <printf@plt>
+  400ae8:	48 8b 45 48          	mov    0x48(%rbp),%rax
+  400aec:	48 89 c6             	mov    %rax,%rsi
+  400aef:	bf c0 0e 40 00       	mov    $0x400ec0,%edi
+  400af4:	b8 00 00 00 00       	mov    $0x0,%eax
+  400af9:	e8 32 fa ff ff       	callq  400530 <printf@plt>
+  400afe:	48 8b 45 50          	mov    0x50(%rbp),%rax
+  400b02:	48 89 c6             	mov    %rax,%rsi
+  400b05:	bf f0 0e 40 00       	mov    $0x400ef0,%edi
+  400b0a:	b8 00 00 00 00       	mov    $0x0,%eax
+  400b0f:	e8 1c fa ff ff       	callq  400530 <printf@plt>
+  400b14:	8b 45 28             	mov    0x28(%rbp),%eax
+  400b17:	48 8d 55 e0          	lea    -0x20(%rbp),%rdx
+  400b1b:	48 89 d6             	mov    %rdx,%rsi
+  400b1e:	89 c7                	mov    %eax,%edi
+  400b20:	e8 a0 fc ff ff       	callq  4007c5 <_Z7strmodejPc>
+  400b25:	48 8d 45 e0          	lea    -0x20(%rbp),%rax
+  400b29:	48 89 c6             	mov    %rax,%rsi
+  400b2c:	bf 48 0f 40 00       	mov    $0x400f48,%edi
+  400b31:	b8 00 00 00 00       	mov    $0x0,%eax
+  400b36:	e8 f5 f9 ff ff       	callq  400530 <printf@plt>
+  400b3b:	bf 76 0f 40 00       	mov    $0x400f76,%edi
+  400b40:	b8 00 00 00 00       	mov    $0x0,%eax
+  400b45:	e8 e6 f9 ff ff       	callq  400530 <printf@plt>
+  400b4a:	48 81 ec 90 00 00 00 	sub    $0x90,%rsp
+  400b51:	48 89 e0             	mov    %rsp,%rax
+  400b54:	48 89 c2             	mov    %rax,%rdx
+  400b57:	48 8d 75 10          	lea    0x10(%rbp),%rsi
+  400b5b:	b8 12 00 00 00       	mov    $0x12,%eax
+  400b60:	48 89 d7             	mov    %rdx,%rdi
+  400b63:	48 89 c1             	mov    %rax,%rcx
+  400b66:	f3 48 a5             	rep movsq %ds:(%rsi),%es:(%rdi)
+  400b69:	e8 23 fe ff ff       	callq  400991 <_Z13printFileType4stat>
+  400b6e:	48 81 c4 90 00 00 00 	add    $0x90,%rsp
+  400b75:	48 8d 45 78          	lea    0x78(%rbp),%rax
+  400b79:	48 89 c7             	mov    %rax,%rdi
+  400b7c:	e8 8f f9 ff ff       	callq  400510 <ctime@plt>
+  400b81:	48 89 c6             	mov    %rax,%rsi
+  400b84:	bf 90 0f 40 00       	mov    $0x400f90,%edi
+  400b89:	b8 00 00 00 00       	mov    $0x0,%eax
+  400b8e:	e8 9d f9 ff ff       	callq  400530 <printf@plt>
+  400b93:	48 8d 45 58          	lea    0x58(%rbp),%rax
+  400b97:	48 89 c7             	mov    %rax,%rdi
+  400b9a:	e8 71 f9 ff ff       	callq  400510 <ctime@plt>
+  400b9f:	48 89 c6             	mov    %rax,%rsi
+  400ba2:	bf d0 0f 40 00       	mov    $0x400fd0,%edi
+  400ba7:	b8 00 00 00 00       	mov    $0x0,%eax
+  400bac:	e8 7f f9 ff ff       	callq  400530 <printf@plt>
+  400bb1:	48 8d 45 68          	lea    0x68(%rbp),%rax
+  400bb5:	48 89 c7             	mov    %rax,%rdi
+  400bb8:	e8 53 f9 ff ff       	callq  400510 <ctime@plt>
+  400bbd:	48 89 c6             	mov    %rax,%rsi
+  400bc0:	bf 08 10 40 00       	mov    $0x401008,%edi
+  400bc5:	b8 00 00 00 00       	mov    $0x0,%eax
+  400bca:	e8 61 f9 ff ff       	callq  400530 <printf@plt>
+  400bcf:	90                   	nop
+  400bd0:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  400bd4:	64 48 33 04 25 28 00 	xor    %fs:0x28,%rax
+  400bdb:	00 00 
+  400bdd:	74 05                	je     400be4 <_Z9printInfo4stat+0x1a9>
+  400bdf:	e8 3c f9 ff ff       	callq  400520 <__stack_chk_fail@plt>
+  400be4:	c9                   	leaveq 
+  400be5:	c3                   	retq   
+  400be6:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400bed:	00 00 00 
+
+0000000000400bf0 <__libc_csu_init>:
+  400bf0:	41 57                	push   %r15
+  400bf2:	41 56                	push   %r14
+  400bf4:	41 89 ff             	mov    %edi,%r15d
+  400bf7:	41 55                	push   %r13
+  400bf9:	41 54                	push   %r12
+  400bfb:	4c 8d 25 0e 12 20 00 	lea    0x20120e(%rip),%r12        # 601e10 <__frame_dummy_init_array_entry>
+  400c02:	55                   	push   %rbp
+  400c03:	48 8d 2d 0e 12 20 00 	lea    0x20120e(%rip),%rbp        # 601e18 <__init_array_end>
+  400c0a:	53                   	push   %rbx
+  400c0b:	49 89 f6             	mov    %rsi,%r14
+  400c0e:	49 89 d5             	mov    %rdx,%r13
+  400c11:	4c 29 e5             	sub    %r12,%rbp
+  400c14:	48 83 ec 08          	sub    $0x8,%rsp
+  400c18:	48 c1 fd 03          	sar    $0x3,%rbp
+  400c1c:	e8 af f8 ff ff       	callq  4004d0 <_init>
+  400c21:	48 85 ed             	test   %rbp,%rbp
+  400c24:	74 20                	je     400c46 <__libc_csu_init+0x56>
+  400c26:	31 db                	xor    %ebx,%ebx
+  400c28:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  400c2f:	00 
+  400c30:	4c 89 ea             	mov    %r13,%rdx
+  400c33:	4c 89 f6             	mov    %r14,%rsi
+  400c36:	44 89 ff             	mov    %r15d,%edi
+  400c39:	41 ff 14 dc          	callq  *(%r12,%rbx,8)
+  400c3d:	48 83 c3 01          	add    $0x1,%rbx
+  400c41:	48 39 eb             	cmp    %rbp,%rbx
+  400c44:	75 ea                	jne    400c30 <__libc_csu_init+0x40>
+  400c46:	48 83 c4 08          	add    $0x8,%rsp
+  400c4a:	5b                   	pop    %rbx
+  400c4b:	5d                   	pop    %rbp
+  400c4c:	41 5c                	pop    %r12
+  400c4e:	41 5d                	pop    %r13
+  400c50:	41 5e                	pop    %r14
+  400c52:	41 5f                	pop    %r15
+  400c54:	c3                   	retq   
+  400c55:	90                   	nop
+  400c56:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400c5d:	00 00 00 
+
+0000000000400c60 <__libc_csu_fini>:
+  400c60:	f3 c3                	repz retq 
+  400c62:	66 2e 0f 1f 84 00 00 	nopw   %cs:0x0(%rax,%rax,1)
+  400c69:	00 00 00 
+  400c6c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000400c70 <__stat>:
+  400c70:	48 89 f2             	mov    %rsi,%rdx
+  400c73:	48 89 fe             	mov    %rdi,%rsi
+  400c76:	bf 01 00 00 00       	mov    $0x1,%edi
+  400c7b:	e9 d0 f8 ff ff       	jmpq   400550 <__xstat@plt>
+
+Дизассемблирование раздела .fini:
+
+0000000000400c80 <_fini>:
+  400c80:	48 83 ec 08          	sub    $0x8,%rsp
+  400c84:	48 83 c4 08          	add    $0x8,%rsp
+  400c88:	c3                   	retq   
+
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ objdump -R /home/masha/labs/lab6/infofile
+
+/home/masha/labs/lab6/infofile:     формат файла elf64-x86-64
+
+DYNAMIC RELOCATION RECORDS
+OFFSET           TYPE              VALUE 
+0000000000601ff8 R_X86_64_GLOB_DAT  __gmon_start__
+0000000000602018 R_X86_64_JUMP_SLOT  puts@GLIBC_2.2.5
+0000000000602020 R_X86_64_JUMP_SLOT  ctime@GLIBC_2.2.5
+0000000000602028 R_X86_64_JUMP_SLOT  __stack_chk_fail@GLIBC_2.4
+0000000000602030 R_X86_64_JUMP_SLOT  printf@GLIBC_2.2.5
+0000000000602038 R_X86_64_JUMP_SLOT  __libc_start_main@GLIBC_2.2.5
+0000000000602040 R_X86_64_JUMP_SLOT  __xstat@GLIBC_2.2.5
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ readelf -d /home/masha/labs/lab6/infofile
+
+Dynamic section at offset 0x1e28 contains 24 entries:
+  Тег        Тип                          Имя/Знач
+ 0x0000000000000001 (NEEDED)             Совм. исп. библиотека: [libc.so.6]
+ 0x000000000000000c (INIT)               0x4004d0
+ 0x000000000000000d (FINI)               0x400c80
+ 0x0000000000000019 (INIT_ARRAY)         0x601e10
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (байт)
+ 0x000000000000001a (FINI_ARRAY)         0x601e18
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (байт)
+ 0x000000006ffffef5 (GNU_HASH)           0x400298
+ 0x0000000000000005 (STRTAB)             0x400378
+ 0x0000000000000006 (SYMTAB)             0x4002b8
+ 0x000000000000000a (STRSZ)              109 (байт)
+ 0x000000000000000b (SYMENT)             24 (байт)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x602000
+ 0x0000000000000002 (PLTRELSZ)           144 (байт)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x400440
+ 0x0000000000000007 (RELA)               0x400428
+ 0x0000000000000008 (RELASZ)             24 (байт)
+ 0x0000000000000009 (RELAENT)            24 (байт)
+ 0x000000006ffffffe (VERNEED)            0x4003f8
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x4003e6
+ 0x0000000000000000 (NULL)               0x0
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ gdb /home/masha/labs/lab6/infofile
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/masha/labs/lab6/infofile...(no debugging symbols found)...done.
+(gdb) print _init
+$1 = {<text variable, no debug info>} 0x4004d0 <_init>
+(gdb) print _fini
+$2 = {<text variable, no debug info>} 0x400c80 <_fini>
+(gdb) print main
+$3 = {<text variable, no debug info>} 0x400666 <main>
+(gdb) print _start
+$4 = {<text variable, no debug info>} 0x400570 <_start>
+(gdb) q
+
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ gdb /home/masha/labs/lab6/infofile1
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/masha/labs/lab6/infofile1...(no debugging symbols found)...done.
+(gdb) print ftypelet
+$1 = {<text variable, no debug info>} 0x40071a <ftypelet(unsigned int)>
+(gdb) print strmode
+$2 = {<text variable, no debug info>} 0x4007c5 <strmode(unsigned int, char*)>
+(gdb) print printFileType
+$3 = {<text variable, no debug info>} 0x400991 <printFileType(stat)>
+(gdb) print printInfo
+$4 = {<text variable, no debug info>} 0x400a3b <printInfo(stat)>
+(gdb) q
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ readelf -d /home/masha/labs/lab6/infofile1
+
+Dynamic section at offset 0x1e28 contains 24 entries:
+  Тег        Тип                          Имя/Знач
+ 0x0000000000000001 (NEEDED)             Совм. исп. библиотека: [libc.so.6]
+ 0x000000000000000c (INIT)               0x4004d0
+ 0x000000000000000d (FINI)               0x400c80
+ 0x0000000000000019 (INIT_ARRAY)         0x601e10
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (байт)
+ 0x000000000000001a (FINI_ARRAY)         0x601e18
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (байт)
+ 0x000000006ffffef5 (GNU_HASH)           0x400298
+ 0x0000000000000005 (STRTAB)             0x400378
+ 0x0000000000000006 (SYMTAB)             0x4002b8
+ 0x000000000000000a (STRSZ)              109 (байт)
+ 0x000000000000000b (SYMENT)             24 (байт)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x602000
+ 0x0000000000000002 (PLTRELSZ)           144 (байт)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x400440
+ 0x0000000000000007 (RELA)               0x400428
+ 0x0000000000000008 (RELASZ)             24 (байт)
+ 0x0000000000000009 (RELAENT)            24 (байт)
+ 0x000000006ffffffe (VERNEED)            0x4003f8
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x4003e6
+ 0x0000000000000000 (NULL)               0x0
+
+
+
+
+
+masha@masha-Aspire-E5-573G:~$ cd labs/2\ semester/lab1/daemon/
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ ls -l
+итого 40
+-rw-rw-r-- 1 masha masha  2793 май  3 00:23 daemon.log
+-rw-r--r-- 1 masha masha  4565 май  3 00:06 functions.c
+-rw-r--r-- 1 masha masha   285 май  2 23:44 functions.h
+-rwxrwxr-x 1 masha masha 14168 май  3 00:23 infofile
+-rw-r--r-- 1 masha masha  2130 май  3 00:08 main.c
+-rw-rw-r-- 1 masha masha   797 май  2 23:35 temp.txt
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab1/daemon$ readelf -e ./infofile
+Заголовок ELF:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Класс:                             ELF64
+  Данные:                            дополнение до 2, little endian
+  Версия:                            1 (current)
+  OS/ABI:                            UNIX - System V
+  Версия ABI:                        0
+  Тип:                               EXEC (Исполняемый файл)
+  Машина:                            Advanced Micro Devices X86-64
+  Версия:                            0x1
+  Адрес точки входа:               0x4009b0
+  Начало заголовков программы:          64 (байт в файле)
+  Начало заголовков программы:          12184 (байт в файле)
+  Флаги:                             0x0
+  Размер этого заголовка:            64 (байт)
+  Размер заголовков программы:       56 (байт)
+  Число заголовков программы:        9
+  Размер заголовков раздела:         64 (байт)
+  Число заголовков раздела:          31
+  Индекс табл. строк загол. раздела: 28
+
+Заголовки разделов:
+  [Нм] Имя               Тип              Адрес             Смещение
+       Размер            Разм.Ent         Флаги  Ссылк Инфо  Выравн
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000400238  00000238
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.ABI-tag     NOTE             0000000000400254  00000254
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 3] .note.gnu.build-i NOTE             0000000000400274  00000274
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .gnu.hash         GNU_HASH         0000000000400298  00000298
+       000000000000001c  0000000000000000   A       5     0     8
+  [ 5] .dynsym           DYNSYM           00000000004002b8  000002b8
+       0000000000000228  0000000000000018   A       6     1     8
+  [ 6] .dynstr           STRTAB           00000000004004e0  000004e0
+       00000000000000c7  0000000000000000   A       0     0     1
+  [ 7] .gnu.version      VERSYM           00000000004005a8  000005a8
+       000000000000002e  0000000000000002   A       5     0     2
+  [ 8] .gnu.version_r    VERNEED          00000000004005d8  000005d8
+       0000000000000030  0000000000000000   A       6     1     8
+  [ 9] .rela.dyn         RELA             0000000000400608  00000608
+       0000000000000018  0000000000000018   A       5     0     8
+  [10] .rela.plt         RELA             0000000000400620  00000620
+       00000000000001f8  0000000000000018  AI       5    24     8
+  [11] .init             PROGBITS         0000000000400818  00000818
+       000000000000001a  0000000000000000  AX       0     0     4
+  [12] .plt              PROGBITS         0000000000400840  00000840
+       0000000000000160  0000000000000010  AX       0     0     16
+  [13] .plt.got          PROGBITS         00000000004009a0  000009a0
+       0000000000000008  0000000000000000  AX       0     0     8
+  [14] .text             PROGBITS         00000000004009b0  000009b0
+       0000000000000d00  0000000000000000  AX       0     0     16
+  [15] .fini             PROGBITS         00000000004016b0  000016b0
+       0000000000000009  0000000000000000  AX       0     0     4
+  [16] .rodata           PROGBITS         00000000004016c0  000016c0
+       0000000000000362  0000000000000000   A       0     0     8
+  [17] .eh_frame_hdr     PROGBITS         0000000000401a24  00001a24
+       0000000000000074  0000000000000000   A       0     0     4
+  [18] .eh_frame         PROGBITS         0000000000401a98  00001a98
+       00000000000001f4  0000000000000000   A       0     0     8
+  [19] .init_array       INIT_ARRAY       0000000000601e10  00001e10
+       0000000000000008  0000000000000000  WA       0     0     8
+  [20] .fini_array       FINI_ARRAY       0000000000601e18  00001e18
+       0000000000000008  0000000000000000  WA       0     0     8
+  [21] .jcr              PROGBITS         0000000000601e20  00001e20
+       0000000000000008  0000000000000000  WA       0     0     8
+  [22] .dynamic          DYNAMIC          0000000000601e28  00001e28
+       00000000000001d0  0000000000000010  WA       6     0     8
+  [23] .got              PROGBITS         0000000000601ff8  00001ff8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [24] .got.plt          PROGBITS         0000000000602000  00002000
+       00000000000000c0  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         00000000006020c0  000020c0
+       0000000000000010  0000000000000000  WA       0     0     8
+  [26] .bss              NOBITS           00000000006020e0  000020d0
+       0000000000000480  0000000000000000  WA       0     0     32
+  [27] .comment          PROGBITS         0000000000000000  000020d0
+       0000000000000034  0000000000000001  MS       0     0     1
+  [28] .shstrtab         STRTAB           0000000000000000  00002e86
+       000000000000010c  0000000000000000           0     0     1
+  [29] .symtab           SYMTAB           0000000000000000  00002108
+       0000000000000948  0000000000000018          30    52     8
+  [30] .strtab           STRTAB           0000000000000000  00002a50
+       0000000000000436  0000000000000000           0     0     1
+Обозначения флагов:
+  W (запись), A (назнач), X (исполняемый), M (слияние), S (строки), l (большой)
+  I (инфо), L (порядок ссылок), G (группа), T (TLS), E (исключён), x (неизв.)
+  O (треб. доп. обработка ОС) o (специфич. для ОС), p (специф. для процессора)
+
+Заголовки программы:
+  Тип            Смещ.              Вирт.адр           Физ.адр
+                 Рзм.фйл            Рзм.пм              Флаги  Выравн
+  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040
+                 0x00000000000001f8 0x00000000000001f8  R E    8
+  INTERP         0x0000000000000238 0x0000000000400238 0x0000000000400238
+                 0x000000000000001c 0x000000000000001c  R      1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x0000000000001c8c 0x0000000000001c8c  R E    200000
+  LOAD           0x0000000000001e10 0x0000000000601e10 0x0000000000601e10
+                 0x00000000000002c0 0x0000000000000750  RW     200000
+  DYNAMIC        0x0000000000001e28 0x0000000000601e28 0x0000000000601e28
+                 0x00000000000001d0 0x00000000000001d0  RW     8
+  NOTE           0x0000000000000254 0x0000000000400254 0x0000000000400254
+                 0x0000000000000044 0x0000000000000044  R      4
+  GNU_EH_FRAME   0x0000000000001a24 0x0000000000401a24 0x0000000000401a24
+                 0x0000000000000074 0x0000000000000074  R      4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     10
+  GNU_RELRO      0x0000000000001e10 0x0000000000601e10 0x0000000000601e10
+                 0x00000000000001f0 0x00000000000001f0  R      1
+
+ Соответствие раздел-сегмент:
+  Сегмент Разделы...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .plt.got .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .jcr .dynamic .got 
+
+
+
+
+masha@masha-Aspire-E5-573G:~/labs$ cd 2\ semester/lab4
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ LD_LIBRARY_PATH=/home/masha/labs/lab6/dynamic
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ export LD_LIBRARY_PATH
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ gdb /home/masha/labs/lab6/dynamic/infofile2
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/masha/labs/lab6/dynamic/infofile2...(no debugging symbols found)...done.
+(gdb) print printFileType
+Таблица символов не загружена. Используйте меню файл
+(gdb) b main.c:13
+Таблица символов не загружена. Используйте меню файл
+Make breakpoint pending on future shared library load? (y or [n]) y
+Breakpoint 1 (main.c:13) pending.
+(gdb) r
+Starting program: /home/masha/labs/lab6/dynamic/infofile2 
+[Inferior 1 (process 3905) exited with code 01]
+(gdb) print printFileType
+$1 = {<text variable, no debug info>} 0x7ffff7bd4ab7 <printFileType>
+(gdb) print main
+$2 = {<text variable, no debug info>} 0x400736 <main>
+(gdb) print _start
+$3 = {<text variable, no debug info>} 0x400640 <_start>
+(gdb) q
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ readelf -d /home/masha/labs/lab6/dynamic/infofile2
+
+Dynamic section at offset 0xe18 contains 25 entries:
+  Тег        Тип                          Имя/Знач
+ 0x0000000000000001 (NEEDED)             Совм. исп. библиотека: [lib2.so]
+ 0x0000000000000001 (NEEDED)             Совм. исп. библиотека: [libc.so.6]
+ 0x000000000000000c (INIT)               0x4005c0
+ 0x000000000000000d (FINI)               0x400870
+ 0x0000000000000019 (INIT_ARRAY)         0x600e00
+ 0x000000000000001b (INIT_ARRAYSZ)       8 (байт)
+ 0x000000000000001a (FINI_ARRAY)         0x600e08
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (байт)
+ 0x000000006ffffef5 (GNU_HASH)           0x400298
+ 0x0000000000000005 (STRTAB)             0x400420
+ 0x0000000000000006 (SYMTAB)             0x4002d0
+ 0x000000000000000a (STRSZ)              219 (байт)
+ 0x000000000000000b (SYMENT)             24 (байт)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x601000
+ 0x0000000000000002 (PLTRELSZ)           96 (байт)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x400560
+ 0x0000000000000007 (RELA)               0x400548
+ 0x0000000000000008 (RELASZ)             24 (байт)
+ 0x0000000000000009 (RELAENT)            24 (байт)
+ 0x000000006ffffffe (VERNEED)            0x400518
+ 0x000000006fffffff (VERNEEDNUM)         1
+ 0x000000006ffffff0 (VERSYM)             0x4004fc
+ 0x0000000000000000 (NULL)               0x0
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ gdb /home/masha/labs/lab6/dynamic/infofile2
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/masha/labs/lab6/dynamic/infofile2...(no debugging symbols found)...done.
+(gdb) info sharedlibrary
+No shared libraries loaded at this time.
+(gdb) r
+Starting program: /home/masha/labs/lab6/dynamic/infofile2 
+[Inferior 1 (process 7390) exited with code 01]
+(gdb) info sharedlibrary
+From                To                  Syms Read   Shared Object Library
+0x00007ffff7dd7ac0  0x00007ffff7df5640  Yes         /lib64/ld-linux-x86-64.so.2
+0x00007ffff7bd4740  0x00007ffff7bd4d38  Yes (*)     /home/masha/labs/lab6/dynamic/lib2.so
+0x00007ffff782a8b0  0x00007ffff797cf14  Yes         /lib/x86_64-linux-gnu/libc.so.6
+(*): Shared library is missing debugging information.
+(gdb) q
+
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ valgrind --tool=callgrind /home/masha/labs/lab6/infofile log.linux.txt 
+==18217== Callgrind, a call-graph generating cache profiler
+==18217== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==18217== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==18217== Command: /home/masha/labs/lab6/infofile log.linux.txt
+==18217== 
+==18217== For interactive control, run 'callgrind_control -h'.
+Размер файла: 
+	62503 байт
+Число жёстких ссылок: 
+	1
+inode файла: 
+	793100
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	128
+Права доступа к файлу:
+	-rw-rw-r-- 
+Тип файла:
+	обычный файл
+Последнее изменение статуса:
+	Wed May  3 04:04:52 2017
+Последний доступ к файлу:
+	Wed May  3 04:04:52 2017
+Последния модификация файла:
+	Wed May  3 04:04:52 2017
+==18217== 
+==18217== Events    : Ir
+==18217== Collected : 205028
+==18217== 
+==18217== I   refs:      205,028
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ ls -l
+итого 2772
+-rw------- 1 masha masha   66138 май  3 04:06 callgrind.out.18217
+-rw-rw-r-- 1 masha masha   62503 май  3 04:04 log.linux.txt
+-rw------- 1 masha masha    8052 май  3 03:59 massif.out.16719
+-rw-rw-r-- 1 masha masha 2693120 май  3 04:04 Otchet_po_Lab_rabote__4_Fomina_M_A__gr_13541_3.doc
+
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ sudo apt-get install kcachegrind
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ sudo apt install massif-visualizer
+
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ valgrind --tool=massif /home/masha/labs/lab6/infofile log.linux.txt
+==16719== Massif, a heap profiler
+==16719== Copyright (C) 2003-2015, and GNU GPL'd, by Nicholas Nethercote
+==16719== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==16719== Command: /home/masha/labs/lab6/infofile log.linux.txt
+==16719== 
+Размер файла: 
+	60284 байт
+Число жёстких ссылок: 
+	1
+inode файла: 
+	793097
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	120
+Права доступа к файлу:
+	-rw-rw-r-- 
+Тип файла:
+	обычный файл
+Последнее изменение статуса:
+	Wed May  3 03:41:42 2017
+Последний доступ к файлу:
+	Wed May  3 03:41:42 2017
+Последния модификация файла:
+	Wed May  3 03:41:42 2017
+==16719== 
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ ls -l
+итого 2812
+-rw------- 1 masha masha   37876 май  3 03:23 callgrind.out.5983
+-rw-rw-r-- 1 masha masha   60284 май  3 03:41 log.linux.txt
+-rw------- 1 masha masha     169 май  3 03:56 massif.out.16189
+-rw------- 1 masha masha    8052 май  3 03:59 massif.out.16719
+-rw-rw-r-- 1 masha masha 2764288 май  3 03:55 Otchet_po_Lab_rabote__4_Fomina_M_A__gr_13541_3.doc
+masha@masha-Aspire-E5-573G:~/labs/2 semester/lab4$ massif-visualizer massif.out.16719 
+massif-visualizer(16804)/kdeui (kdelibs): Attempt to use QAction "toggleDataTree" with KXMLGUIFactory! 
+massif-visualizer(16804)/kdeui (kdelibs): Attempt to use QAction "toggleAllocators" with KXMLGUIFactory! 
+description: "(none)" 
+command: "/home/masha/labs/lab6/infofile log.linux.txt" 
+time unit: "i" 
+snapshots: 34 
+peak: snapshot # 6 after "130512i" 
+peak cost: "6,6 KiB"  heap "59 B"  heap extra "0 B"  stacks 
+
+
+
+
+
+
+//Скомпилируем демон с опцией отладки (-g)
+masha@masha-Aspire-E5-573G:~$ cd labs/2semester/lab1/daemon/
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ g++ -g -o infofile main.c functions.c
+main.c: In function ‘int Daemon(int, char**)’:
+main.c:48:50: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+   writeLog("Cycle terminated. Invalid arguments!");
+                                                  ^
+main.c: In function ‘int main(int, char**)’:
+main.c:59:28: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+     writeLog("Daemon Start");
+                            ^
+functions.c: In function ‘char* printInfo(stat)’:
+functions.c:121:90: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__off_t {aka long int}’ [-Wformat=]
+ tr + strlen(str), "Размер файла: \n\t%d байт\n",fStat.st_size);
+                                                                             ^
+functions.c:122:97: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__nlink_t {aka long unsigned int}’ [-Wformat=]
+ rlen(str), "Число жёстких ссылок: \n\t%d\n",fStat.st_nlink);
+                                                                             ^
+functions.c:123:73: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__ino_t {aka long unsigned int}’ [-Wformat=]
+     sprintf(str + strlen(str), "inode файла: \n\t%d\n",fStat.st_ino);
+                                                                         ^
+functions.c:124:113: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ �стройства, содержащего файл: \n\t%d\n",fStat.st_dev);
+                                                                             ^
+functions.c:127:122: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ йства (если специальный файл): \t%d\n",fStat.st_rdev);
+                                                                             ^
+functions.c:128:95: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__blksize_t {aka long int}’ [-Wformat=]
+ strlen(str), "Размер блока для I/O: \n\t%d\n",fStat.st_blksize);
+                                                                             ^
+functions.c:129:133: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘__blkcnt_t {aka long int}’ [-Wformat=]
+ �ных блоков размером 512 байт:\n\t%d\n",fStat.st_blocks);
+
+//Запущен демон, записывающий информацию о файле каждую минуту 
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ ./infofile "/home/masha/labs/2semester/lab1/daemon/temp.txt"
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ ps -aux | grep infofile
+masha     3804  0.0  0.0   4360    92 ?        Ss   17:07   0:00 ./infofile /home/masha/labs/2semester/lab1/daemon/temp.txt
+masha     3843  0.0  0.0  15472   960 pts/4    S+   17:07   0:00 grep --color=auto infofile
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab1/daemon$ cd /home/masha/labs/2semester/lab4/
+
+//Сделаем дамп процесса демона
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab4$ sudo gcore -o infofile-daemon.dump 3804
+0x00007fd6d372d740 in __nanosleep_nocancel () at ../sysdeps/unix/syscall-template.S:84
+84	../sysdeps/unix/syscall-template.S: Нет такого файла или каталога.
+warning: target file /proc/3804/cmdline contained unexpected null characters
+Saved corefile infofile-daemon.dump.3804
+
+//Запускаем gdb с исполняемым файлом и дампом 
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab4$ gdb /home/masha/labs/2semester/lab1/daemon/infofile infofile-daemon.dump.3804
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/masha/labs/2semester/lab1/daemon/infofile...done.
+[New LWP 3804]
+Core was generated by `./infofile'.
+#0  0x00007fd6d372d740 in __nanosleep_nocancel ()
+    at ../sysdeps/unix/syscall-template.S:84
+84	../sysdeps/unix/syscall-template.S: Нет такого файла или каталога.
+//Детальная трассировка
+(gdb) bt full
+#0  0x00007fd6d372d740 in __nanosleep_nocancel ()
+    at ../sysdeps/unix/syscall-template.S:84
+No locals.
+#1  0x00007fd6d372d6aa in __sleep (seconds=0) at ../sysdeps/posix/sleep.c:55
+        save_errno = 0
+        ts = {tv_sec = 23, tv_nsec = 917475280}
+#2  0x0000000000400d8b in Daemon (argc=2, argv=0x7ffe7e2870e8) at main.c:53
+        log = 0x602160 <printInfo(stat)::str> "Размер файла: \n\t808 байт\nЧисло жёстких ссылок: \n\t1\ninode файла: \n\t789900\nID устройства, содержащего файл: \n\t2055\nID пользоват", <incomplete sequence \320>...
+        fStat = {st_dev = 2055, st_ino = 789900, st_nlink = 1, 
+          st_mode = 33204, st_uid = 1000, st_gid = 1000, __pad0 = 0, 
+          st_rdev = 0, st_size = 808, st_blksize = 4096, st_blocks = 8, 
+          st_atim = {tv_sec = 1493929426, tv_nsec = 751658596}, st_mtim = {
+            tv_sec = 1493929426, tv_nsec = 751658596}, st_ctim = {
+            tv_sec = 1493929426, tv_nsec = 819660101}, __glibc_reserved = {0, 
+            0, 0}}
+#3  0x0000000000400e3a in main (argc=2, argv=0x7ffe7e2870e8) at main.c:79
+        parpid = 0
+        sid = 3804
+//Вывод трассировки всех нитей
+(gdb) thread apply all bt
+
+Thread 1 (LWP 3804):
+#0  0x00007fd6d372d740 in __nanosleep_nocancel ()
+    at ../sysdeps/unix/syscall-template.S:84
+#1  0x00007fd6d372d6aa in __sleep (seconds=0) at ../sysdeps/posix/sleep.c:55
+#2  0x0000000000400d8b in Daemon (argc=2, argv=0x7ffe7e2870e8) at main.c:53
+#3  0x0000000000400e3a in main (argc=2, argv=0x7ffe7e2870e8) at main.c:79
+// Если бы было несколько нитей, для переключения между ними можно было бы использовать команду "thread <number>"
+// Переключаемся на фрейм 2, где находится функция мониторинга файла
+(gdb) frame 2
+#2  0x0000000000400d8b in Daemon (argc=2, argv=0x7ffe7e2870e8) at main.c:53
+53	        sleep(60);
+//Просмотрим исходный код, который выполнялся при записи дампа
+(gdb) list +
+48			writeLog("Cycle terminated. Invalid arguments!");
+49	        	return 1;
+50		}
+51	    	log = printInfo(fStat);
+52	        writeLog(log);
+53	        sleep(60);
+54	    }
+55	    return 0;
+56	}
+57
+//Выведем значение переменной log	
+(gdb) print log
+$1 = 0x602160 <printInfo(stat)::str> "Размер файла: \n\t808 байт\nЧисло жёстких ссылок: \n\t1\ninode файла: \n\t789900\nID устройства, содержащего файл: \n\t2055\nID пользоват", <incomplete sequence \320>...
+//Выведем адрес функции Daemon
+(gdb) print Daemon
+$2 = {int (int, char **)} 0x400cb9 <Daemon(int, char**)>
+(gdb) q
+//Просмотр виртуального адресного пространства демона
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab4$  cat /proc/3804/maps
+00400000-00402000 r-xp 00000000 08:07 793077                             /home/masha/labs/2semester/lab1/daemon/infofile
+00601000-00602000 r--p 00001000 08:07 793077                             /home/masha/labs/2semester/lab1/daemon/infofile
+00602000-00603000 rw-p 00002000 08:07 793077                             /home/masha/labs/2semester/lab1/daemon/infofile
+01e01000-01e22000 rw-p 00000000 00:00 0                                  [heap]
+7fd6d3662000-7fd6d3821000 r-xp 00000000 08:07 793162                     /lib/x86_64-linux-gnu/libc-2.23.so
+7fd6d3821000-7fd6d3a21000 ---p 001bf000 08:07 793162                     /lib/x86_64-linux-gnu/libc-2.23.so
+7fd6d3a21000-7fd6d3a25000 r--p 001bf000 08:07 793162                     /lib/x86_64-linux-gnu/libc-2.23.so
+7fd6d3a25000-7fd6d3a27000 rw-p 001c3000 08:07 793162                     /lib/x86_64-linux-gnu/libc-2.23.so
+7fd6d3a27000-7fd6d3a2b000 rw-p 00000000 00:00 0 
+7fd6d3a2b000-7fd6d3a51000 r-xp 00000000 08:07 793163                     /lib/x86_64-linux-gnu/ld-2.23.so
+7fd6d3c2c000-7fd6d3c2f000 rw-p 00000000 00:00 0 
+7fd6d3c4e000-7fd6d3c50000 rw-p 00000000 00:00 0 
+7fd6d3c50000-7fd6d3c51000 r--p 00025000 08:07 793163                     /lib/x86_64-linux-gnu/ld-2.23.so
+7fd6d3c51000-7fd6d3c52000 rw-p 00026000 08:07 793163                     /lib/x86_64-linux-gnu/ld-2.23.so
+7fd6d3c52000-7fd6d3c53000 rw-p 00000000 00:00 0 
+7ffe7e269000-7ffe7e28a000 rw-p 00000000 00:00 0                          [stack]
+7ffe7e2f7000-7ffe7e2f9000 r--p 00000000 00:00 0                          [vvar]
+7ffe7e2f9000-7ffe7e2fb000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+//Создание и восстановление дампов памяти в диапазоне адресов
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab4$ sudo gdb --pid 3804
+GNU gdb (Ubuntu 7.11.1-0ubuntu1~16.04) 7.11.1
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Attaching to process 3804
+Reading symbols from /home/masha/labs/2semester/lab1/daemon/infofile...done.
+Reading symbols from /lib/x86_64-linux-gnu/libc.so.6...Reading symbols from /usr/lib/debug//lib/x86_64-linux-gnu/libc-2.23.so...done.
+done.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...Reading symbols from /usr/lib/debug//lib/x86_64-linux-gnu/ld-2.23.so...done.
+done.
+0x00007fd6d372d740 in __nanosleep_nocancel () at ../sysdeps/unix/syscall-template.S:84
+84	../sysdeps/unix/syscall-template.S: Нет такого файла или каталога.
+(gdb) dump memory infofile-daemon.dump 0x00400000 0x00402000
+(gdb) dump ihex memory infofile-daemon1.dump 0x00400000 0x00402000
+(gdb) dump srec memory infofile-daemon2.dump 0x00400000 0x00402000
+(gdb) dump tekhex memory infofile-daemon3.dump 0x00400000 0x00402000
+(gdb) restore infofile-daemon.dump binary 0x00400000
+Restoring binary file infofile-daemon.dump into memory (0x400000 to 0x402000)
+(gdb) restore infofile-daemon1.dump
+Restoring section .sec1 (0x400000 to 0x402000)
+(gdb) restore infofile-daemon2.dump
+Restoring section .sec1 (0x400000 to 0x402000)
+(gdb) restore infofile-daemon3.dump
+Restoring section .newsec (0x400000 to 0x402000)
+(gdb) bt full
+#0  0x00007fd6d372d740 in __nanosleep_nocancel () at ../sysdeps/unix/syscall-template.S:84
+No locals.
+#1  0x00007fd6d372d6aa in __sleep (seconds=0) at ../sysdeps/posix/sleep.c:55
+        save_errno = 0
+        ts = {tv_sec = 8, tv_nsec = 87455279}
+#2  0x0000000000400d8b in Daemon (argc=2, argv=0x7ffe7e2870e8) at main.c:53
+        log = 0x602160 <printInfo(stat)::str> "Размер файла: \n\t808 байт\nЧисло жёстких ссылок: \n\t1\ninode файла: \n\t789900\nID устройства, содержащего файл: \n\t2055\nID пользоват", <incomplete sequence \320>...
+        fStat = {st_dev = 2055, st_ino = 789900, st_nlink = 1, st_mode = 33204, st_uid = 1000, st_gid = 1000, 
+          __pad0 = 0, st_rdev = 0, st_size = 808, st_blksize = 4096, st_blocks = 8, st_atim = {tv_sec = 1493929426, 
+            tv_nsec = 751658596}, st_mtim = {tv_sec = 1493929426, tv_nsec = 751658596}, st_ctim = {
+            tv_sec = 1493929426, tv_nsec = 819660101}, __glibc_reserved = {0, 0, 0}}
+#3  0x0000000000400e3a in main (argc=2, argv=0x7ffe7e2870e8) at main.c:79
+        parpid = 0
+        sid = 3804
+(gdb) frame 2
+#2  0x0000000000400d8b in Daemon (argc=2, argv=0x7ffe7e2870e8) at main.c:53
+53	        sleep(60);
+(gdb) print log
+$1 = 0x602160 <printInfo(stat)::str> "Размер файла: \n\t808 байт\nЧисло жёстких ссылок: \n\t1\ninode файла: \n\t789900\nID устройства, содержащего файл: \n\t2055\nID пользоват", <incomplete sequence \320>...
+(gdb) detach
+Detaching from program: /home/masha/labs/2semester/lab1/daemon/infofile, process 3804
+(gdb) q
+
+
+
+                                                             
+
+
+
+
+

@@ -1,0 +1,10 @@
+﻿  acl.cpp
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(58): warning C4129: 'I': unrecognized character escape sequence
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(57): warning C4101: 'ReplacementFor_lpStringSid': unreferenced local variable
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(81): warning C4101: 'ReplacementFor_sid': unreferenced local variable
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(155): warning C4101: 'ReplacementFor_ea': unreferenced local variable
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(267): warning C4244: '=': conversion from 'DWORD' to 'BYTE', possible loss of data
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(291): warning C4800: 'DWORD': forcing value to bool 'true' or 'false' (performance warning)
+e:\всё\5 курс\проектирование ос и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\chmod\acl.cpp(289): warning C4101: 'buf': unreferenced local variable
+  chmod.vcxproj -> E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\Debug\chmod.exe
+  chmod.vcxproj -> E:\всё\5 курс\Проектирование ОС и компонентов\отчеты\лаб 3, обфускаторы\temp\chmod\Debug\chmod.pdb (Full PDB)

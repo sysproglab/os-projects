@@ -1,0 +1,279 @@
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3$ cd infofile-source/
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/infofile-source$ gcc -o infofile main.c
+main.c: In function ‘main’:
+main.c:12:5: warning: implicit declaration of function ‘printInfo’ [-Wimplicit-function-declaration]
+     printInfo(fStat);  
+     ^
+main.c: At top level:
+main.c:126:6: warning: conflicting types for ‘printInfo’
+ void printInfo(struct stat fStat)
+      ^
+main.c:12:5: note: previous implicit declaration of ‘printInfo’ was here
+     printInfo(fStat);  
+     ^
+main.c: In function ‘printInfo’:
+main.c:128:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__off_t {aka long int}’ [-Wformat=]
+     printf("Размер файла: \n\t%d байт\n",fStat.st_size);
+            ^
+main.c:129:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__nlink_t {aka long unsigned int}’ [-Wformat=]
+     printf("Число жёстких ссылок: \n\t%d\n",fStat.st_nlink);
+            ^
+main.c:130:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__ino_t {aka long unsigned int}’ [-Wformat=]
+     printf("inode файла: \n\t%d\n",fStat.st_ino);
+            ^
+main.c:131:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+     printf("ID устройства, содержащего файл: \n\t%d\n"
+            ^
+main.c:134:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+     printf("ID устройства (если специальный файл):
+            ^
+main.c:135:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blksize_t {aka long int}’ [-Wformat=]
+     printf("Размер блока для I/O: \n\t%d\n",fStat.st_blksize);
+            ^
+main.c:136:12: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blkcnt_t {aka long int}’ [-Wformat=]
+     printf("Число выделенных блоков размером 512 �
+            ^
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/infofile-source$ ./infofile main.c
+Размер файла: 
+	4326 байт
+Число жёстких ссылок: 
+	1
+inode файла: 
+	808328
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	16
+Права доступа к файлу:
+	-rw-r--r-- 
+Тип файла:
+	обычный файл
+Последнее изменение статуса:
+	Mon May  8 15:55:47 2017
+Последний доступ к файлу:
+	Mon May  8 15:56:03 2017
+Последния модификация файла:
+	Mon May  8 15:55:47 2017
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/infofile-source$ cd ..
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3$ cxx-obfus/bin/cxx-obfus -x xpg4 infofile-source/main.c -o cxx-obfus-infofile/main.c
+switching filename/dirname hasher to 'prefix' due to trial limitations. Get non-trial edition to fix this.
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3$ cd cxx-obfus-infofile/
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/cxx-obfus-infofile$ gcc -o infofile main.c
+main.c: In function ‘main’:
+main.c:9:1: warning: implicit declaration of function ‘ReplacementFor_printInfo’ [-Wimplicit-function-declaration]
+ ReplacementFor_printInfo(fStat);return(0x1b1c+394-0x1ca6);}static char 
+ ^
+main.c: In function ‘ReplacementFor_ftypelet’:
+main.c:14:59: warning: implicit declaration of function ‘ReplacementFor_S_ISLNK’ [-Wimplicit-function-declaration]
+ ReplacementFor_bits))return((char)(0x4af+4193-0x14ad));if(ReplacementFor_S_ISLN
+                                                           ^
+main.c:17:1: warning: implicit declaration of function ‘ReplacementFor_S_ISSOCK’ [-Wimplicit-function-declaration]
+ ReplacementFor_S_ISSOCK(ReplacementFor_bits))return((char)(0x90c+167-0x940));
+ ^
+main.c: At top level:
+main.c:47:1: warning: conflicting types for ‘ReplacementFor_printInfo’
+ ReplacementFor_printInfo(struct stat fStat){printf(
+ ^
+main.c:9:1: note: previous implicit declaration of ‘ReplacementFor_printInfo’ was here
+ ReplacementFor_printInfo(fStat);return(0x1b1c+394-0x1ca6);}static char 
+ ^
+main.c: In function ‘ReplacementFor_printInfo’:
+main.c:48:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__off_t {aka long int}’ [-Wformat=]
+ "Размер файла: \n\t%d байт\n",fStat.st_size);printf(
+ ^
+main.c:49:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__nlink_t {aka long unsigned int}’ [-Wformat=]
+ "Число жёстких ссылок: \n\t%d\n",fStat.st_nlink);printf(
+ ^
+main.c:50:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__ino_t {aka long unsigned int}’ [-Wformat=]
+ "inode файла: \n\t%d\n",fStat.st_ino);printf(
+ ^
+main.c:51:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ "ID устройства, содержащего файл: \n\t%d\n",fStat.
+ ^
+main.c:55:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ "ID устройства (если специальный файл): \t%d\n",
+ ^
+main.c:56:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blksize_t {aka long int}’ [-Wformat=]
+ fStat.st_rdev);printf("Размер блока для I/O: \n\t%d\n",fStat.
+                       ^
+main.c:58:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blkcnt_t {aka long int}’ [-Wformat=]
+ "Число выделенных блоков размером 512 байт:\n\
+ ^
+/tmp/ccXxmdkn.o: In function `ReplacementFor_ftypelet':
+main.c:(.text+0x11a): undefined reference to `ReplacementFor_S_ISLNK'
+main.c:(.text+0x14a): undefined reference to `ReplacementFor_S_ISSOCK'
+collect2: error: ld returned 1 exit status
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/cxx-obfus-infofile$ gcc -o infofile main.c
+main.c: In function ‘main’:
+main.c:9:1: warning: implicit declaration of function ‘ReplacementFor_printInfo’ [-Wimplicit-function-declaration]
+ ReplacementFor_printInfo(fStat);return(0x1b1c+394-0x1ca6);}static char 
+ ^
+main.c: At top level:
+main.c:47:1: warning: conflicting types for ‘ReplacementFor_printInfo’
+ ReplacementFor_printInfo(struct stat fStat){printf(
+ ^
+main.c:9:1: note: previous implicit declaration of ‘ReplacementFor_printInfo’ was here
+ ReplacementFor_printInfo(fStat);return(0x1b1c+394-0x1ca6);}static char 
+ ^
+main.c: In function ‘ReplacementFor_printInfo’:
+main.c:48:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__off_t {aka long int}’ [-Wformat=]
+ "Размер файла: \n\t%d байт\n",fStat.st_size);printf(
+ ^
+main.c:49:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__nlink_t {aka long unsigned int}’ [-Wformat=]
+ "Число жёстких ссылок: \n\t%d\n",fStat.st_nlink);printf(
+ ^
+main.c:50:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__ino_t {aka long unsigned int}’ [-Wformat=]
+ "inode файла: \n\t%d\n",fStat.st_ino);printf(
+ ^
+main.c:51:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ "ID устройства, содержащего файл: \n\t%d\n",fStat.
+ ^
+main.c:55:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ "ID устройства (если специальный файл): \t%d\n",
+ ^
+main.c:56:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blksize_t {aka long int}’ [-Wformat=]
+ fStat.st_rdev);printf("Размер блока для I/O: \n\t%d\n",fStat.
+                       ^
+main.c:58:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blkcnt_t {aka long int}’ [-Wformat=]
+ "Число выделенных блоков размером 512 байт:\n\
+ ^
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/cxx-obfus-infofile$ ./infofile main.c
+Размер файла: 
+	4369 байт
+Число жёстких ссылок: 
+	1
+inode файла: 
+	808327
+ID устройства, содержащего файл: 
+	2055
+ID пользователя владельца: 
+	1000
+ID группы владельца: 
+	1000
+ID устройства (если специальный файл): 	0
+Размер блока для I/O: 
+	4096
+Число выделенных блоков размером 512 байт:
+	16
+Права доступа к файлу:
+	-rw-rw-r-- 
+Тип файла:
+	обычный файл
+Последнее изменение статуса:
+	Mon May  8 16:01:54 2017
+Последний доступ к файлу:
+	Mon May  8 16:02:52 2017
+Последния модификация файла:
+	Mon May  8 16:01:54 2017
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/cxx-obfus-infofile$ 
+
+
+
+masha@masha-Aspire-E5-573G:~/.wine/drive_c/Program Files (x86)/SemanticDesigns/DMS/Executables$ ./DMSProjectSpecifier C~GCC4 PrettyPrinter
+DMSProjectSpecifier Launcher for Linux (v. 1.0.15062506)
+DMSProjectSpecifier (Lily-Pad) 1.0.14082704
+Starting Semantic Designs PrettyPrinter by
+    /bin/bash -c "java -cp \"/home/masha/.wine/drive_c/Program Files (x86)/SemanticDesigns/DMS/Tools/ProjectSpecifier/ProjectSpecifier.jar:/home/masha/.wine/drive_c/Program Files (x86)/SemanticDesigns/DMS/..\" DMS.Domains.C.GCC4.Tools.PrettyPrinter.ProjectSpecifier"
+
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile$ gcc -o infofile main.c
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile$ ./infofile main.c
+ 07<5@ D09;0: 
+	4681 109B
+'8A;> 6QAB:8E AAK;>:: 
+	1
+inode D09;0: 
+	791502
+ID CAB@>9AB20, A>45@60I53> D09;: 
+	2055
+ID ?>;L7>20B5;O 2;045;LF0: 
+	1000
+ID 3@C??K 2;045;LF0: 
+	1000
+ID CAB@>9AB20 (5A;8 A?5F80;L=K9 D09;): 	0
+ 07<5@ 1;>:0 4;O I/O: 
+	4096
+'8A;> 2K45;5==KE 1;>:>2 @07<5@>< 512 109B:
+	16
+@020 4>ABC?0 : D09;C:
+	-rw-rw-r-- 
+"8? D09;0:
+	>1KG=K9 D09;
+>A;54=55 87<5=5=85 AB0BCA0:
+	Wed May 10 17:07:09 2017
+>A;54=89 4>ABC? : D09;C:
+	Wed May 10 17:07:24 2017
+>A;54=8O <>48D8:0F8O D09;0:
+	Wed May 10 17:07:09 2017
+
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile$ gcc -o infofile-en main-en.c
+main-en.c: In function ‘main’:
+main-en.c:49:1: warning: implicit declaration of function ‘I’ [-Wimplicit-function-declaration]
+ I
+ ^
+main-en.c: At top level:
+main-en.c:446:1: warning: conflicting types for ‘I’
+ I
+ ^
+main-en.c:49:1: note: previous implicit declaration of ‘I’ was here
+ I
+ ^
+main-en.c: In function ‘I’:
+main-en.c:455:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__off_t {aka long int}’ [-Wformat=]
+ "\106il\145\040s\151\172e:\040\n\011%\144 \142\171t\145\n"
+ ^
+main-en.c:464:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__nlink_t {aka long unsigned int}’ [-Wformat=]
+ "\116u\155\142er\040\157f\040har\144 l\151\156ks\072\040\012\011%\144\n"
+ ^
+main-en.c:473:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__ino_t {aka long unsigned int}’ [-Wformat=]
+ "\151\156o\144e \157\146 \146\151le\072\040\n\t\045d\n"
+ ^
+cc1: warning: hex escape sequence out of range
+main-en.c:482:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ "ID \144evi\143\145 \x0441o\156taini\156\147\040t\150\145\040\146i\154e\072 \01
+ ^
+main-en.c:509:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__dev_t {aka long unsigned int}’ [-Wformat=]
+ "\111\104 \157f\040d\145vice (\151\146 s\160e\143\151\141\154\040f\151l\145)\07
+ ^
+main-en.c:518:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blksize_t {aka long int}’ [-Wformat=]
+ "Size\040\157\146\040\142l\157\143k\040f\157\162 I/\117: \012\011%d\012"
+ ^
+main-en.c:527:1: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘__blkcnt_t {aka long int}’ [-Wformat=]
+ "C\157unt\040of\040\142lo\143k\163\040\050si\172\145 5\061\062 \142yt\145)\072\
+ ^
+masha@masha-Aspire-E5-573G:~/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile$ ./infofile-en main.c
+File size: 
+	4681 byte
+Number of hard links: 
+	1
+inode of file: 
+	791502
+ID device Aontaining the file: 
+	2055
+ID owner user: 
+	1000
+ID owner group: 
+	1000
+ID of device (if special file): 	0
+Size of block for I/O: 
+	4096
+Count of blocks (size 512 byte):
+	16
+Access to file:
+	-rw-rw-r-- 
+Type of file:
+	regular file
+Last status change:
+	Wed May 10 17:20:08 2017
+Last access to file:
+	Wed May 10 17:21:02 2017
+Last modification to file:
+	Wed May 10 17:07:09 2017
+
