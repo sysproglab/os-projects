@@ -1,0 +1,33 @@
+root@debian:/home/user/SystemProg/Sem2/lab3# /sbin/modinfo driver.ko
+filename:       /home/user/SystemProg/Sem2/lab3/driver.ko
+description:    Lab3 module
+author:         Player1
+depends:
+vermagic:       3.16.0-4-586
+root@debian:/home/user/SystemProg/Sem2/lab3# insmod driver.ko
+root@debian:/home/user/SystemProg/Sem2/lab3# dmesg | tail -n 2
+[ 4636.944855] TEST driver loaded!
+[ 4636.944862] Test module is loaded!
+root@debian:/home/user/SystemProg/Sem2/lab3# mknod /dev/driver c 250 0
+root@debian:/home/user/SystemProg/Sem2/lab3# cat /dev/driver 
+test
+root@debian:/home/user/SystemProg/Sem2/lab3# echo 1 > /dev/driver 
+bash: echo: ошибка записи: Недопустимый аргумент
+root@debian:/home/user/SystemProg/Sem2/lab3# rmmod driver
+root@debian:/home/user/SystemProg/Sem2/lab3# dmesg | tail -n 4
+[ 4636.944855] TEST driver loaded!
+[ 4636.944862] Test module is loaded!
+[ 4703.926104] Write in device
+[ 4736.694199] Test module is unloaded!
+oot@debian:/home/user/SystemProg/Sem2/lab3# insmod mykeyb.ko
+root@debian:/home/user/SystemProg/Sem2/lab3# dmesg | tail
+[  462.328330] Scan Code 20
+[  462.349248] Scan Code 185
+[  462.406757] Scan Code 30
+[  462.469704] Scan Code 148
+[  462.486601] Scan Code 23
+[  462.570510] Scan Code 158
+[  462.581039] Scan Code 151
+[  462.662489] Scan Code 38
+[  462.810618] Scan Code 166
+[  463.618996] Scan Code 28

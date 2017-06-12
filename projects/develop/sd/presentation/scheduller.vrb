@@ -1,0 +1,31 @@
+\frametitle{Тестирование}
+\begin{itemize}
+\item Был применен патч и встроено новое ядро
+\item Написан код, устанавливающий процессу новую политику планировки
+\item Написан код, устанавливающий процессу политику планировки SCHED\_DEADLINE в ядре 3.16
+\end{itemize}
+\center
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{lstlisting}[style=crs_cpp]
+[1455]
+missed deadlines  = 2856
+missed periods    = 821
+Total adjustments = 48064 us
+deadline   : 1000 us
+runtime    : 400 us
+nr_periods : 6368
+ 		\end{lstlisting}
+
+		\column{0.5\textwidth}
+		\begin{lstlisting}[style = crs_llvm]
+[1460]
+missed deadlines  = 3802
+missed periods    = 1026
+Total adjustments = 20386 us
+deadline   : 1000 us
+runtime    : 400 us
+nr_periods : 5188
+ 		\end{lstlisting}
+ 	\end{columns}
+\colorbox{white}{\parbox{0.9\textwidth}{{\begin{center}  \end{center} }}}\\
