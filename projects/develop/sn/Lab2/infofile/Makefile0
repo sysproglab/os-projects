@@ -1,0 +1,2 @@
+infofile: main.c functions.c
+	gcc -o infofile main.c functions.c
