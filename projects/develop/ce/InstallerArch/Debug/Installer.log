@@ -1,0 +1,33 @@
+﻿Build started 14.06.2017 0:54:10.
+     1>Project "C:\Users\Helen\Documents\Visual Studio 2013\Projects\InstallerArch\Installer.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(62): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(64): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(98): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(99): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(109): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(111): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(552): warning C4101: 'FindFileData' : unreferenced local variable
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(553): warning C4101: 'hf' : unreferenced local variable
+     1>c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2132): warning C4996: 'std::_Copy_impl': Function call with parameters that may be unsafe - this call relies on the caller to check that the passed values are correct. To disable this warning, use -D_SCL_SECURE_NO_WARNINGS. See documentation on how to use Visual C++ 'Checked Iterators'
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility(2113) : see declaration of 'std::_Copy_impl'
+                 c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(318) : see reference to function template instantiation '_OutIt std::copy<std::_String_iterator<std::_String_val<std::_Simple_types<char>>>,_TCHAR*>(_InIt,_InIt,_OutIt)' being compiled
+                 with
+                 [
+                     _OutIt=_TCHAR *
+         ,            _InIt=std::_String_iterator<std::_String_val<std::_Simple_types<char>>>
+                 ]
+     1>c:\users\helen\documents\visual studio 2013\projects\installerarch\source.cpp(183): warning C4700: uninitialized local variable 'next' used
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Helen\Documents\Visual Studio 2013\Projects\InstallerArch\Debug\Installer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Helen\Documents\Visual Studio 2013\Projects\InstallerArch\Debug\Installer.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Helen\Documents\Visual Studio 2013\Projects\InstallerArch\Debug\Installer.lib" /MACHINE:X86 Debug\Source.obj
+         Installer.vcxproj -> C:\Users\Helen\Documents\Visual Studio 2013\Projects\InstallerArch\Debug\Installer.exe
+     1>Done Building Project "C:\Users\Helen\Documents\Visual Studio 2013\Projects\InstallerArch\Installer.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.28
