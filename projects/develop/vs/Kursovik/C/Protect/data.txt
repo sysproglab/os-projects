@@ -1,5 +1,7 @@
 {
     "isFirstRuning": false,
-    "licenseKey": "a87ff679a2f3e71d9181a67b7542122c",
-    "activeKey": "fd98983c6770bd21c107dafab51fdb0f3715a2c80d38cda97482e0e34ce5a7d0"
+    "licenseKey": "c4ca4238a0b923820dcc509a6f75849b",
+    "activeKey": "fd98983c6770bd21c107dafab51fdb0f3715a2c80d38cda97482e0e34ce5a7d0",
+    "usbKeyVid": "7f861bcee185de001377d79e08af62e94b1e7718e2470e08520c917f8d953602",
+    "usbKeyPid": "4c7c51607b7e6e50398309880e889d375630fecf4b703af1700c62f7e23d2c22"
 }

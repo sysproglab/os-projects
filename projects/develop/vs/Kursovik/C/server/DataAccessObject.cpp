@@ -56,7 +56,10 @@ int DataAccessObjecct::getHardwareByLicenseKeyCallback(void *ptrData, int argc, 
 	std::string* hardware = (std::string*)ptrData;
 
 	for (int i = 0; i<argc; i++){
-		 *hardware = argv[i] ? argv[i] : "NULL";
+		if (strcmp(argv[i], "") == 0)
+			*hardware = "NULL";
+		else
+			*hardware = argv[i];
 	}
 	return 0;
 }

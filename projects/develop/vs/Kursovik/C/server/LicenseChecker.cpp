@@ -24,7 +24,7 @@ std::string LicenseChecker::checkLicense()
 	{
 		dao.setHardwareToLicenseKey(licenseKey, hardwareParam);
 	}
-	else
+	else if (hw != hardwareParam)
 	{
 		return "_2 Invalid hardware parameters";
 	}

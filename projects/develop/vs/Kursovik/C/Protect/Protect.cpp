@@ -125,3 +125,72 @@ string Protect::getHash()
 
 	return output;
 }
+
+int Protect::checkUSBKeyProtection()
+{
+	vector <USBPair> vec = getUSBPairs();
+
+	USBPair usbKey(rep.getUsbKeyVid(), rep.getUsbKeyPid());
+
+	bool haveUSBKey = false;
+	for (USBPair pair : vec)
+	{
+		pair.vid = sha256(pair.vid);
+		pair.pid = sha256(pair.pid);
+		if (pair == usbKey)
+		{
+			haveUSBKey = true;
+			break;
+		}
+	}
+
+	if (haveUSBKey != true)
+		return -1;
+	return 0;
+}
+
+vector<USBPair> Protect::getUSBPairs() {
+	DWORD deviceIndex = 0;
+	SP_DEVINFO_DATA deviceInfoData;
+	SP_DEVICE_INTERFACE_DATA deviceInterfaceData;
+	deviceInfoData.cbSize = sizeof(deviceInfoData);
+	vector <USBPair> vec;
+
+	//buried somewhere deep in the ddk
+	static GUID GUID_DEVINTERFACE_USB_HUB = { 0xf18a0e88, 0xc30c, 0x11d0, { 0x88, 0x15, 0x00, 0xa0, 0xc9, 0x06, 0xbe, 0xd8 } };
+	static GUID GUID_DEVINTERFACE_USB_DEVICE = { 0xA5DCBF10L, 0x6530, 0x11D2, { 0x90, 0x1F, 0x00, 0xC0, 0x4F, 0xB9, 0x51, 0xED } };
+	static GUID GUID_DEVINTERFACE_USB_HOST_CONTROLLER = { 0x3abf6f2d, 0x71c4, 0x462a, { 0x8a, 0x92, 0x1e, 0x68, 0x61, 0xe6, 0xaf, 0x27 } };
+
+	HDEVINFO deviceInterfaceSet = SetupDiGetClassDevs(&GUID_DEVINTERFACE_USB_DEVICE, NULL, NULL, DIGCF_DEVICEINTERFACE | DIGCF_PRESENT);
+	//HDEVINFO deviceInterfaceSet = SetupDiGetClassDevs(NULL, NULL, NULL, DIGCF_PRESENT | DIGCF_ALLCLASSES | DIGCF_DEVICEINTERFACE);
+	//HDEVINFO deviceInterfaceSet = SetupDiGetClassDevs(NULL, NULL, NULL, DIGCF_ALLCLASSES | DIGCF_PRESENT);
+	if (deviceInterfaceSet == INVALID_HANDLE_VALUE)
+	{
+		// Insert error handling here.
+		return vec;
+	}
+
+	while (SetupDiEnumDeviceInfo(deviceInterfaceSet, deviceIndex, &deviceInfoData))
+	{
+		deviceInfoData.cbSize = sizeof(deviceInfoData);
+
+		ULONG IDSize;
+		CM_Get_Device_ID_Size(&IDSize, deviceInfoData.DevInst, 0);
+
+		TCHAR* deviceID = new TCHAR[IDSize];
+
+		CM_Get_Device_ID(deviceInfoData.DevInst, deviceID, MAX_PATH, 0);
+
+		char vid[5];
+		char pid[5];
+		strncpy_s(vid, deviceID + 8, 4);
+		strncpy_s(pid, deviceID + 17, 4);
+
+		vec.push_back(USBPair(vid, pid));
+
+		deviceIndex++;
+	}
+
+	SetupDiDestroyDeviceInfoList(deviceInterfaceSet);
+	return vec;
+}

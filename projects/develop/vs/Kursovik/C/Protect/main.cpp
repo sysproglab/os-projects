@@ -66,6 +66,17 @@ int main(void)
 		}
 	}	while (res != 0);
 
+	if (protect.checkUSBKeyProtection())
+	{
+		cout << "USB Key not found" << endl;
+		system("pause");
+		return -1;
+	}
+	else
+	{
+		cout << "USB Key is correct" << endl;
+	}
+
 	MyProgram prog = MyProgram();
 	prog.run();
 	return 0;

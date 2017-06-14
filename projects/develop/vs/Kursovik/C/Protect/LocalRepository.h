@@ -24,10 +24,18 @@ public:
 	bool setActivateKey(string);
 	string getActivateKey();
 
+	bool setUsbKeyVid(string);
+	string getUsbKeyVid();
+
+	bool setUsbKeyPid(string);
+	string getUsbKeyPid();
+
 private:
 	bool isFirstRuning;
 	string licenseKey;
 	string activeKey;
+	string usbKeyVid;
+	string usbKeyPid;
 
 	bool serializeData();
 	bool deserializeData();
@@ -42,6 +50,8 @@ public:
 	bool isFirstRuning;
 	string licenseKey;
 	string activeKey;
+	string usbKeyVid;
+	string usbKeyPid;
 
 	template <typename Writer>
 	void Serialize(Writer& writer) const {
@@ -61,6 +71,20 @@ public:
 		writer.String(activeKey);
 #else
 		writer.String(activeKey.c_str(), static_cast<SizeType>(activeKey.length()));
+#endif
+
+		writer.String("usbKeyVid");
+#if RAPIDJSON_HAS_STDSTRING
+		writer.String(usbKeyVid);
+#else
+		writer.String(usbKeyVid.c_str(), static_cast<SizeType>(usbKeyVid.length()));
+#endif
+
+		writer.String("usbKeyPid");
+#if RAPIDJSON_HAS_STDSTRING
+		writer.String(usbKeyPid);
+#else
+		writer.String(usbKeyPid.c_str(), static_cast<SizeType>(usbKeyPid.length()));
 #endif
 
 		writer.EndObject();

@@ -53,12 +53,42 @@ string LocalRepository::getActivateKey()
 	return activeKey;
 }
 
+bool LocalRepository::setUsbKeyVid(string key)
+{
+	usbKeyVid = key;
+	return serializeData();
+}
+
+string LocalRepository::getUsbKeyVid()
+{
+	if (!deserializeData())
+		return NULL;
+
+	return usbKeyVid;
+}
+
+bool LocalRepository::setUsbKeyPid(string key)
+{
+	usbKeyPid = key;
+	return serializeData();
+}
+
+string LocalRepository::getUsbKeyPid()
+{
+	if (!deserializeData())
+		return NULL;
+
+	return usbKeyPid;
+}
+
 bool LocalRepository::serializeData()
 {
 	Data data = Data();
 	data.activeKey = activeKey;
 	data.isFirstRuning = isFirstRuning;
 	data.licenseKey = licenseKey;
+	data.usbKeyVid = usbKeyVid;
+	data.usbKeyPid = usbKeyPid;
 	StringBuffer sb;
 	PrettyWriter<StringBuffer> writer(sb);
 
@@ -104,7 +134,15 @@ bool LocalRepository::deserializeData()
 	assert(document.HasMember("activeKey"));
 	assert(document["activeKey"].IsString());
 	activeKey = document["activeKey"].GetString();
-	
+
+	assert(document.HasMember("usbKeyVid"));
+	assert(document["usbKeyVid"].IsString());
+	usbKeyVid = document["usbKeyVid"].GetString();
+
+	assert(document.HasMember("usbKeyPid"));
+	assert(document["usbKeyPid"].IsString());
+	usbKeyPid = document["usbKeyPid"].GetString();
+
 	fclose(fp);
 	return true;
 }
