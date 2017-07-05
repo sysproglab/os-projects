@@ -1,0 +1,5 @@
+config SECURITY_MYCATCH
+bool "Mycatch security module"
+      	default y
+help
+      	Any help text here
