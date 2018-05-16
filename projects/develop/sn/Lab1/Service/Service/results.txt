@@ -1,0 +1,81 @@
+File Index : 295211048576
+Number Of Links : 1
+File Type: FILE_TYPE_DISK
+
+The final path is: \\?\D:\getFileInfo.exe
+The full path name is:  D:\getFileInfo.exe
+
+File attributes:
+The attribute FILE_ATTRIBUTE_ARCHIVE is established
+File size= 77404656 bytes
+File creation time: 02/06/2017  18:23
+File last access time: 02/06/2017  18:23
+File last write time: 09/14/2016  18:04
+FILE_ENCRYPTABLE
+Section:            .text
+=======================
+Virtual size:       0xf244
+Raw size:           0xf400
+Virtual address:    0x1000
+Raw address:        0x400
+Characteristics:    R X
+
+Section:            .itext
+=======================
+Virtual size:       0xf64
+Raw size:           0x1000
+Virtual address:    0x11000
+Raw address:        0xf800
+Characteristics:    R X
+
+Section:            .data
+=======================
+Virtual size:       0xc88
+Raw size:           0xe00
+Virtual address:    0x12000
+Raw address:        0x10800
+Characteristics:    R W
+
+Section:            .bss
+=======================
+Virtual size:       0x56bc
+Raw size:           0
+Virtual address:    0x13000
+Raw address:        0x11600
+Characteristics:    R W
+
+Section:            .idata
+=======================
+Virtual size:       0xe04
+Raw size:           0x1000
+Virtual address:    0x19000
+Raw address:        0x11600
+Characteristics:    R W
+
+Section:            .tls
+=======================
+Virtual size:       0x8
+Raw size:           0
+Virtual address:    0x1a000
+Raw address:        0x12600
+Characteristics:    R W
+
+Section:            .rdata
+=======================
+Virtual size:       0x18
+Raw size:           0x200
+Virtual address:    0x1b000
+Raw address:        0x12600
+Characteristics:    R
+
+Section:            .rsrc
+=======================
+Virtual size:       0xb200
+Raw size:           0xb200
+Virtual address:    0x1c000
+Raw address:        0x12800
+Characteristics:    R
+
+
+SCS_32BIT_BINARY
+Для продолжения нажмите любую клавишу . . .

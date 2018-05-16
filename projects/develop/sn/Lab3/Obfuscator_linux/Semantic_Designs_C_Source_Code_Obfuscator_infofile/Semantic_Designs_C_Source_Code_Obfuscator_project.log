@@ -1,0 +1,24 @@
+Executing command: /bin/bash /home/masha/.wine/drive_c/Program Files (x86)/SemanticDesigns/DMS/Executables/DMSFormat C~GCC4 @/home/masha/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile/Semantic_Designs_C_Source_Code_Obfuscator_project
+DMSFormat Launcher for Linux (v. 1.0.15062506)
+C~GCC4 PrettyPrinter Version 1.3.1001
+Copyright (C) 2004-2013 Semantic Designs, Inc; All Rights Reserved; SD Confidential
+Powered by DMS (R) Software Reengineering Toolkit
+*** Unregistered PrettyPrinter Version 1.3
+*** Operating with evaluation limits.
+
+This Evaluation Version has the following limitations:
+   * At most 10 (PrettyPrinting) and 10 (Obfuscating) files will be processed.
+   * At most 500 (PrettyPrinting) and 500 (Obfuscating) lines of source code in one file.
+   * A total of 3000 (PrettyPrinting) and 3000 (Obfuscating) lines of source code.
+DMS_C~GCC4_INPUT_ENCODING=
+DMS_C~GCC4_OUTPUT_ENCODING=
+Parsing 1 main-en.c [encoding Unicode-UTF-8 +LF +CR +CRLF +NEL +1 /^I]
+  Formatting to Z:/home/masha/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile/main-en.c
+Evaluation version: No map file will be generated.
+All 1 files have been pretty printed successfully.
+DMSFormat (Lily-Pad) 1.2.3
+Starting Semantic Designs PrettyPrinter by
+    "/home/masha/.wine/drive_c/Program Files (x86)/SemanticDesigns/DMS/Domains/PARLANSE/Tools/RunTimeSystem/run.exe" "/home/masha/.wine/drive_c/Program Files (x86)/SemanticDesigns/DMS/Domains/C/GCC4/Tools/PrettyPrinter/DomainPrettyPrinter.P0B" @"/home/masha/labs/2semester/lab3/Semantic_Designs_C_Source_Code_Obfuscator_infofile/Semantic_Designs_C_Source_Code_Obfuscator_project"
+
+[Subprocess exit status=0]
+

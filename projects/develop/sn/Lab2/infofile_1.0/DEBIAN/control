@@ -1,0 +1,8 @@
+Package: infofile
+Version: 1.0
+Architecture: amd64
+Section: misc
+Maintainer: Nikita Shalyapin <cooluocker@yandex.ru>
+Description: Print information about file!
+ .
+ You must pass filename as argument.
